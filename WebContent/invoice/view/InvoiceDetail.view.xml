@@ -1,0 +1,104 @@
+<core:View height="100%" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:suite="sap.suite.ui.commons"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:c="sap.ui.commons"
+	controllerName="sap.umc.mobile.invoice.view.InvoiceDetail">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>INVOICE.BILL_DETAILS}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{invoice>/FormatteInvoiceDate}" class="sapUmcConsumptionSegmentedButton"
+				number="{invoice>/FormatteAmountRemaining}" 
+				numberUnit="{invoice>/Currency}">
+				<attributes>
+					<ObjectAttribute
+						text="{invoice>/ContractAccount/Description}"
+						class="sapUmcWhiteTextColor" />
+					<!-- <ObjectAttribute text="{path: 'invoice>/FormatteDueDate', formatter: 
+						'sap.umc.mobile.invoice.js.utils.FormattedDueDate'}" class="sapUmcWhiteTextColor" 
+						/> -->
+				</attributes>
+			</ObjectHeader> <!-- El number del objetcHeader anteriormente se tenia FormatteAmountDue ACASTANEDA -->
+			<l:Grid defaultSpan="L12 M12 S12" width="auto">
+				<l:content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="1"
+						editable="false" layout="ResponsiveGridLayout"
+						title="{i18n>APP.DETAILS}" labelSpanL="6" labelSpanM="6"
+						emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+						<f:content>
+							<Label text="{i18n>INVOICE.AMOUNT_PAID}"
+								class="sapUmcVerticalBeforeSpacingX2" />
+							<Text text="{invoice>/FormatteAmountPaid}"
+								class="sapUmcBillMText sapUmcVerticalBeforeSpacingX2" />
+							<Label text="{i18n>INVOICE.AMOUNT_REMAINING}"
+								class="sapUmcVerticalBeforeSpacingX2" />
+							<Text text="{invoice>/FormatteAmountRemaining}"
+								class="sapUmcBillMText sapUmcVerticalBeforeSpacingX2" />
+							<Label text="{i18n>INVOICE.INVOICE_ID}"
+								class="sapUmcVerticalBeforeSpacingX2" />
+							<Text text="{invoiceAux>/InvoiceID}" 
+								class="sapUmcBillMText sapUmcVerticalBeforeSpacingX2" />
+							<Label text="{i18n>INVOICE.DUE_DATE}"
+								class="sapUmcVerticalBeforeSpacingX2" />
+							<Text text="{invoice>/FormatteDueDate}"
+								class="sapUmcBillMText sapUmcVerticalBeforeSpacingX2" />
+							<Label text="{i18n>INVOICE.INVOICE_DATE}"
+								class="sapUmcVerticalBeforeSpacingX2" />
+							<Text text="{invoice>/FormattedInvoiceDate}"
+								class="sapUmcBillMText sapUmcVerticalBeforeSpacingX2" />
+
+						</f:content>
+					</f:SimpleForm>
+				</l:content>
+			</l:Grid>
+			<!-- <l:VerticalLayout id="containerForCss" width="100%" class="sapUiRespGrid.sapUiRespGridHSpace1 
+				sapMITBContent"> <Label id="TrendLabel" text="{i18n>INVOICE.BILLING_TREND}" 
+				class="sapUmcConsumptionGraphTitle" /> <l:Grid defaultSpan="L12 M12 S12" 
+				width="100%"> <l:VerticalLayout id="Graph" width="100%" visible="true" items="{ 
+				path: 'invoice>/' }" class=""> <suite:ChartContainer id="chartContainer" 
+				showFullScreen="true" title= "{invoice>/Average}"> <suite:content> <suite:ChartContainerContent 
+				id="idoChartContainerContent" icon="sap-icon://bar-chart"> <suite:content> 
+				<viz:VizFrame id="vizFrame" height="25rem" width="100%" vizType="column" 
+				uiConfig="{applicationSet:'fiori'}" vizProperties="{title : { visible : false}, 
+				categoryAxis : { title :{visible : false}},legend : { title : {visible: false}}, 
+				interaction: {selectability: { mode : 'single'}}}"> <viz:dataset> <viz.data:FlattenedDataset 
+				data="{bill>/results}"> <viz.data:dimensions> <viz.data:DimensionDefinition 
+				name="{i18n>INVOICE.DUE_DATE}" value="{bill>FormatteInvoiceDate}" /> </viz.data:dimensions> 
+				<viz.data:measures> <viz.data:MeasureDefinition value="{bill>AmountDue}" 
+				name="{i18n>INVOICE.COST}" /> </viz.data:measures> </viz.data:FlattenedDataset> 
+				</viz:dataset> <viz:feeds> <viz.feeds:FeedItem uid="primaryValues" type="Measure" 
+				values="{i18n>INVOICE.COST}" /> <viz.feeds:FeedItem uid="axisLabels" type="Dimension" 
+				values="{i18n>INVOICE.DUE_DATE}" /> </viz:feeds> </viz:VizFrame> </suite:content> 
+				</suite:ChartContainerContent> </suite:content> </suite:ChartContainer> </l:VerticalLayout> 
+				</l:Grid> </l:VerticalLayout> -->
+			<l:VerticalLayout id="ContentBox" width="100%">
+			</l:VerticalLayout>
+		</content>
+
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="PayBill" text="{i18n>INVOICE.PAYBILL}"
+						press="handlePayButton"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					 
+					<Button id="SubmitPay" text="{i18n>APPS.SUBMIT}"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+						
+					<!-- <Button icon="sap-icon://horizontal-grip" press="handleOpen" class="sapUmcBtnBorderLeft" 
+						/> -->
+					<Button text="{i18n>APPS.PDF}" id="PDFbutton"
+						icon="sap-icon://pdf-attachment" press="handleViewPDFButton" />
+
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

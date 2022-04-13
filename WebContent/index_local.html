@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<title>SAP Multichannel Foundation for Public Sector</title>
+
+<script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
+	data-sap-ui-libs="sap.ui.core,sap.m,sap.ui.layout,sap.ui.unified"
+	data-sap-ui-theme="sap_bluecrystal" data-sap-ui-preload="async"
+	data-sap-ui-xx-bindingSyntax="complex"
+	data-sap-ui-resourceroots='{"sap.umc.mobile": "./"}'
+	data-sap-ui-appCacheBuster="./">
+  
+</script>
+
+<style id="antiClickjack">
+body {
+	display: none !important;
+}
+</style>
+
+<!-- Provide the path for clickjacking.js file from foundation(can be from server or local application), refer cookbook-->
+<script type="text/javascript" src=""></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="jspdf.debug.js"></script>
+<script type="text/javascript" src="index_local.js"></script>
+
+</head>
+<body id="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>

@@ -1,0 +1,1544 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+		<!-- <Toolbar> <ToolbarSpacer/> <ToolbarSpacer/> <Button text="{i18n>EXCEL.UPLOAD}" 
+			press="handleUploadPress" enabled="true" icon="sap-icon://upload" tooltip="{i18n>EXCEL.UPLOAD}"/> 
+			<Button text="{i18n>EXPORT.PDF}" press="handlePdfPress" enabled="true" icon="sap-icon://pdf-attachment" 
+			tooltip="{i18n>EXPORT.PDF}"/> </Toolbar> <f:SimpleForm title="" minWidth="1024" 
+			maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" 
+			labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1"> -->
+
+		<ScrollContainer height="100%" vertical="true"
+			horizontal="true" class="sapUmcConsumptionSegmentedButton">
+			<Panel expandable="true" expanded="true"
+				headerText="{i18n>ZCOP.INFOFORM}" width="auto"
+				class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+				<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion">
+
+
+					<Hbox alignItems="Center">
+
+						<Label text="{i18n>ZCOP.A_03_PERIODO}" id="A_03_PERIODO" />
+						<ComboBox selectedKey="{ZCOPModel>/A_03_PERIODO}"
+							enabled="{EnabledModel>/Enabled}" width="100%" change="onChangePeriodo"
+							tooltip="{i18n>ZCOP.TTA_03_PERIODO}" class="sapDireccion"
+							id="_ZCOP_A_03_PERIODO_input" items="{Periodo>/results}">
+							<core:Item key="{Periodo>Number}"
+								text="{Periodo>Number}" class="letraDireccion" />
+
+						</ComboBox>
+
+
+						<layoutData class="sapUiSmallMargins">
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+
+					<Hbox alignItems="Center">
+
+						<Label text="{i18n>ZCOP.A_04_ANIO}" id="A_04_ANIO" />
+
+						<Input id="_ZCOP_A_04_ANIO_input"
+							tooltip="{i18n>ZCOP.TTA_04_ANIO}" value="{ZCOPModel>/A_04_ANIO}"
+							enabled="{EnabledModel>/Enabled}" maxLength="4" change="onChangePeriodo" />
+						<layoutData class="sapUiSmallMargins">
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+					<Label text="">
+						<layoutData class="sapUiSmallMargins">
+							<l:GridData span="L4 M12 S12" />
+						</layoutData>
+					</Label>
+
+					<Hbox alignItems="Center">
+						<Label text="{i18n>ZCOP.A_50_FECHA_MAX_PRESTENCION}"
+							id="A_50_FECHA_MAX_PRESTENCION" />
+						<DatePicker id="_ZCOP_A_50_FECHA_MAX_PRESTENCION_date" tooltip="{i18n>ZCOP.TTA_50_FECHA_MAX_PRESTENCION}"
+							value="{ZCOPModel>/A_50_FECHA_MAX_PRESTENCION}" enabled="false"
+							displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd"
+							change="onChange" />
+
+						<layoutData class="sapUiSmallMargins">
+							<l:GridData span="L4 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+
+<!-- 
+					<VBox>
+						<Label text="{i18n>ZCOP.A_37_NO_RESOLUCION}"
+							id="A_37_NO_RESOLUCION" />
+						<Input id="_ZCOP_A_37_NO_RESOLUCION_input" tooltip="{i18n>ZCOP.TTA_37_NO_RESOLUCION}"
+							value="{ZCOPModel>/A_37_NO_RESOLUCION}"
+							enabled="{EnabledModel>/Enabled}" change="onChange" />
+						<layoutData>
+							<l:GridData span="L2 M2 S2" />
+						</layoutData>
+					</VBox>
+					<VBox>
+						<Label text="{i18n>ZCOP.A_38_FECHA_RESOLUCION}"
+							id="A_38_FECHA_RESOLUCION" />
+						<DatePicker id="_ZCOP_A_38_FECHA_RESOLUCION_date" 
+							value="{ZCOPModel>/A_38_FECHA_RESOLUCION}" tooltip="{i18n>ZCOP.TTA_38_FECHA_RESOLUCION}"
+							enabled="{EnabledModel>/Enabled}" displayFormat="dd.MM.yyyy"
+							valueFormat="yyyyMMdd" change="onChange" />
+						<layoutData>
+							<l:GridData span="L2 M2 S2" />
+						</layoutData>
+					</VBox>
+-->
+				</l:Grid>
+			</Panel>
+			<Panel expandable="true" expanded="true"
+				headerText="A. DATOS GENERALES" width="auto"
+				class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+				<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">
+
+					<!-- NOMBRES Y APELLIDO O RAZON SOCIAL -->
+					<VBox>
+						<Label text="{i18n>ZCOP.A_05_PRO_O_RAZON_SOCIAL}"
+							class="sapUmcMLabelBold" id="A_05_PRO_O_RAZON_SOCIAL" />
+						<Input id="_ZCOP_A_05_PRO_O_RAZON_SOCIAL_input"
+							value="{ZCOPModel>/A_05_PRO_O_RAZON_SOCIAL}" enabled="false"
+							change="onChange" />
+						<layoutData>
+							<l:GridData span="L7 M2 S2" />
+						</layoutData>
+					</VBox>
+
+					<VBox>
+						<Label text="{i18n>ZCOP.A_06_NUM_IDENTIDAD}"
+							id="A_06_NUM_IDENTIDAD" class="sapUmcMLabelBold" />
+
+						<HBox alignItems="Center">
+
+							<Label text="NIT" id="A_07_NIT" />
+							<CheckBox id="_ZCOP_A_07_NIT_input"
+								 value="{ZCOPModel>/A_07_NIT}"
+								enabled="false" change="onChange" />
+							<Label text="No." />
+							<Input id="_ZCOP_A_06_NUM_IDENTIDAD_input"
+								value="{ZCOPModel>/A_06_NUM_IDENTIDAD}" enabled="false"
+								change="onChange" />
+							<Label text="Dv." id="A_08_DV" />
+							<Input id="_ZCOP_A_08_DV_input"
+							    value="{ZCOPModel>/A_08_DV}"
+								enabled="false" change="onChange" width="30%" />
+						</HBox>
+						<layoutData>
+							<l:GridData span="L5 M2 S2" />
+						</layoutData>
+					</VBox>
+
+
+					<VBox>
+						<Label text="{i18n>ZCOP.A_09_DIRECCION_AG_RETENEDOR}"
+							class="sapUmcMLabelBold" id="A_09_DIRECCION_AG_RETENEDOR" />
+						<Input id="_ZCOP_A_09_DIRECCION_AG_RETENEDOR_input"
+							value="{ZCOPModel>/A_09_DIRECCION_AG_RETENEDOR}" enabled="false"
+							change="onChange"
+							tooltip="{i18n>ZCOP.TTA_09_DIRECCION_AG_RETENEDOR}" />
+						<layoutData>
+							<l:GridData span="L5 M12 S12" />
+						</layoutData>
+					</VBox>
+
+					<VBox alignItems="Center">
+						<Label text="{i18n>ZCOP.A_10_SOLICITUD_ACT_DIRAGRET}"
+							id="A_10_SOLICITUD_ACT_DIRAGRET" />
+						<Checkbox id="_ZCOP_A_10_SOLICITUD_ACT_DIRAGRET_input"
+							value="{ZCOPModel>/A_10_SOLICITUD_ACT_DIRAGRET}"
+							enabled="{EnabledModel>/Enabled}" select="onChangeNewAdress" />
+						<layoutData>
+							<l:GridData span="L1 M12 S12" />
+						</layoutData>
+					</VBox>
+
+
+					<VBox>
+						<Label text="{i18n>ZCOP.A_11_MUNICIPIO_AR}"
+							class="sapUmcMLabelBold" id="A_11_MUNICIPIO_AR" />
+							
+				<ComboBox
+	            selectedKey = "{ZCOPModel>/A_11_MUNICIPIO_AR}"
+					width="100%"  placeholder="{i18n>ZCOP.TTA_11_MUNICIPIO_AR}" tooltip="{i18n>ZCOP.TTA_11_MUNICIPIO_AR}"
+					   enabled="{EnabledModel>/Enabled}"
+					id="_ZCOP_A_11_MUNICIPIO_AR_input"
+					items="{Ciudades>/results}"
+					>
+					<core:Item key="{Ciudades>CityCode}" text="{Ciudades>CityName}" 
+					/>
+
+				</ComboBox> 
+				
+				
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</VBox>
+
+					<VBox>
+						<Label text="{i18n>ZCOP.A_12_TELEFONO_ZCOP}"
+							class="sapUmcMLabelBold" id="A_12_TELEFONO_ZCOP" />
+						<Input id="_ZCOP_A_12_TELEFONO_input" tooltip="{i18n>ZCOP.TTA_12_TELEFONO_ZCOP}"
+							value="{ZCOPModel>/A_12_TELEFONO}" enabled="false"
+							change="onChange" />		
+				
+					
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</VBox>
+
+</l:Grid>
+<!-- INICIO MODIFICAION DE DIRECCION AGENTE RETENEDOR -->
+
+				<Panel expandable="true" expanded="true"
+					headerText="{i18n>ZDIR.TITULODIR}"
+					width="auto"
+					class="sapUiResponsiveMargin sapUmcWhiteBackgroundColor "
+					visible="{DIRVisible2>/visible}">
+
+					<l:Grid defaultSpan="L1 M4 S6"
+						class="sapUiSmallMargin sapDireccion" vSpacing="0" hSpacing="0.1">
+						<l:content>
+
+							<Title text="{i18n>ZDIR.VIAPRINC}" style="H2"
+								visible="{DIRVisible>/visible}"
+								class=" sapUmcMLabelBold  sapDireccion ">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+
+							<VBox>
+								<Label text="{i18n>ZDIR.VIA}" id="A_01_VIAZCOP1"
+									visible="{VIAVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_01_VIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class="sapDireccion"
+									visible="{VIAVisible>/visible}" id="_ZDIR_A_01_VIA_inputZCOP1"
+									items="{Via>/results}">
+									<core:Item key="{Via>Via}" text="{Via>Descripcion}"
+										class="letraDireccion" />
+
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+
+							<VBox>
+								<Label text="{i18n>ZDIR.NUMVIA}" id="A_02_NUMVIAZCOP1"
+									width="100%" class="sapDireccion"
+									visible="{DIRVisible>/visible}">
+								</Label>
+
+								<MaskInput mask="999"
+									id="_ZDIR_A_02_NUMVIA_inputZCOP1" width="100%"
+									value="{ZDIRModel>/A_02_NUMVIA}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion"
+									class="sapDireccion" visible="{DIRVisible>/visible}">
+								</MaskInput>
+							</VBox>
+							<VBox>
+								<Label text="Letra" id="A_03_LETRAVIAZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_03_LETRAVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class="sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_03_LETRAVIA_inputZCOP1" items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+
+							</VBox>
+							<VBox>
+								<Label text="Numero Sec." id="A_04_NUMSECVIAZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<MaskInput mask="99"
+									id="_ZDIR_A_04_NUMSECVIA_inputZCOP1"
+									visible="{DIRVisible>/visible}" width="100%"
+									value="{ZDIRModel>/A_04_NUMSECVIA}" class="sapDireccion"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion" />
+
+
+							</VBox>
+							<VBox>
+								<Label text="Letra Sec" id="A_05_LETRASECVIAZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_05_LETRASECVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class="sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_05_LETRASECVIA_inputZCOP1"
+									items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+							</VBox>
+							<VBox>
+								<Label text="Bis" id="A_06_BISVIAZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_06_BISVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class="sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_06_BISVIA_inputZCOP1" items="{Bis>/results}">
+									<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}"
+										class="sapDireccion" />
+								</ComboBox>
+
+							</VBox>
+
+
+							<VBox>
+								<Label text="Sector" id="A_07_SECTORVIAZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_07_SECTORVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class=" sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_07_SECTORVIA_inputZCOP1" items="{Sector2>/results}">
+									<core:Item key="{Sector2>Letra}"
+										text="{Sector2>Descripcion}" />
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+
+
+							<Title text="Placa" style="H2"
+								visible="{DIRVisible>/visible}"
+								class=" sapUmcMLabelBold sapDireccion">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+							<VBox>
+								<Label text="Cruce" id="A_08_CRUCEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_08_CRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class=" sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_08_CRUCE_inputZCOP1" items="{Via>/results}">
+									<core:Item key="{Via>Via}" text="{Via>Descripcion}" />
+
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="Numero Cruce" id="A_09_NUMCRUCEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+
+
+
+
+								<MaskInput mask="999"
+									id="_ZDIR_A_09_NUMCRUCE_inputZCOP1"
+									visible="{DIRVisible>/visible}" width="100%"
+									value="{ZDIRModel>/A_09_NUMCRUCE}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion"
+									class="sapDireccion" />
+
+							</VBox>
+
+							<VBox>
+								<Label text="Letra Cruce" id="A_10_LETRACRUCEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_10_LETRACRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class=" sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_10_LETRACRUCE_inputZCOP1"
+									items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+							</VBox>
+
+							<VBox>
+								<Label text="Numero Sec Cruce" id="A_11_NUMSECCRUCEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<MaskInput mask="99"
+									id="_ZDIR_A_11_NUMSECCRUCE_inputZCOP1"
+									visible="{DIRVisible>/visible}" width="100%"
+									value="{ZDIRModel>/A_11_NUMSECCRUCE}" class="sapDireccion"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion" />
+							</VBox>
+
+							<VBox>
+								<Label text="Letra Sec Cruce" id="A_12_LETRASECCRUCEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_12_LETRASECCRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class=" sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_12_LETRASECCRUCE_inputZCOP1"
+									items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+							</VBox>
+
+							<VBox>
+								<Label text="Bis" id="A_13_BISCRUCEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_13_BISCRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class=" sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_13_BISCRUCE_inputZCOP1" items="{Bis>/results}">
+									<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}" />
+								</ComboBox>
+							</VBox>
+							<VBox>
+								<Label text="Sector" id="A_14_SECTORCRUCEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_14_SECTORCRUCE}"
+									width="100%" change="onChangeDireccion"
+									enabled="{EnabledModel>/Enabled}" class=" sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_14_SECTORCRUCE_inputZCOP1"
+									items="{Sector2>/results}">
+									<core:Item key="{Sector2>Letra}"
+										text="{Sector2>Descripcion}" />
+
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="{i18n>ZDIR.UDP}"
+									id="A_15_ULTDIGPLACAZCOP1" visible="{DIRVisible>/visible}"
+									class="sapDireccion" />
+								<MaskInput mask="999"
+									id="_ZDIR_A_15_ULTDIGPLACA_inputZCOP1"
+									visible="{DIRVisible>/visible}"
+									value="{ZDIRModel>/A_15_ULTDIGPLACA}" class="sapDireccion"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion" />
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+
+							<Title text="Interior" style="H2"
+								visible="{DIRVisible>/visible}"
+								class=" sapUmcMLabelBold  sapDireccion">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+							<VBox>
+								<Label text="Bloque" id="A_16_BLOQUEZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<MaskInput  mask = "~~~"  id="_ZDIR_A_16_BLOQUE_inputZCOP1"
+									visible="{DIRVisible>/visible}" width="100%"
+									value="{ZDIRModel>/A_16_BLOQUE}"
+									enabled="{EnabledModel>/Enabled}" class="sapDireccion"
+									change="onChangeDireccion" maxLength="3" >
+									<rules>
+						<MaskInputRule maskFormatSymbol="~" regex="[^_]"/>
+					</rules>
+					</MaskInput>
+							</VBox>
+							<VBox>
+								<Label text="Piso" id="A_17_PISOZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<MaskInput  mask = "99" id="_ZDIR_A_17_PISO_inputZCOP1"
+									visible="{DIRVisible>/visible}" width="100%"
+									class="sapDireccion" value="{ZDIRModel>/A_17_PISO}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion"
+									maxLength="2" />
+							</VBox>
+							<VBox>
+								<Label text="Unidad" id="A_18_UNIDADZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<MaskInput mask="99" id="_ZDIR_A_18_UNIDAD_inputZCOP1"
+									visible="{DIRVisible>/visible}" width="100%"
+									value="{ZDIRModel>/A_18_UNIDAD}"
+									enabled="{EnabledModel>/Enabled}" class="sapDireccion"
+									change="onChangeDireccion" />
+							</VBox>
+
+							<VBox>
+								<Label text="Tipo Unidad" id="A_19_DESUNIDADZCOP1"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_19_DESUNIDAD}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" class=" sapDireccion"
+									visible="{DIRVisible>/visible}"
+									id="_ZDIR_A_19_DESUNIDAD_inputZCOP1" items="{Unidad>/results}">
+									<core:Item key="{Unidad>Letra}"
+										text="{Unidad>Descripcion}" />
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+
+							</VBox>
+
+							<VBox>
+								<Label text="Via Rural" id="A_26_DIRNUMRURZCOP1"
+									visible="{RURALVisible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel>/A_26_DIRNUMRUR}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion" value="{ZDIRModel>/A_26_DIRNUMRUR}"
+									class=" sapDireccion" visible="{RURALVisible>/visible}"
+									id="_ZDIR_A_26_DIRNUMRUR_inputZCOP1"
+									items="{ViaRural>/results}">
+									<core:Item key="{ViaRural>Viarural}"
+										text="{ViaRural>Descripcion}" class="letraDireccion" />
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="Direccion Rural" id="A_25_DIRRURAZCOP1"
+									visible="{RURALVisible>/visible}" class="sapDireccion" />
+								<Input id="_ZDIR_A_25_DIRRURAL_inputZCOP1"
+									visible="{RURALVisible>/visible}" class="sapDireccion"
+									value="{ZDIRModel>/A_25_DIRRURAL}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion">
+
+								</Input>
+								<layoutData>
+									<l:GridData span="L8 M12 S12" />
+								</layoutData>
+							</VBox>
+
+
+							<Title text="{i18n>ZDIR.NDIR}" style="H2"
+								visible="{VIAVisible>/visible}"
+								class="sapUmcMLabelBold  sapDireccion">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+
+							<Button text="{i18n>ZDIR.VDIR}"
+								enabled="{EnabledModel>/Enabled}" press="onShowAdress"
+								visible="{VIAVisible>/visible}" id="VerifyButAgenZCOP"
+								class="sapUiSmallMarginBottom">
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</Button>
+
+							<Button text="{i18n>ZDIR.BDIR}"
+								enabled="{EnabledModel>/Enabled}" id="EraseButAgenZCOP"
+								press="onEraseAdress" visible="{VIAVisible>/visible}"
+								class="sapUiSmallMarginBottom">
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</Button>
+
+							<VBox>
+								<Title text="{i18n>ZDIR.DIRAGERET}" style="H2"
+									visible="{DIRVisible>/visible}"
+									class="sapUmcMLabelBold  sapDireccion">
+								</Title>
+								<Input id="_ZDIR_A_24_DIRECCIONCORREGIDA_inputZCOP1" value="{ZDIRModel>/A_29_DIRPANTALLA}"
+									visible="{VIAVisible>/visible}" change="onChangeDireccion"
+									enabled="false">
+
+								</Input>
+								<layoutData>
+									<l:GridData span="L7 M12 S12" />
+								</layoutData>
+							</VBox>
+
+
+						</l:content>
+					</l:Grid>
+				</Panel>
+
+				<!-- FIN MODIFICACION DE DIRECCION AGENTE RETENEDOR -->
+
+	<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">
+					<VBox>
+						<Label text="{i18n>ZCOP.A_13_DIRECCION_NOTIFICACION_ZCOP}"
+							class="sapUmcMLabelBold" id="A_13_DIRECCION_NOTIFICACION_ZCOP" />
+						<Input id="_ZCOP_A_13_DIRECCION_NOTIFICACION_input"
+							value="{ZCOPModel>/A_13_DIRECCION_NOTIFICACION}" enabled="false"
+							change="onChange"
+							tooltip="{i18n>ZCOP.TTA_13_DIRECCION_NOTIFICACION_ZCOP}" />
+						<layoutData>
+							<l:GridData span="L5 M12 S12" />
+						</layoutData>
+					</VBox>
+
+					<VBox alignItems="Center">
+						<Label text="{i18n>ZCOP.A_14_SOLICITUD_ACT_DIRNOT}"
+							id="A_14_SOLICITUD_ACT_DIRNOT" />
+						<Checkbox id="_ZCOP_A_14_SOLICITUD_ACT_DIRNOT_input"
+							value="{ZCOPModel>/A_14_SOLICITUD_ACT_DIRNOT}"
+							enabled="{EnabledModel>/Enabled}" select="onChangeNewAdress" />
+						<layoutData>
+							<l:GridData span="L1 M12 S12" />
+						</layoutData>
+					</VBox>
+
+					<VBox>
+						<Label text="{i18n>ZCOP.A_15_MUNICIPIO_NOT}"
+							class="sapUmcMLabelBold" id="A_15_MUNICIPIO_NOT" />
+										<ComboBox
+	            selectedKey = "{ZCOPModel>/A_15_MUNICIPIO_NOT}"
+					width="100%"  placeholder="{i18n>ZCOP.TTA_15_MUNICIPIO_NOT}" tooltip="{i18n>ZCOP.TTA_15_MUNICIPIO_NOT}"
+					   enabled="{EnabledModel>/Enabled}"
+					id="_ZCOP_A_15_MUNICIPIO_NOT_input"
+					items="{Ciudades>/results}"
+					>
+					<core:Item key="{Ciudades>CityCode}" text="{Ciudades>CityName}" 
+					/>
+				</ComboBox> 	
+							
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</VBox>
+
+					<VBox>
+						<Label text="{i18n>ZCOP.A_16_CORREO_ELECTRONICO}"
+							class="sapUmcMLabelBold" id="A_16_CORREO_ELECTRONICO" />
+						<Input id="_ZCOP_A_16_CORREO_ELECTRONICO_input" change="validateEmail"  
+							value="{ZCOPModel>/A_16_CORREO_ELECTRONICO}" tooltip="{i18n>ZCOP.TTA_16_CORREO_ELECTRONICO}"
+							enabled="false" select="onChange" />
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</VBox>
+					</l:Grid>
+
+<!-- INICIO MODIFICAION DE DIRECCION NOTIFICACION -->
+
+				<Panel expandable="true" expanded="true"
+					headerText= "{i18n>ZDIR.DIGDIRNOT}"
+					width="auto"
+					class="sapUiResponsiveMargin sapUmcWhiteBackgroundColor "
+					visible="{DIR2Visible2>/visible}">
+
+					<l:Grid defaultSpan="L1 M4 S6"
+						class="sapUiSmallMargin sapDireccion" vSpacing="0" hSpacing="0.1">
+						<l:content>
+
+							<Title text="{i18n>ZDIR.VIAPRINC}" style="H2"
+								visible="{DIR2Visible>/visible}"
+								class=" sapUmcMLabelBold  sapDireccion ">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+
+							<VBox>
+								<Label text="{i18n>ZDIR.VIA}" id="A_01_VIAZCOP2"
+									visible="{VIA2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_01_VIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class="sapDireccion"
+									visible="{VIA2Visible>/visible}" id="_ZDIR_A_01_VIA_inputZCOP2"
+									items="{Via>/results}">
+									<core:Item key="{Via>Via}" text="{Via>Descripcion}"
+										class="letraDireccion" />
+
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+
+							<VBox>
+								<Label text="{i18n>ZDIR.NUMVIA}" id="A_02_NUMVIAZCOP2"
+									width="100%" class="sapDireccion"
+									visible="{DIR2Visible>/visible}">
+								</Label>
+
+								<MaskInput mask="999"
+									id="_ZDIR_A_02_NUMVIA_inputZCOP2" width="100%"
+									value="{ZDIRModel2>/A_02_NUMVIA}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion2"
+									class="sapDireccion" visible="{DIR2Visible>/visible}">
+								</MaskInput>
+							</VBox>
+							<VBox>
+								<Label text="Letra" id="A_03_LETRAVIAZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_03_LETRAVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class="sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_03_LETRAVIA_inputZCOP2" items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+
+							</VBox>
+							<VBox>
+								<Label text="Numero Sec." id="A_04_NUMSECVIAZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<MaskInput mask="99"
+									id="_ZDIR_A_04_NUMSECVIA_inputZCOP2"
+									visible="{DIR2Visible>/visible}" width="100%"
+									value="{ZDIRModel2>/A_04_NUMSECVIA}" class="sapDireccion"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion2" />
+
+
+							</VBox>
+							<VBox>
+								<Label text="Letra Sec" id="A_05_LETRASECVIAZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_05_LETRASECVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class="sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_05_LETRASECVIA_inputZCOP2"
+									items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+							</VBox>
+							<VBox>
+								<Label text="Bis" id="A_06_BISVIAZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_06_BISVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class="sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_06_BISVIA_inputZCOP2" items="{Bis>/results}">
+									<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}"
+										class="sapDireccion" />
+								</ComboBox>
+
+							</VBox>
+
+
+							<VBox>
+								<Label text="Sector" id="A_07_SECTORVIAZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_07_SECTORVIA}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class=" sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_07_SECTORVIA_inputZCOP2" items="{Sector2>/results}">
+									<core:Item key="{Sector2>Letra}"
+										text="{Sector2>Descripcion}" />
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+
+
+							<Title text="Placa" style="H2"
+								visible="{DIR2Visible>/visible}"
+								class=" sapUmcMLabelBold sapDireccion">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+							<VBox>
+								<Label text="Cruce" id="A_08_CRUCEZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_08_CRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class=" sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_08_CRUCE_inputZCOP2" items="{Via>/results}">
+									<core:Item key="{Via>Via}" text="{Via>Descripcion}" />
+
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="Numero Cruce" id="A_09_NUMCRUCEZCOP2"
+									visible="{DIRVisible>/visible}" class="sapDireccion" />
+
+
+
+
+								<MaskInput mask="999"
+									id="_ZDIR_A_09_NUMCRUCE_inputZCOP2"
+									visible="{DIR2Visible>/visible}" width="100%"
+									value="{ZDIRModel2>/A_09_NUMCRUCE}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion2"
+									class="sapDireccion" />
+
+							</VBox>
+
+							<VBox>
+								<Label text="Letra Cruce" id="A_10_LETRACRUCEZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_10_LETRACRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class=" sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_10_LETRACRUCE_inputZCOP2"
+									items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+							</VBox>
+
+							<VBox>
+								<Label text="Numero Sec Cruce" id="A_11_NUMSECCRUCEZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<MaskInput mask="99"
+									id="_ZDIR_A_11_NUMSECCRUCE_inputZCOP2"
+									visible="{DIR2Visible>/visible}" width="100%"
+									value="{ZDIRModel2>/A_11_NUMSECCRUCE}" class="sapDireccion"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion2" />
+							</VBox>
+
+							<VBox>
+								<Label text="Letra Sec Cruce" id="A_12_LETRASECCRUCEZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox
+									selectedKey="{ZDIRModel2>/A_12_LETRASECCRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class=" sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_12_LETRASECCRUCE_inputZCOP2"
+									items="{LetraVia>/results}">
+									<core:Item key="{LetraVia>Letra}"
+										text="{LetraVia>Letra}" />
+								</ComboBox>
+							</VBox>
+
+							<VBox>
+								<Label text="Bis" id="A_13_BISCRUCEZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_13_BISCRUCE}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class=" sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_13_BISCRUCE_inputZCOP2" items="{Bis>/results}">
+									<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}" />
+								</ComboBox>
+							</VBox>
+							<VBox>
+								<Label text="Sector" id="A_14_SECTORCRUCEZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_14_SECTORCRUCE}"
+									width="100%" change="onChangeDireccion2"
+									enabled="{EnabledModel>/Enabled}" class=" sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_14_SECTORCRUCE_inputZCOP2"
+									items="{Sector2>/results}">
+									<core:Item key="{Sector2>Letra}"
+										text="{Sector2>Descripcion}" />
+
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="{i18n>ZDIR.UDP}"
+									id="A_15_ULTDIGPLACAZCOP2" visible="{DIR2Visible>/visible}"
+									class="sapDireccion" />
+								<MaskInput mask="999"
+									id="_ZDIR_A_15_ULTDIGPLACA_inputZCOP2"
+									visible="{DIR2Visible>/visible}"
+									value="{ZDIRModel2>/A_15_ULTDIGPLACA}" class="sapDireccion"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion2" />
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+
+							<Title text="Interior" style="H2"
+								visible="{DIR2Visible>/visible}"
+								class=" sapUmcMLabelBold  sapDireccion">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+							<VBox>
+								<Label text="Bloque" id="A_16_BLOQUEZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<MaskInput  mask = "~~~" id="_ZDIR_A_16_BLOQUE_inputZCOP2"
+									visible="{DIR2Visible>/visible}" width="100%"
+									value="{ZDIRModel2>/A_16_BLOQUE}"
+									enabled="{EnabledModel>/Enabled}" class="sapDireccion"
+									change="onChangeDireccion2" maxLength="3" >
+									<rules>
+										<MaskInputRule maskFormatSymbol="~" regex="[^_]"/>
+									</rules>
+								</MaskInput>
+							</VBox>
+							<VBox>
+								<Label text="Piso" id="A_17_PISOZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<MaskInput  mask = "99" id="_ZDIR_A_17_PISO_inputZCOP2"
+									visible="{DIR2Visible>/visible}" width="100%"
+									class="sapDireccion" value="{ZDIRModel2>/A_17_PISO}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion2"
+									maxLength="2" />
+							</VBox>
+							<VBox>
+								<Label text="Unidad" id="A_18_UNIDADZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<MaskInput mask="99" id="_ZDIR_A_18_UNIDAD_inputZCOP2"
+									visible="{DIR2Visible>/visible}" width="100%"
+									value="{ZDIRModel2>/A_18_UNIDAD}"
+									enabled="{EnabledModel>/Enabled}" class="sapDireccion"
+									change="onChangeDireccion2" />
+							</VBox>
+
+							<VBox>
+								<Label text="Tipo Unidad" id="A_19_DESUNIDADZCOP2"
+									visible="{DIR2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_19_DESUNIDAD}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2" class=" sapDireccion"
+									visible="{DIR2Visible>/visible}"
+									id="_ZDIR_A_19_DESUNIDAD_inputZCOP2" items="{Unidad>/results}">
+									<core:Item key="{Unidad>Letra}"
+										text="{Unidad>Descripcion}" />
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+
+							</VBox>
+
+							<VBox>
+								<Label text="Via Rural" id="A_26_DIRNUMRURZCOP2"
+									visible="{RURAL2Visible>/visible}" class="sapDireccion" />
+								<ComboBox selectedKey="{ZDIRModel2>/A_26_DIRNUMRUR}"
+									enabled="{EnabledModel>/Enabled}" width="100%"
+									change="onChangeDireccion2"
+									value="{ZDIRModel2>/A_26_DIRNUMRUR}" class=" sapDireccion"
+									visible="{RURAL2Visible>/visible}"
+									id="_ZDIR_A_26_DIRNUMRUR_inputZCOP2"
+									items="{ViaRural>/results}">
+									<core:Item key="{ViaRural>Viarural}"
+										text="{ViaRural>Descripcion}" class="letraDireccion" />
+								</ComboBox>
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="Direccion Rural" id="A_25_DIRRURAZCOP2"
+									visible="{RURAL2Visible>/visible}" class="sapDireccion" />
+								<Input id="_ZDIR_A_25_DIRRURAL_inputZCOP2"
+									visible="{RURAL2Visible>/visible}" class="sapDireccion"
+									value="{ZDIRModel2>/A_25_DIRRURAL}"
+									enabled="{EnabledModel>/Enabled}" change="onChangeDireccion2">
+
+								</Input>
+								<layoutData>
+									<l:GridData span="L8 M12 S12" />
+								</layoutData>
+							</VBox>
+
+
+							<Title text="{i18n>ZDIR.NDIR}" style="H2"
+								visible="{CD2Visible>/visible}"
+								class="sapUmcMLabelBold  sapDireccion">
+								<layoutData>
+									<l:GridData span="L12 M12 S12" />
+								</layoutData>
+							</Title>
+
+							<Button text="{i18n>ZDIR.VDIR}"
+								enabled="{EnabledModel>/Enabled}" press="onShowAdress"
+								visible="{VIA2Visible>/visible}" class="sapUiSmallMarginBottom">
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</Button>
+
+							<Button text="{i18n>ZDIR.BDIR}"
+								enabled="{EnabledModel>/Enabled}" press="onEraseAdress"
+								visible="{VIA2Visible>/visible}" class="sapUiSmallMarginBottom">
+								<layoutData>
+									<l:GridData span="L2 M12 S12" />
+								</layoutData>
+							</Button>
+
+							<VBox>
+								<Title text="{i18n>ZDIR.DIRNOTIF}" style="H2"
+									visible="{DIR2Visible>/visible}"
+									class="sapUmcMLabelBold  sapDireccion">
+								</Title>
+								<Input id="_ZDIR_A_24_DIRECCIONCORREGIDA_inputZCOP2" value="{ZDIRModel2>/A_29_DIRPANTALLA}"
+									visible="{VIA2Visible>/visible}" change="onChangeDireccion2"
+									enabled="false">
+
+								</Input>
+								<layoutData>
+									<l:GridData span="L7 M12 S12" />
+								</layoutData>
+							</VBox>
+
+
+						</l:content>
+					</l:Grid>
+				</Panel>
+
+				<!-- FIN MODIFICACION DE DIRECCION DE NOTIFICACION -->
+
+			</Panel>
+
+
+
+			<Panel expandable="true" expanded="true"
+				headerText="{i18n>ZCOP.TBRET}" width="auto"
+				class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+				<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0"> 
+
+					<!-- 9. BASE DE RETENCION -->
+
+					<Label text="{i18n>DESC}" class="sapUmcMLabelBold">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Label text="{i18n>VALDIG}" class="sapUmcMLabelBold ">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Label>
+					<Label text="{i18n>VALCALC}" class="sapUmcMLabelBold ">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Label>
+
+
+					<Label text="{i18n>ZCOP.A_17_BASE_RETENCION}"
+						id="A_17_BASE_RETENCION">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_17_BASE_RETENCION_input"
+						tooltip="{i18n>ZCOP.TTA_17_BASE_RETENCION}"
+						value="{path:'ZCOPModel>/A_17_BASE_RETENCION', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_17_BASE_RETENCION', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+
+
+
+				</l:Grid>
+			</Panel>
+
+
+			<Panel expandable="true" expanded="true"
+				headerText="{i18n>ZCOP.TBASERET}" width="auto"
+				class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+				<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">
+
+					<!-- 10. VALOR DE RETENCIONES EFECTUADAS -->
+
+					<Label text="{i18n>DESC}" class="sapUmcMLabelBold">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Label text="{i18n>VALDIG}" class="sapUmcMLabelBold ">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Label>
+					<Label text="{i18n>VALCALC}" class="sapUmcMLabelBold ">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Label>
+
+					<Label text="{i18n>ZCOP.A_18_VALOR_RETENCION}"
+						id="A_18_VALOR_RETENCION">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_18_VALOR_RETENCION_input"
+						tooltip="{i18n>ZCOP.TTA_18_VALOR_RETENCION}"
+						value="{path:'ZCOPModel>/A_18_VALOR_RETENCION', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_41_LIQ_TOTAL_RET_EFECTUADAS', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+					<!-- 11. MAS SANCION POR EXTEMPORANEIDAD -->
+						   <HBox alignItems="Center">
+					<Label text="{i18n>ZCOP.A_19_SANCION_EXTEMPORANEIDAD}"
+						id="A_19_SANCION_EXTEMPORANEIDAD"/>
+						   			   <ComboBox 
+	            selectedKey = "{ZCOPModel>/A_53_EMPLAZAMIENTO}"   enabled="{EnabledModel>/Enabled}"
+					width="50%"  change="onChange" tooltip="{i18n>ZCOP.TTA_53_EMPLAZAMIENTO}"
+					   class="sapDireccion"
+					id="_ZCOP_A_53_EMPLAZAMIENTO_input"
+					items="{Si>/results}"
+					>
+					<core:Item key="{Si>Value}" text="{Si>View}" class="letraDireccion"
+					/>
+				</ComboBox>
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</HBox>
+					
+					<Input id="_ZCOP_A_19_SANCION_EXTEMPORANEIDAD_input"
+						tooltip="{i18n>ZCOP.TTA_19_SANCION_EXTEMPORANEIDAD}"
+						value="{path:'ZCOPModel>/A_19_SANCION_EXTEMPORANEIDAD', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_43_LIQ_SAN_EXTEMPORANEIDAD', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<!-- 12. OTRAS SANCIONES -->
+					<Label text="{i18n>ZCOP.A_20_OTRAS_SANCIONES}"
+						id="A_20_OTRAS_SANCIONES">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_20_OTRAS_SANCIONES_input"
+						tooltip="{i18n>ZCOP.TTA_20_OTRAS_SANCIONES}"
+						value="{path:'ZCOPModel>/A_20_OTRAS_SANCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input id="_ZCOP_A_52_LIQ_MAS_OTRO_SANCIONES_input" 
+						value="{path:'ZCOPModel>/A_52_LIQ_MAS_OTRO_SANCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+   
+					<!-- 13. TOTAL SALDO A CARGO (RENGLONES 10 + 11 + 12) -->
+
+					<Label text="{i18n>ZCOP.A_21_TOTAL_SALDO_CARGO}"
+						id="A_21_TOTAL_SALDO_CARGO">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_21_TOTAL_SALDO_CARGO_input"
+						tooltip="{i18n>ZCOP.TTA_21_TOTAL_SALDO_CARGO}"
+						value="{path:'ZCOPModel>/A_21_TOTAL_SALDO_CARGO', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_42_LIQ_TOTAL_SALDO_CARGO', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+				</l:Grid>
+
+			</Panel>
+
+
+			<Panel expandable="true" expanded="true"
+				headerText="{i18n>ZCOP.TPAGO}" width="auto"
+				class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+				<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">
+
+
+					<Label text="{i18n>DESC}" class="sapUmcMLabelBold">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Label text="{i18n>VALDIG}" class="sapUmcMLabelBold ">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Label>
+					<Label text="{i18n>VALCALC}" class="sapUmcMLabelBold ">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Label>
+
+
+					<!-- 14. VALOR A PAGAR DE RETENCIONES -->
+
+					<Label text="{i18n>ZCOP.A_22_VALOR_PAG_RETENCIONES}"
+						id="A_22_VALOR_PAG_RETENCIONES">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_22_VALOR_PAG_RETENCIONES_input"
+						tooltip="{i18n>ZCOP.TTA_22_VALOR_PAG_RETENCIONES}"
+						value="{path:'ZCOPModel>/A_22_VALOR_PAG_RETENCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_45_LIQ_VALOR_A_PAGAR_RET', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+
+					<!-- 15. INTERESES POR MORA -->
+
+
+
+					<Label text="{i18n>ZCOP.A_23_INTERESES_MORA}"
+						id="A_23_INTERESES_MORA">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_23_INTERESES_MORA_input"
+						tooltip="{i18n>ZCOP.TTA_23_INTERESES_MORA}"
+						value="{path:'ZCOPModel>/A_23_INTERESES_MORA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_44_LIQ_INTERESES_MORA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+
+					<!-- 16. VALOR A PAGAR POR SANCIONES -->
+
+
+
+					<Label text="{i18n>ZCOP.A_24_VALOR_PAGAR_SANCIONES}"
+						id="A_24_VALOR_PAGAR_SANCIONES">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_24_VALOR_PAGAR_SANCIONES_input"
+						tooltip="{i18n>ZCOP.TTA_24_VALOR_PAGAR_SANCIONES}"
+						value="{path:'ZCOPModel>/A_24_VALOR_PAGAR_SANCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_47_LIQ_ZVALOR_PAGAR_SANC', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+
+					<!-- 17. TOTAL A PAGAR -->
+
+					<Label text="{i18n>ZCOP.A_25_TOTAL_A_PAGAR}"
+						id="A_25_TOTAL_A_PAGAR">
+						<layoutData>
+							<l:GridData span="L8 M12 S12" />
+						</layoutData>
+					</Label>
+					<Input id="_ZCOP_A_25_TOTAL_A_PAGAR_input"
+						tooltip="{i18n>ZCOP.TTA_25_TOTAL_A_PAGAR}"
+						value="{path:'ZCOPModel>/A_25_TOTAL_A_PAGAR', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="{EnabledModel>/Enabled}" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+					<Input
+						value="{path:'ZCOPModel>/A_46_LIQ_TOTAL_PAGAR', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}"
+						enabled="false" change="onChange">
+						<layoutData>
+							<l:GridData span="L2 M12 S12" />
+						</layoutData>
+					</Input>
+
+
+
+				</l:Grid>
+			</Panel>
+
+			<!-- CORRECCION -->
+
+			<Panel expandable="true" expanded="true"
+				headerText="{i18n>ZCOP.TCORRECCION}" width="auto"
+				class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+				<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">
+
+
+					<Hbox>
+						<VBox alignItems="Center">
+							<Label text="{i18n>ZCOP.A_26_CORRECCION}"
+								id="A_26_CORRECCION" />
+							<Checkbox id="_ZCOP_A_26_CORRECCION_input"
+								tooltip="{i18n>ZCOP.TTA_26_CORRECCION}"
+								value="{ZCOPModel>/A_26_CORRECCION}" select="onSelectCorreccion"
+								enabled="{EnabledModel>/Enabled}" change="onChange" />
+						</VBox>
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+					<Hbox>
+						<VBox>
+							<Label text="{i18n>ZCOP.A_27_NUM_FORM_CORRIGE}"
+								id="A_27_NUM_FORM_CORRIGE" />
+							<Input id="_ZCOP_A_27_NUM_FORM_CORRIGE_input"
+								tooltip="{i18n>ZCOP.TTA_27_NUM_FORM_CORRIGE}"
+								value="{ZCOPModel>/A_27_NUM_FORM_CORRIGE}"
+								enabled="{OUSOVisible>/visible}" change="onChange" />
+
+						</VBox>
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+
+					<Hbox>
+						<VBox>
+							<Label text="{i18n>ZCOP.A_28_ANIO_CORRECCION}"
+								id="A_28_ANIO_CORRECCION" />
+							<Input id="_ZCOP_A_28_ANIO_CORRECCION_input" maxLength="4"
+								tooltip="{i18n>ZCOP.TTA_28_ANIO_CORRECCION}"
+								enabled="{OUSOVisible>/visible}"
+								value="{ZCOPModel>/A_28_ANIO_CORRECCION}" change="onChange" />
+
+						</VBox>
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+
+					<Hbox>
+						<VBox>
+							<Label text="{i18n>ZCOP.A_29_PERIODO_CORRECCION}"
+								id="A_29_PERIODO_CORRECCION" />
+							<ComboBox
+								selectedKey="{ZCOPModel>/A_29_PERIODO_CORRECCION}"
+								tooltip="{i18n>ZCOP.TTA_29_PERIODO_CORRECCION}" width="50%"
+								change="onChange" class="sapDireccion"
+								enabled="{OUSOVisible>/visible}"
+								id="_ZCOP_A_29_PERIODO_CORRECCION_input"
+								items="{Periodo>/results}">
+								<core:Item key="{Periodo>Number}"
+									text="{Periodo>Number}" class="letraDireccion" />
+
+							</ComboBox>
+
+
+						</VBox>
+						<layoutData>
+							<l:GridData span="L3 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+				</l:Grid>
+			</Panel>
+
+
+
+			<Panel expandable="true" expanded="true"
+				headerText="{i18n>ZCOP.TFIRMAS}" width="auto"
+				class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+				<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">
+					<Hbox alignItems="Center">
+						<Label text="{i18n>ZCOP.FIRMADECL}">
+						</Label>
+						<layoutData>
+							<l:GridData span="L6 M12 S12" />
+						</layoutData>
+					</Hbox>
+
+
+					<HBox alignItems="Center">
+						<Label text="{i18n>ZCOP.A_32_FIRMA_CONTADOR}"
+							id="A_32_FIRMA_CONTADOR" />
+						<CheckBox id="_ZCOP_A_32_FIRMA_CONTADOR_input"
+							value="{ZCOPModel>/A_32_FIRMA_CONTADOR}"
+							select="onSelectSegundaFirma" enabled="{EnabledModel>/Enabled}"
+							change="onChange" />
+						<Label text="{i18n>ZCOP.A_33_REVISOR_FISCAL}"
+							id="A_33_REVISOR_FISCAL" />
+						<CheckBox id="_ZCOP_A_33_REVISOR_FISCAL_input"
+							value="{ZCOPModel>/A_33_REVISOR_FISCAL}"
+							select="onSelectSegundaFirma" enabled="{EnabledModel>/Enabled}"
+							change="onChange" />
+						<layoutData>
+							<l:GridData span="L6 M12 S12" />
+						</layoutData>
+					</HBox>
+
+					<HBox alignItems="Center">
+						<Label text="{i18n>ZCOP.A_30_NOMBRE_DECLARANTE}"
+							id="A_30_NOMBRE_DECLARANTE" />
+						<Input id="_ZCOP_A_30_NOMBRE_DECLARANTE_input" width="200%" liveChange = "onLiveChangeUpper"
+							value="{ZCOPModel>/A_30_NOMBRE_DECLARANTE}"
+							enabled="{EnabledModel>/Enabled}" change="onChange" />
+						<layoutData>
+							<l:GridData span="L6 M12 S12" />
+						</layoutData>
+					</HBox>
+
+					<HBox alignItems="Center">
+						<Label text="{i18n>ZCOP.A_34_NOMBRE_CONT_FISC}"
+							id="A_34_NOMBRE_CONT_FISC" />
+						<Input id="_ZCOP_A_34_NOMBRE_CONT_FISC_input" width="250%" liveChange = "onLiveChangeUpper"
+							value="{ZCOPModel>/A_34_NOMBRE_CONT_FISC}"
+							enabled="{SEGFIRMAVisible>/visible}" change="onChange" />
+						<layoutData>
+							<l:GridData span="L6 M12 S12" />
+						</layoutData>
+					</HBox>
+
+
+					<HBox alignItems="Center">
+
+						<Label text="{i18n>ZCOP.A_31_CEDULA_DECLARANTE}"
+							id="A_31_CEDULA_DECLARANTE" />
+						<Input id="_ZCOP_A_31_CEDULA_DECLARANTE_input" width="203%" liveChange = "onLiveChangeUpper"
+							value="{ZCOPModel>/A_31_CEDULA_DECLARANTE}"
+							enabled="{EnabledModel>/Enabled}" change="onChange" />
+						<layoutData>
+							<l:GridData span="L6 M12 S12" />
+						</layoutData>
+					</HBox>
+
+
+					<HBox alignItems="Center">
+						<Label text="{i18n>ZCOP.A_35_NUMERO_CONT_FISC}"
+							id="A_35_NUMERO_CONT_FISC" />
+						<Input id="_ZCOP_A_35_NUMERO_CONT_FISC_input" liveChange = "onLiveChangeUpper"
+							value="{ZCOPModel>/A_35_NUMERO_CONT_FISC}"
+							enabled="{SEGFIRMAVisible>/visible}" change="onChange" />
+
+
+
+						<Label text="{i18n>ZCOP.A_36_TARJETA_PROF}"
+							id="A_36_TARJETA_PROF" />
+						<Input id="_ZCOP_A_36_TARJETA_PROF_input" liveChange = "onLiveChangeUpper"
+							value="{ZCOPModel>/A_36_TARJETA_PROF}"
+							enabled="{SEGFIRMAVisible>/visible}" change="onChange" />
+						<layoutData>
+							<l:GridData span="L6 M12 S12" />
+						</layoutData>
+					</HBox>
+
+
+
+				</l:Grid>
+			</Panel>
+
+
+
+
+
+
+
+			<!-- VARIABLES SIN VISUALIZACION -->
+
+			<!-- <Label text="Formulario No." id="A_02_NO_FORMULARIO"/> 
+					<Input id="_ZCOP_A_02_NO_FORMULARIO_input" value="{ZCOPModel>/A_02_NO_FORMULARIO}" 
+					enabled="{EnabledModel>/Enabled}" change="onChange"/> 
+				
+					<Label text="Existe Diferencia Valores Liq" id="A_39_EXISTE_DIFERENCIA"/> 
+					<Input id="_ZCOP_A_39_EXISTE_DIFERENCIA_input" value="{ZCOPModel>/A_39_EXISTE_DIFERENCIA}" 
+					enabled="{EnabledModel>/Enabled}" change="onChange"/> 
+				
+					<Label text="FECHA VENCIMIENTO" id="A_40_FECHA_VENCIMIENTO"/> 
+					<DatePicker id="_ZCOP_A_40_FECHA_VENCIMIENTO_date" 
+					value="{ZCOPModel>/A_40_FECHA_VENCIMIENTO}" enabled="{EnabledModel>/Enabled}" 
+					displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange"/> 
+				   <Label text="LIQ VALOR A PAGAR POR SANCIONE" id="A_47_LIQ_ZVALOR_PAGAR_SANC"/>
+   					<Input id="_ZCOP_A_47_LIQ_ZVALOR_PAGAR_SANC_input" value="{ZCOPModel>/A_47_LIQ_ZVALOR_PAGAR_SANC}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+   					<Label text="Existe Diferencia Valores Liq" id="A_48_EXISTE_VAL_DIF"/>
+   					<Input id="_ZCOP_A_48_EXISTE_VAL_DIF_input" value="{ZCOPModel>/A_48_EXISTE_VAL_DIF}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+   					<Label text="Fecha Creacion de la Declaraci" id="A_49_FECHA_CREACION"/>
+   					<DatePicker id="_ZCOP_A_49_FECHA_CREACION_date" value="{ZCOPModel>/A_49_FECHA_CREACION}" enabled="{EnabledModel>/Enabled}" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange"/>
+   					<Label text="Fecha Maxima Presentacion 2 Me" id="A_50_FECHA_MAX_PRESTENCION"/>
+   					<DatePicker id="_ZCOP_A_50_FECHA_MAX_PRESTENCION_date" value="{ZCOPModel>/A_50_FECHA_MAX_PRESTENCION}" enabled="{EnabledModel>/Enabled}" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange"/>
+   					
+   					<Label text="{i18n>ZCOP.A_01_FECHA_PRESENTACION}"
+							id="A_01_FECHA_PRESENTACION" />
+						<DatePicker id="_ZCOP_A_01_FECHA_PRESENTACION_date" tooltip="{i18n>ZCOP.TTA_01_FECHA_PRESENTACION}"
+							value="{ZCOPModel>/A_01_FECHA_PRESENTACION}" enabled="false"
+							displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd"
+							change="onChange" />
+							
+													<Label text="{i18n>ZCOP.A_51_FECHA_VENCIMIENTO_PREST}"
+							id="A_51_FECHA_VENCIMIENTO_PREST" />
+						<DatePicker id="_ZCOP_A_51_FECHA_VENCIMIENTO_PREST_date" tooltip="{i18n>ZCOP.TTA_51_FECHA_VENCIMIENTO_PREST}"
+							value="{ZCOPModel>/A_51_FECHA_VENCIMIENTO_PREST}" enabled="false"
+							displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd"
+							change="onChange" />
+				</f:SimpleForm> -->
+		</ScrollContainer>
+
+</core:FragmentDefinition>

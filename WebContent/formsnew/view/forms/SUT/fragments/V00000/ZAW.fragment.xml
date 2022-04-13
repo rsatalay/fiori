@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Panel backgroundDesign="Transparent">
+
+		<f:SimpleForm title="" minWidth="1024"
+			maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+			labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+			columnsL="1" columnsM="1">
+
+			<Label text="{i18n>FORMS.PERIOD}" />
+			<Input enabled="false" id="_ZAWPeriodID" />
+			<Label text="field01" />
+			<Input id="_ZAW_A_FIELD1_input" value="{ZAWModel>/A_FIELD1}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="field02" />
+			<Input id="_ZAW_A_FIELD2_input" value="{ZAWModel>/A_FIELD2}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="field03" />
+
+			<DatePicker displayFormat="long"
+				value="{path: 'ZAWModel>/A_FIELD3', formatter: 'sap.umc.mobile.forms.js.utils.formatDate'}"
+				enabled="{EnabledModel>/Enabled}" change="onChange"
+				valueFormat="yyyyMMdd" id="_ZAW_A_FIELD3_date" />
+			<!-- <Label text="A_Field4"/> <Input id="ZAW_A_FIELD4_input" value="{ZAWModel>/A_FIELD4}" 
+				enabled="{EnabledModel>/Enabled}" change="onChange"/> <Label text="A_FIELD5"/> 
+				<Input id="ZAW_A_FIELD5_input" value="{ZAWModel>/A_FIELD5}" enabled="{EnabledModel>/Enabled}" 
+				change="onChange"/> -->
+
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>
+

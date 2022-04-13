@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" class="sapUmcConsumptionSegmentedButton">
+	<Dialog title="{i18n>FORMS.ADD_FORM}" modal="true" contentWidth="40%" class="sapUmcConsumptionSegmentedButton">
+		<buttons class="sapUmcConsumptionSegmentedButton">
+			<Button text="{i18n>FILING_OBLIGATIONS.CANCEL}" class="sapUmcConsumptionSegmentedButton"
+				press="onDialogCloseBtn" />
+			<Button text="{i18n>FORMS.OK}" press="onDialogOKBtn" class="sapUmcConsumptionSegmentedButton"
+				visible="{formBundleTypesOffline>/bFormPeriodSelected}" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

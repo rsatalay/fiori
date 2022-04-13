@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleConfirm">
+		<sortItems>
+			<ViewSettingsItem
+				text="{i18n>FILING_OBLIGATIONS.DUE_DATE}" key="DueDate"
+				selected="true" />
+			<ViewSettingsItem
+				text="{i18n>FILING_OBLIGATIONS.PERIOD}" key="Period/Description" />
+			<ViewSettingsItem
+				text="{i18n>FILING_OBLIGATIONS.REVENUE_TYPE}"
+				key="RevenueTypeDescription" />
+			<ViewSettingsItem
+				text="{i18n>FILING_OBLIGATIONS.RECEIPT_DATE}" key="ReceiptDate" />
+
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

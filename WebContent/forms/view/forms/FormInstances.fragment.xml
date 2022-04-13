@@ -1,0 +1,47 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:ui="sap.ca.ui"
+	xmlns:core="sap.ui.core">
+
+	<l:Grid defaultSpan="L12 M12 S12" width="auto" class="form-grid">
+		<l:content>
+			<Table id="idProductsTable" inset="false"
+				items="{ExistingForms>/}">
+				<infoToolbar>
+					<Toolbar id="vsdFilterBar" active="true" visible="false"
+						press="[handleViewSettingsDialogFilterBarPressed, views.control.tableViewSettingsDialog]">
+						<Label id="vsdFilterLabel" text="?" />
+					</Toolbar>
+				</infoToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="Form Description" />
+					</Column>
+
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Right">
+						<Text text="{i18n>USER_PROFILE.AGREEMENT_NUMBER}" />
+
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation"
+						press="onListItemPress">
+						<cells>
+
+
+							<Text text="{ExistingForms>FormDescription}" />
+							<Text text="{ExistingForms>FORMNO}" />
+
+
+
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</l:content>
+	</l:Grid>
+	<!-- <footer> <Bar> <contentRight> <Button type="Emphasized" text="Add" 
+		id="addFormBtn" visible="false" press="onAddFormPress" /> <Button text="{i18n>MESSAGE_CENTER.SUBMIT}" 
+		id="formSubmitBtn" visible="true" press="handleSubmitButton" class="sapUmcBtnWhiteTextColor 
+		sapUmcBtnBorderLeft" /> </contentRight> </Bar> </footer> -->
+</core:FragmentDefinition>

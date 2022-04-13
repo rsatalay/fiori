@@ -1,0 +1,97 @@
+body.configHighContrastTools * {
+    color: #FFFFFF !important;
+    background-color: black !important;
+    background-image: none !important;
+    border-color: #FFFFFF !important;
+    text-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-indent: 0 !important
+}
+body.configHighContrastTools *:before, body.configHighContrastTools *:after {color: #FFFFFF !important;}
+body.configHighContrastTools * main header section svg {
+    display: none !important
+}
+body.configHighContrastTools * section h2 {
+    background-color: #e1e1e1;
+    border-bottom: 1px solid black
+}
+body.configHighContrastTools * section h2 svg {
+    display: none !important
+}
+body.configHighContrastTools * svg path,
+body.configHighContrastTools * svg polygon,
+body.configHighContrastTools * svg rect,
+body.configHighContrastTools * svg circle {
+    fill: #FFFFFF !important
+}
+body.configHighContrastTools * .locationAwareMap {
+    display: none;
+}
+body.configHighContrastTools * img {
+    /*display: none !important;*/
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+body.configHighContrastTools *::-webkit-input-placeholder {
+    color: #FFFFFF !important
+}
+body.configHighContrastTools *::-moz-placeholder {
+    color: #FFFFFF !important
+}
+body.configHighContrastTools *::-moz-placeholder {
+    color: #FFFFFF !important
+}
+body.configHighContrastTools *::-ms-input-placeholder {
+    color: #FFFFFF !important
+}
+body.configHighContrastTools * .showing-outofstate {
+    font-size: .8em;
+    font-style: italic
+}
+body.configHighContrastTools * input[type=text],
+body.configHighContrastTools * textarea {
+    color: #FFFFFF;
+    background-color: white;
+    padding: .5rem !important;
+    border: 1px solid #FFFFFF !important
+}
+body.configHighContrastTools * button {
+    color: #FFFFFF;
+}
+body.configHighContrastTools * #overlay {
+    background: rgba(0, 0, 0, 0.4) !important
+}
+body.configHighContrastTools * header#main-header .toggle-menu span {
+    background: #FFFFFF !important
+}
+body.configHighContrastTools * header#main-header .toggle-menu span::before {
+    background: #FFFFFF !important
+}
+body.configHighContrastTools * header#main-header .toggle-menu span::after {
+    background: #FFFFFF !important
+}
+body.configHighContrastTools * header#main-header .toggle-menu.active span {
+    background: black !important
+}
+body.configHighContrastTools * .search-box { 
+    z-index: 999
+}
+
+/**** CVILLADA ****/
+body.configHighContrastTools .navbar-fixed-top { 
+    border-bottom: 1px solid;
+}
+body.configHighContrastTools .menu-preguntas h2 span, body.configHighContrastTools .menu-preguntas .megamenu { 
+    background-color: transparent !important;
+}
+body.configHighContrastTools .slick-arrow {
+    border: 1px solid #FFFFFF !important
+}
+body.configHighContrastTools li button:before {
+    background: #FFFFFF !important
+}
+body.configHighContrastTools #copyright {
+    border-top: 1px solid;
+}

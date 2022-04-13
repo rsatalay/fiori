@@ -1,0 +1,79 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	controllerName="sap.umc.mobile.invoice.view.PaymentHistory">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>INVOICE.PAYMENT_HISTORY}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!-- mode="SingleSelectMaster" -->
+		<content>
+			<List id="listInProcessPayments"
+				items="{path: 'InProcessPayments>/results/'}" mode="SingleSelect"
+				includeItemInSelection="true" headerText="{i18n>INVOICE.IN_PROCESS}"
+				noDataText="{i18n>INVOICE.NO_PAYMENTS}"
+				selectionChange="handleListItemPress">
+
+				<headerToolbar>
+					<Toolbar>
+						<Label text="{i18n>INVOICE.IN_PROCESS}" />
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button icon="sap-icon://drop-down-list"
+							press="handleViewSettingsDialogButtonPressedInProcess"
+							tooltip="{i18n>FILING_OBLIGATIONS.SORT_BY}" />
+					</Toolbar>
+				</headerToolbar>
+
+				<ObjectListItem
+					title="{path: 'InProcessPayments>ExecutionDate', formatter: 'sap.umc.mobile.invoice.js.utils.Date' }"
+					number="{parts: ['InProcessPayments>Amount', 'InProcessPayments>Currency'], formatter: 'sap.umc.mobile.invoice.js.utils.Price'}"
+					numberUnit="{InProcessPayments>Currency}">
+
+					<attributes>
+						<ObjectAttribute
+							text="{i18n>INVOICE.BANK_ACCOUNT}" />
+					</attributes>
+				</ObjectListItem>
+			</List>
+			<List id="listProcessedPayments"
+				items="{path: 'ProcessedPayments>/results/'}"
+				headerText="{i18n>INVOICE.PROCESSED}"
+				noDataText="{i18n>INVOICE.NO_PAYMENTS}"
+				itemPress="handleListItemPress">
+
+				<headerToolbar>
+					<Toolbar>
+						<Label text="{i18n>INVOICE.PROCESSED}" />
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button icon="sap-icon://drop-down-list"
+							press="handleViewSettingsDialogButtonPressedPaymentProcessed"
+							tooltip="{i18n>FILING_OBLIGATIONS.SORT_BY}" />
+					</Toolbar>
+				</headerToolbar>
+
+				<ObjectListItem
+					title="{path: 'ProcessedPayments>ExecutionDate', formatter: 'sap.umc.mobile.invoice.js.utils.Date' }"
+					number="{parts: ['ProcessedPayments>Amount', 'ProcessedPayments>Currency'], formatter: 'sap.umc.mobile.invoice.js.utils.Price'}"
+					numberUnit="{ProcessedPayments>Currency}">
+					<attributes>
+						<ObjectAttribute
+							text="{i18n>INVOICE.BANK_ACCOUNT}" />
+					</attributes>
+				</ObjectListItem>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>INVOICE.CANCEL_PAYMENT}"
+						visible="{PaymentHistorySetting>/CancelPaymentVisible}"
+						press="handleCancelPayment"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

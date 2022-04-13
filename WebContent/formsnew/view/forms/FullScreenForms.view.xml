@@ -1,0 +1,78 @@
+<mvc:View
+	controllerName="sap.umc.mobile.forms.view.forms.FullScreenForms"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page enableScrolling="true">
+		
+		<label></label>
+		<label></label>
+		<label></label>
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label id="FullScreenTitle" text="" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+	   
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" height="100%" 
+			class="sapUMCUiRespGrid sapUMCUiRespGridDiv"> 
+			<l:content>
+
+				<IconTabBar id="idFormIconTabBar" expanded="true"
+					stretchContentHeight="true" select="onIconTabBarSelect"
+					showSelection="true" expandable="false"
+					backgroundDesign="Transparent" class="sapFmcaIconTab">
+					<items>
+					</items>
+				</IconTabBar>
+
+			</l:content>
+		
+		</l:Grid>
+		<footer>
+			<Bar>
+				<contentRight>
+
+					<Button text="{i18n>FORMS.BACK_TO_LIST}"
+						id="idFormBackToList" press="backToFormsList"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button text="{i18n>USER_PROFILE.ADD}" id="idFormAdd"
+						icon="sap-icon://add" press="onAddFormPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="idFormErrorCount" type="Reject" text="0"
+						icon="sap-icon://message-error" press="errorCountPress" />
+					<Button id="idIconStraightThroughProcess"
+						icon="sap-icon://message-popup" text="1" type="Emphasized"
+						press="handleIconStraightThroughProcess" visible="false" />
+					<Button id="idFormValidate" text="{i18n>FORMS.CHECK}"
+						icon="sap-icon://error" press="handleValidatePress" visible="false" 
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="idFormSave" text="{i18n>FORMS.SAVE_DRAFT}"
+						icon="sap-icon://save" press="handleSavePress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="idFormSubmit" text="{i18n>USER_PROFILE.SUBMIT}"
+						icon="sap-icon://paper-plane" press="handleSubmitPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="idFormPayBill" text="{i18n>INVOICE.PAYBILL}"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+						
+					<Button id="idImprimirReciboFirmado" text="{i18n>APPS.PDFFORMFIRMADO}"
+						icon="sap-icon://pdf-attachment" press="handleViewPDFButton"  />
+					 	<Button id="idFirmar" text="{i18n>APPS.FIRMA}"
+						icon="sap-icon://pdf-attachment" press="handleFirmar"  />
+					<Button id="idImprimirReciboSinFirmar" text="{i18n>APPS.PDFFORMSINFIRMAR}"
+						icon="sap-icon://pdf-attachment" press="handleViewPDFButton"  />
+																		
+					<Button id="idFormPayBillInvoice"
+						text="{i18n>INVOICE.PAYBILL}"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft"
+						visible="false" icon="sap-icon://expense-report"
+						press="handlePayBillInvoicePress" />
+					<!-- <Button id="cancel" text="{i18n>FILING_OBLIGATIONS.CANCEL}" press="handleCancelPress" 
+						/> -->
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

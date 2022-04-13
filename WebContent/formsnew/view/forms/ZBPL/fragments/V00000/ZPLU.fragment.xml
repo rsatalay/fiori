@@ -1,0 +1,439 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:table="sap.ui.table"
+	xmlns:core="sap.ui.core" encoding="ISO-8859-1">
+	<Panel backgroundDesign="Transparent">
+
+		<!-- 
+		<Toolbar>
+			<ToolbarSpacer />
+			<ToolbarSpacer />
+			<Button text="{i18n>EXCEL.UPLOAD}" press="handleUploadPress"
+				enabled="true" icon="sap-icon://upload"
+				tooltip="{i18n>EXCEL.UPLOAD}" />
+			<Button text="{i18n>EXPORT.PDF}" press="handlePdfPress"
+				enabled="true" icon="sap-icon://pdf-attachment"
+				tooltip="{i18n>EXPORT.PDF}" />
+		</Toolbar>
+ 			-->
+
+	
+		 <ScrollContainer height="350px" vertical="true" horizontal="true" class="sapUmcConsumptionSegmentedButton"> 		
+
+		<Panel expandable="true" expanded="true" headerText="Instrucciones " width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" >
+		<VBox>
+		<Label text="{i18n>ZPLU.INSTEXT1}" />
+		<Label text="{i18n>ZPLU.INSTEXT2}"></Label>
+		<Label text="{i18n>ZPLU.INSTEXT3}"></Label>
+		<Label text="{i18n>ZPLU.INSTEXT4}"></Label>
+		<Label text="{i18n>ZPLU.INSTEXT5}"></Label>
+		<Label text="{i18n>ZPLU.INSTEXT6}"></Label>
+		<Label text="{i18n>ZPLU.INSTEXT7}"></Label>
+		<Label text="{i18n>ZPLU.INSTEXT8}"></Label>
+		<HBox>
+		<Label text="{i18n>ZPLU.INSTEXT9}"></Label>
+		<Link
+		text=" link."
+		target="_blank"
+		href="https://www.youtube.com/watch?v=0Bbtbn6DGi8" />	
+		</HBox>
+		</VBox>
+		</Panel>
+		<Panel expandable="true" expanded="true" headerText="Datos de Contribuyente" width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" >
+							
+		<f:SimpleForm title="" minWidth="1024" maxContainerCols="1" editable="true" 
+		layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="2" 
+		emptySpanM="2" columnsL="1" columnsM="1" backgroundDesign="Solid" height="auto">
+		
+		<!-- 
+		<FlexBox width="50%" alignItems="Start" justifyContent="Right">
+			<items>
+				<Image width="100%" src="{Images>/LogoAlcaldia}" />
+			</items>
+		</FlexBox> -->
+		
+		   <Label text="{i18n>ZPLU.A_27_TIPOPERS}" id="A_27_TIPOPERS" visible="false"/>
+   		   <Input id="_ZPLU_A_27_TIPOPERS_input" value="{ZPLUModel>/A_27_TIPOPERS}" enabled="{EnabledModel>/Enabled}" change="onChange" visible="false"/>
+			
+			<Label text="{i18n>ZPLU.A_20_REPRESENTANTE_LEGAL}" id="A_20_REPRESENTANTE_LEGAL"  visible="{PJURVisible>/visible}" class="sapUmcConsumptionSegmentedButton"/>
+			<Input id="_ZPLU_A_20_REPRESENTANTE_LEGAL_input"  visible="{PJURVisible>/visible}"
+				value="{ZPLUModel>/A_20_REPRESENTANTE_LEGAL}" placeholder="Ingrese el nombre del representante legal"
+				enabled="{EnabledModel>/Enabled}" change="onChange" class="sapUmcConsumptionSegmentedButton" descripcion="digite el nombre del representante legal">
+				</Input>
+				
+				
+   			<Label text="{i18n>ZPLU.A_23_NIT_REPRESENTANTE}" id="A_23_NIT_REPRESENTANTE" visible="{PJURVisible>/visible}" class="sapUmcConsumptionSegmentedButton" />
+   			<Input type="Number" id="_ZPLU_A_23_NIT_REPRESENTANTE_input" value="{ZPLUModel>/A_23_NIT_REPRESENTANTE}" enabled="{EnabledModel>/Enabled}" change="onChange" visible="{PJURVisible>/visible}" class="sapUmcConsumptionSegmentedButton"/>
+			
+			
+			<Label text="{i18n>ZPLU.A_21_EMAIL}" id="A_21_EMAIL" type="Email" class="sapUmcConsumptionSegmentedButton" /> 
+			<Input id="_ZPLU_A_21_EMAIL_input"  placeholder="{i18n>ZPLU.INGEMAILNOT}" class="sapUmcConsumptionSegmentedButton"
+				value="{ZPLUModel>/A_21_EMAIL}" enabled="{EnabledModel>/Enabled}"
+				change="validateEmail"  type="email"/>
+		
+			
+			<Label text="{i18n>ZPLU.A_22_DIRECCIONACTUAL}" id="A_22_DIRECCIONACTUAL"  class="sapUmcConsumptionSegmentedButton"/>
+			<Input id="_ZPLU_A_22_DIRECCIONACTUAL_input" enabled="false"  class="sapUmcConsumptionSegmentedButton"
+				value="{ZPLUModel>/A_22_DIRECCIONACTUAL}"
+			   change="onChange"  />
+			
+			<!--  
+			<CheckBox text="Corregir Direccion" select="onCDSelected"
+				id="idCDCheckBox">
+				<layoutData>
+					<l:GridData linebreak="true" indentL="4" indentM="4"
+						indentS="12" />
+				</layoutData>
+			</CheckBox>	  -->
+
+	</f:SimpleForm>	
+	</Panel>
+	
+	<Panel expandable="true" expanded="true" headerText="{i18n>ZPLU.DESMODDIR}" width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton">
+						
+		 <l:Grid defaultSpan="L1 M4 S6" class="sapUiSmallMargin sapDireccion" vSpacing="0" hSpacing="0.1">	
+			<l:content>
+			
+
+				
+				<Title text="{i18n>ZPLU.DIGDATNEWD}" style="H2"  visible="{CDVisible>/visible}"
+				class="sapUmcMLabelBold  sapDireccion sapUmcConsumptionSegmentedButton">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>
+			
+			<Title text="{i18n>ZDIR.VIAPRINC}" style="H2"  visible="{CDVisible>/visible}"
+				class=" sapUmcMLabelBold  sapDireccion  sapUmcConsumptionSegmentedButton">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>
+	
+	<VBox>
+			   <Label text="{i18n>ZDIR.VIA}" id="A_01_VIA" visible="{VIAVisible>/visible}" class="sapDireccion sapUmcConsumptionSegmentedButton"/>
+			   <ComboBox 
+	            selectedKey = "{ZPLUModel>/A_01_VIA}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class="sapDireccion sapUmcConsumptionSegmentedButton" visible="{VIAVisible>/visible}"
+					id="_ZPLU_A_01_VIA_input"
+					items="{Via>/results}"
+					>
+					<core:Item key="{Via>Via}" text="{Via>Descripcion}" class="letraDireccion  sapUmcConsumptionSegmentedButton"
+					/>
+				
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+	</VBox>
+
+	
+	<VBox>
+				<Label text="{i18n>ZDIR.NUMVIA}" id="A_02_NUMVIA" width="100%" class="sapDireccion sapUmcConsumptionSegmentedButton"
+				visible="{CDVisible>/visible}">
+			</Label>
+			
+
+			<MaskInput mask = "999" id="_ZPLU_A_02_NUMVIA_input" width="100%"
+				value="{ZPLUModel>/A_02_NUMVIA}" enabled="{EnabledModel>/Enabled}"
+				change="onChange" class="sapDireccion sapUmcConsumptionSegmentedButton"
+				visible="{CDVisible>/visible}">
+			</MaskInput>
+	</VBox>
+	<VBox>
+			<Label text="Letra" id="A_03_LETRAVIA" visible="{CDVisible>/visible}"  class="sapDireccion sapUmcConsumptionSegmentedButton"/>
+			
+				<ComboBox
+	            selectedKey = "{ZPLUModel>/A_03_LETRAVIA}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class="sapDireccion sapUmcConsumptionSegmentedButton " visible="{CDVisible>/visible}"
+					id="_ZPLU_A_03_LETRAVIA_input"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}"  class="sapUmcConsumptionSegmentedButton" 
+					/>
+				</ComboBox>
+
+	</VBox>
+	<VBox>
+	<Label text="Numero Sec." id="A_04_NUMSECVIA"  visible="{CDVisible>/visible}" class="sapDireccion"/>
+			<MaskInput mask = "99" id="_ZPLU_A_04_NUMSECVIA_input" visible="{CDVisible>/visible}" width="100%"
+				value="{ZPLUModel>/A_04_NUMSECVIA}" class="sapDireccion  sapUmcConsumptionSegmentedButton"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			
+
+	</VBox>
+	<VBox>
+				<Label text="Letra Sec" id="A_05_LETRASECVIA" visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+				<ComboBox
+	            selectedKey = "{ZPLUModel>/A_05_LETRASECVIA}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class="sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_05_LETRASECVIA_input"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}"  class="sapUmcConsumptionSegmentedButton"
+					/>
+				</ComboBox> 
+		</VBox>
+<VBox>
+	<Label text="Bis" id="A_06_BISVIA" visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			 <ComboBox
+	            selectedKey = "{ZPLUModel>/A_06_BISVIA}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class="sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_06_BISVIA_input"
+					items="{Bis>/results}"
+					>
+					<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}"  class="sapDireccion  sapUmcConsumptionSegmentedButton"
+					/>
+				</ComboBox>
+				
+			</VBox>
+
+
+			<VBox>
+			<Label text="Sector" id="A_07_SECTORVIA"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			 <ComboBox
+	            selectedKey = "{ZPLUModel>/A_07_SECTORVIA}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_07_SECTORVIA_input"
+					items="{Sector>/results}"
+					>
+					<core:Item key="{Sector>Letra}" text="{Sector>Descripcion}"  class="sapUmcConsumptionSegmentedButton"
+					/>				
+				</ComboBox>
+									<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+			</VBox>
+
+	
+			<Title text="Placa" style="H2"  visible="{CDVisible>/visible}"
+				class=" sapUmcMLabelBold sapDireccion  sapUmcConsumptionSegmentedButton">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>		
+	<VBox>
+			<Label text="Cruce" id="A_08_CRUCE"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			<ComboBox
+	            selectedKey = "{ZPLUModel>/A_08_CRUCE}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_08_CRUCE_input"
+					items="{Via>/results}"
+					>
+					<core:Item key="{Via>Via}" text="{Via>Descripcion}"  class="sapUmcConsumptionSegmentedButton"
+					/>
+
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</VBox>
+<VBox>
+			<Label text="Numero Cruce" id="A_09_NUMCRUCE"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+
+				
+
+				
+ 			<MaskInput mask = "999" id="_ZPLU_A_09_NUMCRUCE_input" visible="{CDVisible>/visible}" width="100%"
+				value="{ZPLUModel>/A_09_NUMCRUCE}" enabled="{EnabledModel>/Enabled}" 
+				change="onChange" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+				
+				</VBox>
+				
+	<VBox>			
+			<Label text="Letra Cruce" id="A_10_LETRACRUCE"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			 <ComboBox
+	            selectedKey = "{ZPLUModel>/A_10_LETRACRUCE}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_10_LETRACRUCE_input"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}"  class="sapUmcConsumptionSegmentedButton"
+					/>
+				</ComboBox>
+				</VBox>
+
+<VBox>
+			<Label text="Numero Sec Cruce" id="A_11_NUMSECCRUCE"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			<MaskInput mask = "99"  id="_ZPLU_A_11_NUMSECCRUCE_input" visible="{CDVisible>/visible}" width="100%"
+				value="{ZPLUModel>/A_11_NUMSECCRUCE}"  class="sapDireccion  sapUmcConsumptionSegmentedButton"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+				</VBox>
+				
+<VBox>			
+			<Label text="Letra Sec Cruce" id="A_12_LETRASECCRUCE"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			<ComboBox
+	            selectedKey = "{ZPLUModel>/A_12_LETRASECCRUCE}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_12_LETRASECCRUCE_input"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}"  class="sapUmcConsumptionSegmentedButton"
+					/>
+				</ComboBox>
+				</VBox>
+
+<VBox>
+			<Label text="Bis" id="A_13_BISCRUCE" visible="{CDVisible>/visible}" class="sapDireccion" />
+			<ComboBox
+	            selectedKey = "{ZPLUModel>/A_13_BISCRUCE}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_13_BISCRUCE_input"
+					items="{Bis>/results}"
+					>
+					<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}"  class="sapUmcConsumptionSegmentedButton"
+					/>
+				</ComboBox>
+				</VBox>
+<VBox>		
+			<Label text="Sector" id="A_14_SECTORCRUCE"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+		    <ComboBox
+	            selectedKey = "{ZPLUModel>/A_14_SECTORCRUCE}" 
+					width="100%"  change="onChange" enabled="{EnabledModel>/Enabled}"
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_14_SECTORCRUCE_input"
+					items="{Sector>/results}"
+					>
+					<core:Item key="{Sector>Letra}" text="{Sector>Descripcion}"  class="sapUmcConsumptionSegmentedButton"
+					/>
+					
+				</ComboBox>
+									<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</VBox>
+<VBox>
+			<Label text="Ultimo Digito Paca" id="A_15_ULTDIGPLACA" visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			<MaskInput mask = "999" id="_ZPLU_A_15_ULTDIGPLACA_input" visible="{CDVisible>/visible}"
+				value="{ZPLUModel>/A_15_ULTDIGPLACA}" class="sapDireccion  sapUmcConsumptionSegmentedButton"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />	
+								<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+	</VBox>
+	
+				<Title text="Interior" style="H2"  visible="{CDVisible>/visible}" 
+				class=" sapUmcMLabelBold  sapDireccion  sapUmcConsumptionSegmentedButton">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>	
+	<VBox>
+		<Label text="Bloque" id="A_16_BLOQUE"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/> 
+			<Input id="_ZPLU_A_16_BLOQUE_input" visible="{CDVisible>/visible}" width="100%"
+				value="{ZPLUModel>/A_16_BLOQUE}" enabled="{EnabledModel>/Enabled}" class="sapDireccion  sapUmcConsumptionSegmentedButton"
+				change="onChange"  maxLength="3"/>
+				</VBox>
+		<VBox>		
+			<Label text="Piso" id="A_17_PISO"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			<Input id="_ZPLU_A_17_PISO_input" visible="{CDVisible>/visible}" width="100%" class="sapDireccion  sapUmcConsumptionSegmentedButton"
+				value="{ZPLUModel>/A_17_PISO}" enabled="{EnabledModel>/Enabled}"
+				change="onChange"  maxLength="2"/>
+		</VBox>
+		<VBox>		
+			<Label text="Unidad" id="A_18_UNIDAD"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			<MaskInput mask = "99" id="_ZPLU_A_18_UNIDAD_input" visible="{CDVisible>/visible}" width="100%"
+				value="{ZPLUModel>/A_18_UNIDAD}" enabled="{EnabledModel>/Enabled}" class="sapDireccion  sapUmcConsumptionSegmentedButton"
+				change="onChange" />
+				</VBox>
+				
+		<VBox>		
+			<Label text="Tipo Unidad" id="A_19_DESUNIDAD"  visible="{CDVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			 <ComboBox
+	            selectedKey = "{ZPLUModel>/A_19_DESUNIDAD}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{CDVisible>/visible}"
+					id="_ZPLU_A_19_DESUNIDAD_input"
+					items="{Unidad>/results}"
+					>
+					<core:Item key="{Unidad>Letra}" text="{Unidad>Descripcion}"  class="sapUmcConsumptionSegmentedButton"
+					/>
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				
+				</VBox>
+				
+		<VBox>
+			   <Label text="Via Rural" id="A_26_DIRNUMRUR" visible="{RURALVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton" />
+			   <ComboBox 
+			  		selectedKey = "{ZPLUModel>/A_26_DIRNUMRUR}" 
+	              enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange"  value="{ZPLUModel>/A_26_DIRNUMRUR}"
+					   class=" sapDireccion  sapUmcConsumptionSegmentedButton" visible="{RURALVisible>/visible}"
+					id="_ZPLU_A_26_DIRNUMRUR_input"
+					items="{ViaRural>/results}"
+					>
+					<core:Item key="{ViaRural>Viarural}" text="{ViaRural>Descripcion}" class="letraDireccion  sapUmcConsumptionSegmentedButton"
+					/>
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+			</VBox>
+		<VBox>
+			   <Label text="Direccion Rural" id="A_25_DIRRURA" visible="{RURALVisible>/visible}" class="sapDireccion  sapUmcConsumptionSegmentedButton"/>
+			<Input id="_ZPLU_A_25_DIRRURAL_input"  visible="{RURALVisible>/visible}"  class="sapDireccion  sapUmcConsumptionSegmentedButton" value="{ZPLUModel>/A_25_DIRRURAL}"
+				enabled="{EnabledModel>/Enabled}" change="onChange">
+			
+		  </Input> 	
+			<layoutData>
+					<l:GridData span="L8 M12 S12" />
+				</layoutData>			
+		</VBox>
+	
+					
+				<Title text="{i18n>ZDIR.NDIR}" style="H2"  visible="{CDVisible>/visible}"
+				class="sapUmcMLabelBold  sapDireccion  sapUmcConsumptionSegmentedButton">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+				</Title>
+			
+				<Button
+				text="{i18n>ZDIR.VDIR}" enabled="{EnabledModel>/Enabled}" 
+				press="onShowAdress" visible="{VIAVisible>/visible}" 
+				class="sapUiSmallMarginBottom  sapUmcConsumptionSegmentedButton" > 
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</Button>
+				
+				<Button
+				text="{i18n>ZDIR.BDIR}" enabled="{EnabledModel>/Enabled}"
+				press="onEraseAdress" visible="{VIAVisible>/visible}" 
+				class="sapUiSmallMarginBottom  sapUmcConsumptionSegmentedButton" >
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</Button>		
+
+				<VBox>
+				<Title text="{i18n>ZDIR.NDIR}" style="H2"  visible="{CDVisible>/visible}"
+				class="sapUmcMLabelBold  sapDireccion  sapUmcConsumptionSegmentedButton  sapUmcConsumptionSegmentedButton">
+				</Title>
+   				<Input id="_ZPLU_A_24_DIRECCIONCORREGIDA_input" value="{Dir>/result}" visible="{VIAVisible>/visible}" change="onChange" enabled="false" class="sapUmcConsumptionSegmentedButton">
+ 
+				</Input>
+				<layoutData>
+					<l:GridData span="L7 M12 S12" />
+				</layoutData>
+				</VBox>
+				
+
+
+	</l:content>
+	</l:Grid>         			 
+	</Panel>							
+	 </ScrollContainer>
+	 </Panel> 
+</core:FragmentDefinition>

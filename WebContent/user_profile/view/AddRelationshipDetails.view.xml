@@ -1,0 +1,102 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.umc.mobile.user_profile.view.AddRelationshipDetails"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>USER_PROFILE.ADD_TAX_ADVISOR}">
+
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER_PROFILE.ADD_BUSINESS_PARTNER}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<l:Grid defaultSpan="L4 M10 S10" defaultIndent="L4 M1 S1"
+				vSpacing="0">
+				<l:content>
+
+					<!-- <HBox width="100%" class="sapUmcHeadingWrapperBottomLine"> <Label 
+						text="Business Partner" class="sapUmcVerticalAfterSpacingX1 sapUmcSectionHeading 
+						sapUmcVerticalBeforeSpacingX2" /> </HBox> -->
+					<HBox class="sapUmcVerticalBeforeSpacingX2">
+						<!-- type="Emphasized" -->
+						<HBox justifyContent="Start" fitContainer="true" width="90%">
+
+							<Label text="{i18n>USER_PROFILE.BUSINESS_PARTNER}"
+								class="sapUmcMLabelBold sapUmcVerticalBeforeSpacingX2" />
+						</HBox>
+						<!-- <core:Icon press="onSearchTaxAdvisorPress" src="sap-icon://search" 
+							class="sapUmcVerticalBeforeSpacingX2 sapUmcHorizontalBeforeSpacingX2" /> -->
+						<HBox justifyContent="End" fitContainer="true" width="10%">
+
+							<Button type="Emphasized" icon="sap-icon://search"
+								press="onSearchTaxAdvisorPress"
+								class="sapUmcHorizontalBeforeSpacingX1"
+								tooltip="{i18n>USER_PROFILE.BUSINESS_PARTNER_SEARCH}" />
+						</HBox>
+						<!-- type="Emphasized" -->
+						<!-- activeColor="blue" useIconTooltip="true" -->
+					</HBox>
+					<!-- <HBox > -->
+					<VBox id="idDetailsHbox" width="100%" fitContainer="true"
+						class="sapDisplayNone">
+						<!-- <VBox> -->
+						<Text text="{address>/FullName}" class="sapFmcaTextWordBreak" />
+						<Text
+							text="{address>/HouseNo} {address>/Street} {address>/City} {address>/PostlCod1} {address>/Country}"
+
+							class="sapFmcaTextWordBreak" />
+						<!-- <Text text="{address>/Street}" class="sapFmcaTextWordBreak" /> -->
+						<!-- <Text text="{address>/City} {address>/PostlCod1}" class="sapFmcaTextWordBreak" 
+							/> -->
+						<!-- <Text text="{address>/Country}" class="sapFmcaTextWordBreak" /> -->
+						<!-- <Text text="{address>/PostlCod1}" class="sapFmcaTextWordBreak" 
+							/> -->
+
+					</VBox>
+					<!-- </HBox> -->
+					<!-- <HBox id="idSearchButtonHbox" justifyContent = "Start" width="50%" 
+						fitContainer="true"> <Button text="{i18n>USER_PROFILE.BUSINESS_PARTNER_SEARCH}" 
+						press="onSearchTaxAdvisorPress" width="100%" /> </HBox> -->
+					<!-- </HBox> -->
+					<!-- <Label text="House No: {address>/address/HouseNo}" class="sapUmcVerticalBeforeSpacingX1" 
+						/> <Label text="Street: {address>/address/Street}" class="sapUmcVerticalBeforeSpacingX1" 
+						/> <Label text="City: {address>/address/City}" class="sapUmcVerticalBeforeSpacingX1" 
+						/> <Label text="Country: {address>/address/CountryName}" class="sapUmcVerticalBeforeSpacingX1" 
+						/> <Label text="Postal Code: {address>/address/PostalCode}" class="sapUmcVerticalBeforeSpacingX1" 
+						/> -->
+
+
+
+
+					<!-- class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" -->
+
+					<Label text="{i18n>USER.VALID_FROM}"
+						class="sapUmcVerticalBeforeSpacingX3 sapUmcMLabelBold" />
+					<DatePicker id="idValidFrom" displayFormat="long"
+						dateValue="{relationshipDetails>/ValidFrom}" />
+
+					<Label text="{i18n>USER.VALID_TO}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcMLabelBold" />
+					<DatePicker id="idValidTo" displayFormat="long"
+						dateValue="{relationshipDetails>/ValidTo}" />
+
+				</l:content>
+			</l:Grid>
+
+
+
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>USER_PROFILE.SAVE}" id="idSaveRelation"
+						press="onAddRelationSavePress"
+
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

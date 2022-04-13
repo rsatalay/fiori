@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>FORMS.ADD_FORM}" modal="true" contentWidth="40%">
+		<buttons>
+			<Button text="Cancel" press="onDialogCloseBtn" />
+			<Button text="OK" press="onDialogOKBtn"
+				visible="{formBundleTypesOffline>/bFormPeriodSelected}" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

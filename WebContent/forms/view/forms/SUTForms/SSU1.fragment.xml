@@ -1,0 +1,158 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<l:Grid defaultSpan="L12 M12 S12" width="auto" class="form-grid">
+		<l:content>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout" labelSpanL="3"
+				labelSpanM="3" emptySpanL="7" emptySpanM="7" columnsL="1"
+				columnsM="1" class="editableForm">
+				<f:content>
+					<Label text="{i18n>FORMS.REGISTRATION_ID}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_F1_REG_ID1}" id="SSU1_A_F1_REG_ID1_input"
+						change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.PERIOD}" />
+					<Input enabled="false" id="SSU1PeriodID" value="">
+					</Input>
+
+				</f:content>
+			</f:SimpleForm>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.SALES_SERVICES}" labelSpanL="3" labelSpanM="3"
+				emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1"
+				class="editableForm">
+				<f:content>
+					<Label text="{i18n>FORMS.GROSS_SALES}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						id="SSU1_A_FA1_SALES_GROSS1_input"
+						value="{SSU1Model>/A_FA1_SALES_GROSS1}" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.EXEMPT_SALES}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						id="SSU1_A_FA2_SALES_EXMPT1_input"
+						value="{SSU1Model>/A_FA2_SALES_EXMPT1}" change="SSU1OnChange">
+					</Input>
+					<Label text="{i18n>FORMS.TAXABLE_AMOUNT}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FA3_SALES_TAX_AMT1}"
+						id="SSU1_A_FA3_SALES_TAX_AMT1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.TAXES_COLLECTED}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FA4_SALES_TAX_COLL1}"
+						id="SSU1_A_FA4_SALES_TAX_COLL1_input" change="SSU1OnChange" />
+				</f:content>
+			</f:SimpleForm>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.TAXABLE_PURCHASES}" labelSpanL="3" labelSpanM="3"
+				emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1"
+				class="editableForm">
+
+				<f:content>
+					<Label text="{i18n>FORMS.TAXABLE_AMOUNT2}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FB3_TAX_PURCH_AMT1}"
+						id="SSU1_A_FB3_TAX_PURCH_AMT1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.TAXES_COLLECTED2}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FB4_TAX_PURCH_COL1}"
+						id="SSU1_A_FB4_TAX_PURCH_COL1_input" change="SSU1OnChange" />
+				</f:content>
+			</f:SimpleForm>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.COMMERCIAL_RENTALS}" labelSpanL="3"
+				labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+				columnsM="1" class="editableForm">
+				<f:content>
+					<Label text="{i18n>FORMS.GROSS_SALES_3}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FC1_RENT_GROSS1}"
+						id="SSU1_A_FC1_RENT_GROSS1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.EXEMPT_SALES_3}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FC2_RENT_EXMPT1}"
+						id="SSU1_A_FC2_RENT_EXMPT1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.TAXABLE_AMOUNT_3}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FC3_RENT_TAX_AMT1}"
+						id="SSU1_A_FC3_RENT_TAX_AMT1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.TAXES_COLLECTED_3}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FC4_RENT_TAX_COLL1}"
+						id="SSU1_A_FC4_RENT_TAX_COLL1_input" change="SSU1OnChange" />
+				</f:content>
+			</f:SimpleForm>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.FOOD_BEVERAGE_VENDING}" labelSpanL="3"
+				labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+				columnsM="1" class="editableForm">
+				<f:content>
+					<Label text="{i18n>FORMS.GROSS_SALES_4}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FD1_FOOD_GROSS1}"
+						id="SSU1_A_FD1_FOOD_GROSS1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.EXEMPT_SALES_4}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FD2_FOOD_EXMPT1}"
+						id="SSU1_A_FD2_FOOD_EXMPT1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.TAXABLE_AMOUNT_4}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FD3_FOOD_TAX_AMT1}"
+						id="SSU1_A_FD3_FOOD_TAX_AMT1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.TAXES_COLLECTED_4}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_FD4_FOOD_TAX_COLL1}"
+						id="SSU1_A_FD4_FOOD_TAX_COLL1_input" change="SSU1OnChange" />
+				</f:content>
+			</f:SimpleForm>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.TAX_DUE}" labelSpanL="3" labelSpanM="3"
+				emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1"
+				class="editableForm">
+				<f:content>
+					<Label text="{i18n>FORMS.TOTAL_TAX_COLLECTED}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_F5_TAX_COLL1}" id="SSU1_A_F5_TAX_COLL1_input"
+						change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.LESS_LAWFUL_DEDUCTIONS}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_F6_LAWFUL_DED1}"
+						id="SSU1_A_F6_LAWFUL_DED1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.TOTAL_TAX_DUE}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_F7_TOTAL_TAX_DUE1}"
+						id="SSU1_A_F7_TOTAL_TAX_DUE1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.LESS_ESTIMATED_TAX_PAID}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_F8_EST_TAX1}" id="SSU1_A_F8_EST_TAX1_input" />
+					<Label text="{i18n>FORMS.PLUS_EST_TAX_PAID}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_F9_EST_TAX_DUE1}"
+						id="SSU1_A_F9_EST_TAX_DUE1_input" change="SSU1OnChange" />
+					<Label text="{i18n>FORMS.AMOUNT_DUE}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SSU1Model>/A_F10_AMT_DUE1}" id="SSU1_A_F10_AMT_DUE1_input"
+						change="SSU1OnChange" />
+				</f:content>
+			</f:SimpleForm>
+
+
+		</l:content>
+	</l:Grid>
+</core:FragmentDefinition>

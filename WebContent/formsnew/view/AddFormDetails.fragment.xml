@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+
+	xmlns:mvc="sap.ui.core.mvc" xmlns:com="sap.ui.commons"
+
+
+	xmlns:f="sap.ui.layout.form">
+	<l:Grid defaultSpan="L12 M12 S12" width="auto" class="form-grid">
+		<l:content>
+
+
+
+			<Label text="{i18n>FORMS.SELECT_FORM_TYPE}" visible="true" class="sapUmcConsumptionSegmentedButton"/>
+			<Select id="idFormBundleType"
+				items="{formBundleTypesOffline>/results/}" class="sapUmcConsumptionSegmentedButton"
+				change="onFormBundleTypeChange" width="inherit">
+				<!-- id ="idSUTTaxTypeSelect" -->
+				<layoutData>
+					<l:GridData linebreakL="true" linebreakM="true"
+						linebreakS="true" spanL="12" spanM="12" spanS="12" />
+				</layoutData>
+				<core:Item key="{formBundleTypesOffline>FormBundleTypeID}"
+					text="{formBundleTypesOffline>FormBundleTypeDescription}" />
+			</Select>
+			<Label text="{i18n>FORMS.SELECT_PERIOD_FORM_TYPE}"
+				visible="{formBundleTypesOffline>/bFormPeriodBased}" />
+			<Select id="idFormBundleTypeAvailablePeriod"
+				items="{AvailablePeriods>/results/}"
+				change="onFormBundleTypePeriodChange"
+				visible="{formBundleTypesOffline>/bFormPeriodBased}" width="inherit">
+				<!-- id ="idSUTTaxTypeSelect" -->
+				<layoutData>
+					<l:GridData linebreakL="true" linebreakM="true"
+						linebreakS="true" spanL="12" spanM="12" spanS="12" />
+				</layoutData>
+				<core:Item key="{AvailablePeriods>PeriodID}"
+					text="{AvailablePeriods>Description}" />
+			</Select>
+
+		</l:content>
+	</l:Grid>
+
+
+</core:FragmentDefinition>

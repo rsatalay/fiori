@@ -1,0 +1,1229 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+  
+			<ScrollContainer height="100%" vertical="true" >
+			
+ <Panel expandable="true" expanded="true" headerText="{i18n>ZIEP.INFOFORM}" width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" >
+     
+    <l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" >	
+    <Hbox alignItems="Center">
+    
+    <Label text="PERIODO" id="A_61_PERIODO"/>
+ <!--   <Input id="_ZIEP_A_61_PERIODO_input" value="{ZIEPModel>/A_61_PERIODO}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+    -->
+   			   <ComboBox 
+	            selectedKey = "{ZIEPModel>/A_61_PERIODO}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangePeriodo" tooltip="{i18n>ZIEP.TTA_61_PERIODO}"
+					   class="sapDireccion"
+					id="_ZIEP_A_61_PERIODO_input"
+					items="{Periodo>/results}"
+					>
+					<core:Item key="{Periodo>Number}" text="{Periodo>Number}" class="letraDireccion"
+					/>
+				
+				</ComboBox>
+				
+				
+ 
+   <Label text="{i18n>ZIEP.ANO}" id="A_62_ANO">
+    </Label>
+    <!--  
+   <DatePicker id="_ZIEP_A_62_ANO_input" value="{ZIEPModel>/A_62_ANO}" enabled="{EnabledModel>/Enabled}" change="onChange" displayFormat="yyyy"
+  	valueFormat="yy">
+    </DatePicker>
+     -->
+   <Input id="_ZIEP_A_62_ANO_input" value="{ZIEPModel>/A_62_ANO}" enabled="{EnabledModel>/Enabled}" change="onChangePeriodo"  maxLength="4" tooltip="{i18n>ZIEP.TTA_62_ANO}"
+  	/>  
+		
+          	<layoutData  class="sapUiSmallMargins">
+		<l:GridData span="L4 M12 S12" />
+	</layoutData>    
+    </Hbox>
+  
+     <Label text="">
+               	<layoutData  class="sapUiSmallMargins">
+		<l:GridData span="L4 M12 S12" />
+	</layoutData> 
+     </Label>
+     
+
+     
+     
+    <!--  
+      <Hbox>
+      <Label text="FECHA VENCIMIENTO:" id="A_63_FECHA_VENCIMIENTO"/>
+   <DatePicker id="_ZIEP_A_63_FECHA_VENCIMIENTO_date" value="{ZIEPModel>/A_63_FECHA_VENCIMIENTO}" enabled="{EnabledModel>/Enabled}" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange"/>
+           	<layoutData  class="sapUiSmallMargins">
+		<l:GridData span="L4 M12 S12" />
+	</layoutData>    
+    </Hbox>  
+    -->
+    
+   <Hbox alignItems="Center">
+  <!--  <Label text="FECHA PRESENTACION:" id="A_64_FECHA_PRESENTACION"/> 		
+        <DatePicker id="_ZIEP_A_64_FECHA_PRESENTACION_date" value="{ZIEPModel>/A_64_FECHA_PRESENTACION}" enabled="false" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange"/>
+     -->
+         <Label text="{i18n>ZIEP.A_92_FECHA_MAX_PRESTENCION}" id="A_92_FECHA_MAX_PRESTENCION"/>
+   		<DatePicker id="_ZIEP_A_92_FECHA_MAX_PRESTENCION_date" value="{ZIEPModel>/A_92_FECHA_MAX_PRESTENCION}" enabled="false" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange"/>
+   
+   
+     
+       	<layoutData  class="sapUiSmallMargins">
+		<l:GridData span="L4 M12 S12"  />
+	</layoutData>    
+    </Hbox>
+ 
+
+<VBox>
+   <Label text="CLASE DE DECLARANTE" class="sapUmcMLabelBold" />  
+        <RadioButtonGroup id="claseDeclaranteZIEP" columns="2" width="100%"  select="claseDeclaranteSelect" class="sapUiMediumMarginBottom">
+  		<buttons>
+                <RadioButton id="claseDeclarante_input1ZIEP" text="Responsable" change="onChange" useEntireWidth="true" width="50%"  tooltip="{i18n>ZIEP.TTRES}" enabled="{EnabledModel>/Enabled}">
+	   </RadioButton>              
+   		        <RadioButton id="claseDeclarante_input3ZIEP" text="Agente Retenedor" change="onChange" useEntireWidth="true" width="50%"  tooltip="{i18n>ZIEP.TTAGEN}" enabled="{EnabledModel>/Enabled}">
+	   </RadioButton> 
+	   
+   		</buttons>  
+  		</RadioButtonGroup> 
+     <layoutData>
+		<l:GridData span="L8 M2 S2" />
+	</layoutData> 
+  </VBox>
+    
+   <VBox>
+    <Label text="{i18n>ZIEP.A_82_NO_RESOLUCION}" id="A_82_NO_RESOLUCION"/>
+   <Input id="_ZIEP_A_82_NO_RESOLUCION_input" value="{ZIEPModel>/A_82_NO_RESOLUCION}"  enabled="{RESPVisible>/visible}" change="onChange" tooltip="{i18n>ZIEP.TTA_82_NO_RESOLUCION}"  liveChange = "onLiveChangeUpper"/>
+           <layoutData>
+		<l:GridData span="L2 M2 S2" />
+	</layoutData> 
+   </VBox>
+   
+ <!-- 
+   <Vbox>
+   <Label text="{i18n>ZIEP.A_83_FECHA_RESOLUCION}" id="A_83_FECHA_RESOLUCIONSS"/>   
+   <DatePicker id="_ZIEP_A_83_FECHA_RESOLUCION_dateSS" value="{ZIEPModel>/A_83_FECHA_RESOLUCION}" enabled="{EnabledModel>/Enabled}" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange" tooltip="{i18n>ZIEP.TTA_83_FECHA_RESOLUCION}" />
+   
+     <layoutData>
+		<l:GridData span="L2 M2 S2" linebreak="true"/>
+	</layoutData> 
+   </Vbox>
+          -->
+          <VBox>
+          <Label text="{i18n>ZIEP.A_83_FECHA_RESOLUCION}" id="A_83_FECHA_RESOLUCION"/> 
+           <DatePicker id="_ZIEP_A_83_FECHA_RESOLUCION_date" value="{ZIEPModel>/A_83_FECHA_RESOLUCION}"  enabled="{RESPVisible>/visible}"  displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange" tooltip="{i18n>ZIEP.TTA_83_FECHA_RESOLUCION}"/>
+          
+      <layoutData>
+		<l:GridData span="L2 M2 S2"/>
+	</layoutData>         
+          </VBox> 
+          
+ 
+</l:Grid>
+ <l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">	
+ 
+           <VBox>
+    <Label text="{i18n>ZIEP.OPCIONUSO}"  class="sapUmcMLabelBold"/>
+      <RadioButtonGroup id="opcionUsoZIEP" columns="2" width="100%"  select="opcionUsoSelect" class="sapUiMediumMarginBottom">
+  		<buttons>
+                <RadioButton id="opcionUso_input1ZIEP" text="{i18n>ZIEP.DECINICIAL}" change="onChange" useEntireWidth="true" width="50%"  tooltip="{i18n>ZIEP.TTDECIN}" enabled="{EnabledModel>/Enabled}">
+	   </RadioButton>              
+   		        <RadioButton id="opcionUso_input3ZIEP" text="{i18n>ZIEP.CORRECCION}" change="onChange" useEntireWidth="true" width="50%"  tooltip="{i18n>ZIEP.TTCORREC}" enabled="{EnabledModel>/Enabled}">
+	   </RadioButton> 
+	   
+   		</buttons>  
+  		</RadioButtonGroup>  
+    <layoutData>
+		<l:GridData span="L8 M2 S2" linebreak="true" />
+	</layoutData>
+	</VBox> 
+   
+     <VBox>
+        <Label text="{i18n>ZIEP.A_60_DECLANUM}" id="A_60_DECLANUM" class="sap08leter"/>
+   		<Input id="_ZIEP_A_60_DECLANUM_input" value="{ZIEPModel>/A_60_DECLANUM}" enabled="{OUSOVisible>/visible}" change="onChange" tooltip="{i18n>ZIEP.TTA_60_DECLANUM}" />
+         <layoutData>
+	<l:GridData span="L2 M2 S2"/>
+	</layoutData> 
+      </VBox>
+      
+    </l:Grid>
+    
+    </Panel>
+  <Panel expandable="true" expanded="true" headerText="A. DATOS GENERALES" width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" >
+      <l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">	
+   <VBox> 
+   <Label text="{i18n>ZIEP.A_00_PRO_O_RAZON_SOCIAL}" id="A_00_PRO_O_RAZON_SOCIAL" class="sapUmcMLabelBold"/>
+   <Input id="_ZIEP_A_00_PRO_O_RAZON_SOCIAL_input" value="{ZIEPModel>/A_00_PRO_O_RAZON_SOCIAL}" enabled="false" change="onChange"/>
+     <layoutData>
+		<l:GridData span="L5 M2 S2" linebreak = "true" />
+	</layoutData> 
+   </VBox>
+   
+   <VBox> 
+   <Label text="{i18n>ZIEP.DOCIDE}" class="sapUmcMLabelBold"/>
+   <HBox>
+   <Label text="CC" id="A_02_CC"/>
+   <CheckBox id="_ZIEP_A_02_CC_input" value="{ZIEPModel>/A_02_CC}" enabled="false" change="onChange"/>
+   <Label text="NIT" id="A_03_NIT"/>
+   <CheckBox id="_ZIEP_A_03_NIT_input" value="{ZIEPModel>/A_03_NIT}" enabled="false" change="onChange"/>
+   <Label text="TI" id="A_04_TI"/>
+   <CheckBox id="_ZIEP_A_04_TI_input" value="{ZIEPModel>/A_04_TI}" enabled="false" change="onChange"/>
+   <Label text="CE" id="A_05_CE"/>
+   <CheckBox id="_ZIEP_A_05_CE_input" value="{ZIEPModel>/A_05_CE}" enabled="false" change="onChange"/>
+    <Label text="No." id="A_01_NUM_IDENTIDAD"/>
+   <Input id="_ZIEP_A_01_NUM_IDENTIDAD_input" value="{ZIEPModel>/A_01_NUM_IDENTIDAD}" enabled="false" change="onChange"/> 
+   <Label text="DV" id="A_06_DV"/>
+   <Input id="_ZIEP_A_06_DV_input" value="{ZIEPModel>/A_06_DV}" enabled="false" change="onChange" width="30%"/>
+   </HBox>
+      <layoutData>
+		<l:GridData span="L7 M2 S2" />
+	</layoutData>   
+   </VBox>
+   
+    <VBox> 
+   <Label text="{i18n>ZIEP.A_07_REPRESENTANTE_LEGAL}" id="A_07_REPRESENTANTE_LEGAL" class="sapUmcMLabelBold"/>
+   <Input id="_ZIEP_A_07_REPRESENTANTE_LEGAL_input" value="{ZIEPModel>/A_07_REPRESENTANTE_LEGAL}" enabled="{EnabledModel>/Enabled}" change="onChange" tooltip="{i18n>ZIEP.TTA_07_REPRESENTANTE_LEGAL}" liveChange = "onLiveChangeUpper"/>
+         <layoutData>
+		<l:GridData span="L5 M2 S2" />
+	</layoutData>   
+   </VBox>
+   
+   <VBox>
+   <Label text="{i18n>ZIEP.A_08_CEDULA_RP}" id="A_08_CEDULA_RP" class="sapUmcMLabelBold"/>
+   <HBox>
+   <Label text="CC" id="A_09_CC_RL"/>
+   <CheckBox id="_ZIEP_A_09_CC_RL_input" value="{ZIEPModel>/A_09_CC_RL}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectIDRep"  tooltip="{i18n>ZIEP.TTTIPOIDRL}"/>
+   <Label text="TI" id="A_10_TI_RL"/>
+   <CheckBox id="_ZIEP_A_10_TI_RL_input" value="{ZIEPModel>/A_10_TI_RL}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectIDRep"  tooltip="{i18n>ZIEP.ZIEP.TTTIPOIDRL}"/>
+   <Label text="CE" id="A_11_CE_RL"/>
+   <CheckBox id="_ZIEP_A_11_CE_RL_input" value="{ZIEPModel>/A_11_CE_RL}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectIDRep"  tooltip="{i18n>ZIEP.TTTIPOIDRL}"/>
+  <Label text="No."/>
+   <Input id="_ZIEP_A_08_CEDULA_RP_input" value="{ZIEPModel>/A_08_CEDULA_RP}" enabled="{EnabledModel>/Enabled}" change="onChange" tooltip="{i18n>ZIEP.A_08_CEDULA_RP}"  liveChange = "onLiveChangeUpper"/>
+   </HBox>
+            <layoutData>
+		<l:GridData span="L5 M2 S2" />
+	</layoutData>
+   </VBox>
+   
+   <VBox>
+   <Label text="{i18n>ZIEP.A_12_TELEFONO}" id="A_12_TELEFONO" class="sapUmcMLabelBold"/>
+   <Input id="_ZIEP_A_12_TELEFONO_input" value="{ZIEPModel>/A_12_TELEFONO}" enabled="false" change="onChange" tooltip="{i18n>ZIEP.TTA_12_TELEFONO}"/>
+            <layoutData>
+		<l:GridData span="L2 M2 S2" />
+	</layoutData>   
+   </VBox>
+   
+   <VBox>
+   <Label text="{i18n>ZIEP.A_13_DIRECCION_NOTIFICACION}" id="A_13_DIRECCION_NOTIFICACION" class="sapUmcMLabelBold"/>
+   <Input id="_ZIEP_A_13_DIRECCION_NOTIFICACION_input" value="{ZIEPModel>/A_13_DIRECCION_NOTIFICACION}" enabled="false" change="onChange" />
+               <layoutData>
+		<l:GridData span="L5 M2 S2" />
+	</layoutData> 
+   </VBox>
+   
+     <VBox>
+      <Label text=""/>
+      <Button
+		text="{i18n>ZIEP.MODIFIDIR}" enabled="{EnabledModel>/Enabled}"
+		press="onPressNewAdress" 
+		class="sapUiSmallMarginBottom  sapUmcConsumptionSegmentedButton" />	
+	  <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	  </layoutData>
+	</VBox>	
+    
+    <VBox>
+   <Label text="{i18n>ZIEP.A_14_CORREO_ELECTRONICO}" id="A_14_CORREO_ELECTRONICO" class="sapUmcMLabelBold"/>
+   <Input id="_ZIEP_A_14_CORREO_ELECTRONICO_input" value="{ZIEPModel>/A_14_CORREO_ELECTRONICO}" enabled="{EnabledModel>/Enabled}" change="validateEmail" tooltip="{i18n>ZIEP.TTA_14_CORREO_ELECTRONICO}"/>
+                  <layoutData>
+		<l:GridData span="L3 M2 S2" />
+	</layoutData> 
+   </VBox>
+   
+     <VBox>
+   <Label text="{i18n>ZIEP.A_15_AUTORIZO_EMAIL}" id="A_15_AUTORIZO_EMAIL" enabled="false" class="sap08leter"/>
+
+  <!--  
+   <Input id="_ZIEP_A_15_AUTORIZO_EMAIL_input" value="{ZIEPModel>/A_15_AUTORIZO_EMAIL}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+     -->
+       			   <ComboBox 
+	            selectedKey = "{ZIEPModel>/A_15_AUTORIZO_EMAIL}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChange" 
+					   class="sapDireccion"
+					id="_ZIEP_A_15_AUTORIZO_EMAIL_input"
+					items="{Autorizo>/results}"
+					>
+					<core:Item key="{Autorizo>letter}" text="{Autorizo>User}" class="letraDireccion"
+					/>
+				
+				</ComboBox>
+    
+    <layoutData>
+		<l:GridData span="L2 M2 S2" />
+	</layoutData> 
+   </VBox>
+   	</l:Grid>
+   	
+  <!--  INICIO MODIFICACIoN DE DIRECCIoN -->	
+
+ 	<Panel expandable="false" expanded="true" headerText="{i18n>ZDIR.DIGDIRNOT}" width="auto" class="sapUiResponsiveMargin sapUmcWhiteBackgroundColor " visible="{DIRVisible2>/visible}">
+						
+		 <l:Grid defaultSpan="L1 M4 S6" class="sapUiSmallMargin sapDireccion" vSpacing="0" hSpacing="0.1">	
+			<l:content>
+						<Text text="{i18n>ZDIR.AYUDA}" style="H2"
+						visible="{DIRVisible>/visible}">
+						<layoutData>
+							<l:GridData span="L12 M12 S12" />
+						</layoutData>
+						</Text>
+						
+			<Title text="" style="H2"  visible="{DIRVisible>/visible}"
+				class=" sapUmcMLabelBold  sapDireccion ">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>
+					
+			<Title text="{i18n>ZDIR.VIAPRINC}" style="H2"  visible="{DIRVisible>/visible}"
+				class=" sapUmcMLabelBold  sapDireccion ">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>
+	
+	<VBox>
+			   <Label text="{i18n>ZDIR.VIA}" id="A_01_VIAZIEP" visible="{VIAVisible>/visible}" class="sapDireccion"/>
+			   <ComboBox 
+	            selectedKey = "{ZDIRModel>/A_01_VIA}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class="sapDireccion" visible="{VIAVisible>/visible}"
+					id="_ZPLU_A_01_VIA_inputZIEP"
+					items="{Via>/results}"
+					>
+					<core:Item key="{Via>Via}" text="{Via>Descripcion}" class="letraDireccion"
+					/>
+				
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+	</VBox>
+	
+	<VBox>
+				<Label text="{i18n>ZDIR.NUMVIA}" id="A_02_NUMVIAZIEP" width="100%" class="sapDireccion"
+				visible="{DIRVisible>/visible}">
+			</Label>
+		
+			<MaskInput mask = "999" id="_ZPLU_A_02_NUMVIA_inputZIEP" width="100%"
+				value="{ZDIRModel>/A_02_NUMVIA}" enabled="{EnabledModel>/Enabled}"
+				change="onChangeDireccion" class="sapDireccion"
+				visible="{DIRVisible>/visible}">
+			</MaskInput>
+	</VBox>
+	<VBox>
+			<Label text="Letra" id="A_03_LETRAVIAZIEP" visible="{DIRVisible>/visible}"  class="sapDireccion"/>
+				<ComboBox
+	            selectedKey = "{ZDIRModel>/A_03_LETRAVIA}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class="sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_03_LETRAVIA_inputZIEP"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}" 
+					/>
+				</ComboBox>
+
+	</VBox>
+	<VBox>
+	<Label text="Numero Sec." id="A_04_NUMSECVIAZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			<MaskInput mask = "99" id="_ZPLU_A_04_NUMSECVIA_inputZIEP" visible="{DIRVisible>/visible}" width="100%"
+				value="{ZDIRModel>/A_04_NUMSECVIA}" class="sapDireccion"
+				enabled="{EnabledModel>/Enabled}" change="onChangeDireccion" />
+			
+
+	</VBox>
+	<VBox>
+				<Label text="Letra Sec" id="A_05_LETRASECVIAZIEP" visible="{DIRVisible>/visible}" class="sapDireccion"/>
+				<ComboBox
+	            selectedKey = "{ZDIRModel>/A_05_LETRASECVIA}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class="sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_05_LETRASECVIA_inputZIEP"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}" 
+					/>
+				</ComboBox> 
+		</VBox>
+<VBox>
+	<Label text="Bis" id="A_06_BISVIAZIEP" visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			 <ComboBox
+	            selectedKey = "{ZDIRModel>/A_06_BISVIA}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class="sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_06_BISVIA_inputZIEP"
+					items="{Bis>/results}"
+					>
+					<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}"  class="sapDireccion"
+					/>
+				</ComboBox>
+				
+			</VBox>
+
+
+			<VBox>
+			<Label text="Sector" id="A_07_SECTORVIAZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			 <ComboBox
+	            selectedKey = "{ZDIRModel>/A_07_SECTORVIA}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class=" sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_07_SECTORVIA_inputZIEP"
+					items="{Sector2>/results}"
+					>
+					<core:Item key="{Sector2>Letra}" text="{Sector2>Descripcion}" 
+					/>				
+				</ComboBox>
+									<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+			</VBox>
+
+	
+			<Title text="Placa" style="H2"  visible="{DIRVisible>/visible}"
+				class=" sapUmcMLabelBold sapDireccion">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>		
+	<VBox>
+			<Label text="Cruce" id="A_08_CRUCEZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			<ComboBox
+	            selectedKey = "{ZDIRModel>/A_08_CRUCE}" enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class=" sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_08_CRUCE_inputZIEP"
+					items="{Via>/results}"
+					>
+					<core:Item key="{Via>Via}" text="{Via>Descripcion}" 
+					/>
+
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</VBox>
+<VBox>
+			<Label text="Numero Cruce" id="A_09_NUMCRUCEZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+
+				
+
+				
+ 			<MaskInput mask = "999" id="_ZPLU_A_09_NUMCRUCE_inputZIEP" visible="{DIRVisible>/visible}" width="100%"
+				value="{ZDIRModel>/A_09_NUMCRUCE}" enabled="{EnabledModel>/Enabled}" 
+				change="onChangeDireccion" class="sapDireccion"/>
+				
+				</VBox>
+				
+	<VBox>			
+			<Label text="Letra Cruce" id="A_10_LETRACRUCEZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			 <ComboBox
+	            selectedKey = "{ZDIRModel>/A_10_LETRACRUCE}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class=" sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_10_LETRACRUCE_inputZIEP"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}" 
+					/>
+				</ComboBox>
+				</VBox>
+
+<VBox>
+			<Label text="Numero Sec Cruce" id="A_11_NUMSECCRUCEZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			<MaskInput mask = "99"  id="_ZPLU_A_11_NUMSECCRUCE_inputZIEP" visible="{DIRVisible>/visible}" width="100%"
+				value="{ZDIRModel>/A_11_NUMSECCRUCE}"  class="sapDireccion"
+				enabled="{EnabledModel>/Enabled}" change="onChangeDireccion" />
+				</VBox>
+				
+<VBox>			
+			<Label text="Letra Sec Cruce" id="A_12_LETRASECCRUCEZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			<ComboBox
+	            selectedKey = "{ZDIRModel>/A_12_LETRASECCRUCE}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class=" sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_12_LETRASECCRUCE_inputZIEP"
+					items="{LetraVia>/results}"
+					>
+					<core:Item key="{LetraVia>Letra}" text="{LetraVia>Letra}" 
+					/>
+				</ComboBox>
+				</VBox>
+
+<VBox>
+			<Label text="Bis" id="A_13_BISCRUCEZIEP" visible="{DIRVisible>/visible}" class="sapDireccion" />
+			<ComboBox
+	            selectedKey = "{ZDIRModel>/A_13_BISCRUCE}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class=" sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_13_BISCRUCE_inputZIEP"
+					items="{Bis>/results}"
+					>
+					<core:Item key="{Bis>Letra}" text="{Bis>Descripcion}" 
+					/>
+				</ComboBox>
+				</VBox>
+<VBox>		
+			<Label text="Sector" id="A_14_SECTORCRUCEZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+		    <ComboBox
+	            selectedKey = "{ZDIRModel>/A_14_SECTORCRUCE}" 
+					width="100%"  change="onChangeDireccion" enabled="{EnabledModel>/Enabled}"
+					   class=" sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_14_SECTORCRUCE_inputZIEP"
+					items="{Sector2>/results}"
+					>
+					<core:Item key="{Sector2>Letra}" text="{Sector2>Descripcion}" 
+					/>
+					
+				</ComboBox>
+									<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</VBox>
+<VBox>
+			<Label text="{i18n>ZDIR.UDP}" id="A_15_ULTDIGPLACAZIEP" visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			<MaskInput mask = "999" id="_ZPLU_A_15_ULTDIGPLACA_inputZIEP" visible="{DIRVisible>/visible}"
+				value="{ZDIRModel>/A_15_ULTDIGPLACA}" class="sapDireccion"
+				enabled="{EnabledModel>/Enabled}" change="onChangeDireccion" />	
+								<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+	</VBox>
+	
+				<Title text="Interior" style="H2"  visible="{DIRVisible>/visible}" 
+				class=" sapUmcMLabelBold  sapDireccion">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+			</Title>	
+	<VBox>
+		<Label text="Bloque" id="A_16_BLOQUEZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/> 
+			<MaskInput  mask = "~~~"   placeholderSymbol="_"  id="_ZPLU_A_16_BLOQUE_inputZIEP" visible="{DIRVisible>/visible}" width="100%"
+				value="{ZDIRModel>/A_16_BLOQUE}" enabled="{EnabledModel>/Enabled}" class="sapDireccion"
+				change="onChangeDireccion"  maxLength="3">
+									<rules>
+						<MaskInputRule maskFormatSymbol="~" regex="[^_]"/>
+					</rules>
+				</MaskInput>
+				
+				</VBox>
+		<VBox>		
+			<Label text="Piso" id="A_17_PISOZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			<MaskInput  mask = "99"  id="_ZPLU_A_17_PISO_inputZIEP" visible="{DIRVisible>/visible}" width="100%" class="sapDireccion"
+				value="{ZDIRModel>/A_17_PISO}" enabled="{EnabledModel>/Enabled}"
+				change="onChangeDireccion"  maxLength="2"/>
+		</VBox>
+		<VBox>		
+			<Label text="Unidad" id="A_18_UNIDADZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			<MaskInput mask = "99" id="_ZPLU_A_18_UNIDAD_inputZIEP" visible="{DIRVisible>/visible}" width="100%"
+				value="{ZDIRModel>/A_18_UNIDAD}" enabled="{EnabledModel>/Enabled}" class="sapDireccion"
+				change="onChangeDireccion" />
+				</VBox>
+				
+		<VBox>		
+			<Label text="Tipo Unidad" id="A_19_DESUNIDADZIEP"  visible="{DIRVisible>/visible}" class="sapDireccion"/>
+			 <ComboBox
+	            selectedKey = "{ZDIRModel>/A_19_DESUNIDAD}"  enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion" 
+					   class=" sapDireccion" visible="{DIRVisible>/visible}"
+					id="_ZPLU_A_19_DESUNIDAD_inputZIEP"
+					items="{Unidad>/results}"
+					>
+					<core:Item key="{Unidad>Letra}" text="{Unidad>Descripcion}" 
+					/>
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				
+				</VBox>
+				
+		<VBox>
+			   <Label text="Via Rural" id="A_26_DIRNUMRURZIEP" visible="{RURALVisible>/visible}" class="sapDireccion" />
+			   <ComboBox 
+			  		selectedKey = "{ZDIRModel>/A_26_DIRNUMRUR}" 
+	              enabled="{EnabledModel>/Enabled}"
+					width="100%"  change="onChangeDireccion"  value="{ZDIRModel>/A_26_DIRNUMRUR}"
+					   class=" sapDireccion" visible="{RURALVisible>/visible}"
+					id="_ZPLU_A_26_DIRNUMRUR_inputZIEP"
+					items="{ViaRural>/results}"
+					>
+					<core:Item key="{ViaRural>Viarural}" text="{ViaRural>Descripcion}" class="letraDireccion"
+					/>
+				</ComboBox>
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+			</VBox>
+		<VBox>
+			   <Label text="Direccion Rural" id="A_25_DIRRURAZIEP" visible="{RURALVisible>/visible}" class="sapDireccion"/>
+			<Input id="_ZPLU_A_25_DIRRURAL_inputZIEP"  visible="{RURALVisible>/visible}"  class="sapDireccion" value="{ZDIRModel>/A_25_DIRRURAL}"
+				enabled="{EnabledModel>/Enabled}" change="onChangeDireccion">
+			
+		  </Input> 	
+			<layoutData>
+					<l:GridData span="L8 M12 S12" />
+				</layoutData>			
+		</VBox>
+	
+					
+				<Title text="{i18n>ZDIR.NDIR}" style="H2"  visible="{VIAVisible>/visible}" enabled="{EnabledModel>/Enabled}"  
+				class="sapUmcMLabelBold  sapDireccion">  
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+				</Title>
+			
+				<Button
+				text="{i18n>ZDIR.VDIR}" enabled="{EnabledModel>/Enabled}" 
+				press="onShowAdress" visible="{VIAVisible>/visible}" 
+				class="sapUiSmallMarginBottom" > 
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</Button>
+				
+				<Button
+				text="{i18n>ZDIR.BDIR}" enabled="{EnabledModel>/Enabled}"
+				press="onEraseAdress" visible="{VIAVisible>/visible}" 
+				class="sapUiSmallMarginBottom" >
+				<layoutData>
+					<l:GridData span="L2 M12 S12" />
+				</layoutData>
+				</Button>		
+
+				<VBox>
+				<Title text="{i18n>ZDIR.DIRECC}" style="H2"  visible="{DIRVisible>/visible}"
+				class="sapUmcMLabelBold  sapDireccion">
+				</Title>
+   				<Input id="_ZPLU_A_24_DIRECCIONCORREGIDA_inputZIEP" value="{ZDIRModel>/A_29_DIRPANTALLA}" visible="{VIAVisible>/visible}" change="onChangeDireccion" enabled="false">
+ 
+				</Input>
+				<layoutData>
+					<l:GridData span="L7 M12 S12" />
+				</layoutData>
+				</VBox>
+				
+				
+	</l:content>
+	</l:Grid>         			 
+	</Panel>	
+	
+<!--  FIN MODIFICACIoN DE DIRECCIoN -->	   
+         <l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0">	
+   <VBox>
+   <Label text="{i18n>ZIEP.A_16_NOMBRE_ESPECTACULO}" id="A_16_NOMBRE_ESPECTACULO" class="sapUmcMLabelBold"/>
+   <Input id="_ZIEP_A_16_NOMBRE_ESPECTACULO_input" value="{ZIEPModel>/A_16_NOMBRE_ESPECTACULO}" enabled="{EnabledModel>/Enabled}" change="onChange"  tooltip="{i18n>ZIEP.TTA_16_NOMBRE_ESPECTACULO}" liveChange = "onLiveChangeUpper"/>
+       <layoutData>
+		<l:GridData span="L5 M2 S2" />
+	</layoutData> 
+   </VBox>
+   
+   <VBox>
+   <Label text="{i18n>ZIEP.A_17_LUGAR_REALIZACION}" id="A_17_LUGAR_REALIZACION" class="sapUmcMLabelBold"/>
+ <!--   <Input id="_ZIEP_A_17_LUGAR_REALIZACION_input" value="{ZIEPModel>/A_17_LUGAR_REALIZACION}" enabled="{EnabledModel>/Enabled}" change="onChange"  tooltip="{i18n>ZIEP.TTA_17_LUGAR_REALIZACION}"/>  -->
+	   			   <ComboBox 
+	            selectedKey = "{ZIEPModel>/A_17_LUGAR_REALIZACION}"  enabled="{EnabledModel>/Enabled}"
+					 change="onChangeTipoEspec" tooltip="{i18n>ZIEP.TTA_17_LUGAR_REALIZACION}"
+					   width="100%"
+					id="_ZIEP_A_17_LUGAR_REALIZACION_input"
+					items="{TipoEspec>/results}"
+					>
+					<core:Item key="{TipoEspec>Value}" text="{TipoEspec>Value}" class="letraDireccion"
+					/>
+				
+				</ComboBox>
+				
+     <layoutData>
+	<l:GridData span="L7 M2 S2" />
+	</layoutData> 
+   </VBox>
+   
+   <VBox>
+   <Label text="{i18n>ZIEP.TIPOESPEC}" class="sapUmcMLabelBold"/>
+   <HBox alignItems="Center">
+   <Label text="{i18n>ZIEP.A_18_ACADEMICO}" id="A_18_ACADEMICO" />
+   <CheckBox id="_ZIEP_A_18_ACADEMICO_input" value="{ZIEPModel>/A_18_ACADEMICO}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectTipoEspec" tooltip="{i18n>ZIEP.TTTIPOESP}" />
+   <Label text="{i18n>ZIEP.A_19_DEPORTIVO}" id="A_19_DEPORTIVO"/>
+   <CheckBox id="_ZIEP_A_19_DEPORTIVO_input" value="{ZIEPModel>/A_19_DEPORTIVO}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectTipoEspec" tooltip="{i18n>ZIEP.TTTIPOESP}" />
+   <Label text="{i18n>ZIEP.A_20_RECREATIVO}" id="A_20_RECREATIVO"/>
+   <CheckBox id="_ZIEP_A_20_RECREATIVO_input" value="{ZIEPModel>/A_20_RECREATIVO}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectTipoEspec" tooltip="{i18n>ZIEP.TTTIPOESP}" />
+   <Label text="{i18n>ZIEP.A_21_OTROS_EPD}" id="A_21_OTROS_EPD"/>
+   <CheckBox id="_ZIEP_A_21_OTROS_EPD_input" value="{ZIEPModel>/A_21_OTROS_EPD}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectTipoEspec" tooltip="{i18n>ZIEP.TTTIPOESP}" />
+   </HBox>
+     <layoutData>
+	<l:GridData span="L6 M2 S2" />
+	</layoutData>    
+   </VBox>
+   
+    <VBox> 
+   <Label text="{i18n>ZIEP.A_22_FECHA_INICIO_ESP}" id="A_22_FECHA_INICIO_ESP" class="sapUmcMLabelBold"/>
+   <DatePicker id="_ZIEP_A_22_FECHA_INICIO_ESP_date" enabled="{AGERETVisible>/visible}" value="{ZIEPModel>/A_22_FECHA_INICIO_ESP}" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChangeFecha" tooltip="{i18n>ZIEP.TTA_22_FECHA_INICIO_ESP}"/>
+     <layoutData>
+	<l:GridData span="L3 M2 S2" />
+	</layoutData>     
+   </VBox>
+   
+   <VBox>
+   <Label text="{i18n>ZIEP.A_23_FECHA_FINAL_ESP}" id="A_23_FECHA_FINAL_ESP" class="sapUmcMLabelBold"/>
+   <DatePicker id="_ZIEP_A_23_FECHA_FINAL_ESP_date"  enabled="{AGERETVisible>/visible}" value="{ZIEPModel>/A_23_FECHA_FINAL_ESP}" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChangeFecha" tooltip="{i18n>ZIEP.TTA_23_FECHA_FINAL_ESP}"/>
+     <layoutData>
+	<l:GridData span="L3 M2 S2" />
+	</layoutData>  
+   </VBox>
+   </l:Grid>
+      </Panel>
+      
+
+    <Panel expandable="true" expanded="true" headerText="{i18n>ZIEP.BLIQPRIV}" width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" >
+         	<l:Grid defaultSpan="L12 M12 S12" class="sapDireccion" id="BLiqPrivada" vSpacing="0"> <!--  -->	
+         	</l:Grid>
+    	<l:Grid defaultSpan="L1 M4 S6" class="sapDireccion" vSpacing="0" >	
+    
+              <Label text="{i18n>DESC}" class="sapUmcMLabelBold">
+    	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>     
+   </Label>
+      <Label text="{i18n>VALDIG}" class="sapUmcMLabelBold ">
+    	   <layoutData >
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>     
+   </Label>
+      <Label text="{i18n>VALCALC}" class="sapUmcMLabelBold ">
+    	   <layoutData >
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>     
+   </Label>   
+   
+   		<Label text="{i18n>ZIEP.A_24_TOTAL_IMP_GRAVADOS}" id="A_24_TOTAL_IMP_GRAVADOS">
+       	   <layoutData>
+		<l:GridData span="L8 M12 S12"/>
+	   </layoutData>  
+	   </Label>
+	  
+   
+   
+   
+   <Input id="_ZIEP_A_24_TOTAL_IMP_GRAVADOS_input" value="{path:'ZIEPModel>/A_24_TOTAL_IMP_GRAVADOS', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{EnabledModel>/Enabled}" change="onChange">
+        	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>    
+   </Input>
+  
+   <Input id="_ZIEP_A_66_LIQ_TOTAL_IMP_GRAVADOS_input" value="{path:'ZIEPModel>/A_66_LIQ_TOTAL_IMP_GRAVADOS', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+        	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>    
+   </Input>
+   <!--  
+   <Label text="Existe Diferencia" id="A_84_EXISTE_DIFERENCIA"/>
+   <Input id="_ZIEP_A_84_EXISTE_DIFERENCIA_input" value="{ZIEPModel>/A_84_EXISTE_DIFERENCIA}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+-->
+   <Label text="{i18n>ZIEP.A_25_BASE_GRAVABLE}" id="A_25_BASE_GRAVABLE">
+          	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+   
+   
+   
+   <Input id="_ZIEP_A_25_BASE_GRAVABLE_input" value="{path:'ZIEPModel>/A_25_BASE_GRAVABLE', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{AGERETVisible>/visible}" change="onChange">
+           	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>    
+   </Input>
+   
+   
+   <Input id="_ZIEP_A_67_LIQ_BASE_GRAVABLE_input" value="{path:'ZIEPModel>/A_67_LIQ_BASE_GRAVABLE', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+   
+           	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>    
+   </Input>
+   
+   
+   
+   <Label text="{i18n>ZIEP.A_26_BG_SIS_RETENCION_FUENTE}" id="A_26_BG_SIS_RETENCION_FUENTE">
+             	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+   
+   <Input id="_ZIEP_A_26_BG_SIS_RETENCION_FUENTE_input" value="{path:'ZIEPModel>/A_26_BG_SIS_RETENCION_FUENTE', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{RESPVisible>/visible}" change="onChange">
+             	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	   </Input> 
+   
+   <Input id="_ZIEP_A_68_LIQ_BG_SIS_RETENCION_FUEN_input" value="{path:'ZIEPModel>/A_68_LIQ_BG_SIS_RETENCION_FUEN', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+             	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>   
+   </Input>
+   
+   <Label text="{i18n>ZIEP.A_27_IMP_MUN_ESP_PUBLICO}" id="A_27_IMP_MUN_ESP_PUBLICO">
+                	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+   
+   
+   <Input id="_ZIEP_A_27_IMP_MUN_ESP_PUBLICO_input" value="{path:'ZIEPModel>/A_27_IMP_MUN_ESP_PUBLICO', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{AGERETVisible>/visible}" change="onChange">
+                	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	   </Input> 
+   
+    <Input id="_ZIEP_A_69_LIQ_IMP_MUN_ESP_PUBLICO_input" value="{path:'ZIEPModel>/A_69_LIQ_IMP_MUN_ESP_PUBLICO', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+       <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>     
+    </Input>
+   
+   
+   <Label text="{i18n>ZIEP.A_28_IMP_MUN_ESP_DEPORTE}" id="A_28_IMP_MUN_ESP_DEPORTE">
+                   	   <layoutData>
+		<l:GridData span="L8 M12 S12"/>
+	   </layoutData>  
+	   </Label>
+   
+   <Input id="_ZIEP_A_28_IMP_MUN_ESP_DEPORTE_input" value="{path:'ZIEPModel>/A_28_IMP_MUN_ESP_DEPORTE', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{AGERETVisible>/visible}" change="onChange">
+                   	   <layoutData>
+		<l:GridData span="L2 M12 S12"/>
+	   </layoutData>  
+	   </Input> 
+   
+    <Input id="_ZIEP_A_70_LIQ_IMP_MUN_ESP_DEPORTE_input" value="{path:'ZIEPModel>/A_70_LIQ_IMP_MUN_ESP_DEPORTE', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+       <layoutData>
+		<l:GridData span="L2 M12 S12"/>
+	   </layoutData>      
+    </Input>
+   
+   
+   <Label text="{i18n>ZIEP.A_29_RET_IMP_MUN_ESP_PUBLICO}" id="A_29_RET_IMP_MUN_ESP_PUBLICO">
+                      	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+   
+   
+   <Input id="_ZIEP_A_29_RET_IMP_MUN_ESP_PUBLICO_input" value="{path:'ZIEPModel>/A_29_RET_IMP_MUN_ESP_PUBLICO', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{RESPVisible>/visible}" change="onChange">
+                         	   <layoutData>
+		<l:GridData span="L2 M12 S12"/>
+	   </layoutData>  
+	    </Input>
+   
+    <Input id="_ZIEP_A_71_LIQ_RET_IMP_MUN_ESP_PUBLI_input" value="{path:'ZIEPModel>/A_71_LIQ_RET_IMP_MUN_ESP_PUBLI', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+                          	   <layoutData>
+		<l:GridData span="L2 M12 S12"/>
+	   </layoutData>     
+    </Input>
+   
+   <Label text="{i18n>ZIEP.A_30_RET_IMP_MUN_ESP_DEPORTE}" id="A_30_RET_IMP_MUN_ESP_DEPORTE">
+                         	   <layoutData>
+		<l:GridData span="L8 M12 S12"/>
+	   </layoutData>  
+	   </Label>
+   
+   <Input id="_ZIEP_A_30_RET_IMP_MUN_ESP_DEPORTE_input" value="{path:'ZIEPModel>/A_30_RET_IMP_MUN_ESP_DEPORTE', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{RESPVisible>/visible}" change="onChange">
+                            	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+   
+    <Input id="_ZIEP_A_72_LIQ_RET_IMP_MUN_ESP_DEPOR_input" value="{path:'ZIEPModel>/A_72_LIQ_RET_IMP_MUN_ESP_DEPOR', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+                            	   <layoutData>
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>      
+    </Input>
+   
+   
+   <Label text="{i18n>ZIEP.A_31_TOTAL_IMPUESTOS}" id="A_31_TOTAL_IMPUESTOS">
+                            	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+	   
+   <Input id="_ZIEP_A_31_TOTAL_IMPUESTOS_input" value="{path:'ZIEPModel>/A_31_TOTAL_IMPUESTOS', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{AGERETVisible>/visible}" change="onChange">
+   			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+   
+      <Input id="_ZIEP_A_73_LIQ_TOTAL_IMPUESTOS_input" value="{path:'ZIEPModel>/A_73_LIQ_TOTAL_IMPUESTOS', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+   			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+      </Input>
+   
+   
+   <Label text="{i18n>ZIEP.A_32_TOTAL_RETENCIONES}" id="A_32_TOTAL_RETENCIONES">
+                               	   <layoutData>
+		<l:GridData span="L8 M12 S12"/>
+	   </layoutData>  
+	   </Label>
+
+         
+          
+          
+   <Input id="_ZIEP_A_32_TOTAL_RETENCIONES_input" value="{path:'ZIEPModel>/A_32_TOTAL_RETENCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{RESPVisible>/visible}" change="onChange">
+   			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+   
+ 
+    <Input id="_ZIEP_A_74_LIQ_TOTAL_RETENCIONES_input" value="{path:'ZIEPModel>/A_74_LIQ_TOTAL_RETENCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+   			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>      
+    </Input>
+ 
+ 
+    	<Label text="{i18n>ZIEP.SECSANC}">
+    	 <layoutData>
+		<l:GridData span="L6 M12 S12" linebreak="true"/>
+	   </layoutData>  	
+ 	</Label>
+ 	
+	   <HBox alignItems="Center">
+  		   		<CheckBox id="_ZIEP_A_37_EXTEMPORANEIDAD_input" value="{ZIEPModel>/A_37_EXTEMPORANEIDAD}"  enabled="{EnabledModel>/Enabled}" change="onChange"  select="onChangeExt"/>
+  		 <Label text="{i18n>ZIEP.A_37_EXTEMPORANEIDAD}" id="A_37_EXTEMPORANEIDAD"/>
+   			   <ComboBox 
+	            selectedKey = "{ZIEPModel>/A_95_EMPLAZAMIENTO}"   enabled="{ExtVisible>/visible}"
+					width="50%"  change="onChange" tooltip="{i18n>ZIEP.TTA_95_EMPLAZAMIENTO}"
+					   class="sapDireccion"
+					id="_ZIEP_A_95_EMPLAZAMIENTO_input"
+					items="{Si>/results}"
+					>
+					<core:Item key="{Si>Value}" text="{Si>View}" class="letraDireccion"
+					/>
+				</ComboBox>
+        <layoutData>
+		<l:GridData span="L8 M12 S12"  />
+	   </layoutData>   
+        </HBox>
+	 
+
+   <Input id="_ZIEP_A_40_VALOR_EXTEMPORANEA_input" value="{path:'ZIEPModel>/A_40_VALOR_EXTEMPORANEA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{ExtVisible>/visible}" change="onChange">
+     <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData> 
+   </Input>
+   
+      <Input id="_ZIEP_A_77_LIQ_VALOR_EXTEMPORANEA_input" value="{path:'ZIEPModel>/A_77_LIQ_VALOR_EXTEMPORANEA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+     <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>      
+      </Input>
+   
+   
+     <HBox alignItems="Center">
+      	<CheckBox id="_ZIEP_A_36_SCORRECCION_input" value="{ZIEPModel>/A_36_SCORRECCION}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onChangeCORR"/>
+        <Label text="{i18n>ZIEP.A_36_SCORRECCION}" id="A_36_SCORRECCION"/>
+   	    <layoutData>
+		<l:GridData span="L8 M12 S12"  />
+	   </layoutData>   
+        </HBox>
+	 
+
+
+   <Input id="_ZIEP_A_39_VALOR_CORRECION_input" value="{path:'ZIEPModel>/A_39_VALOR_CORRECION', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{CORRVisible>/visible}" change="onChange">
+
+     <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>
+   </Input>
+   
+      <Input id="_ZIEP_A_76_LIQ_VALOR_CORRECION_input" value="{path:'ZIEPModel>/A_76_LIQ_VALOR_CORRECION', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+     <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>      
+      </Input>
+   
+ 
+   <HBox alignItems="Center">
+        <CheckBox id="_ZIEP_A_35_INEXACTITUD_input" value="{ZIEPModel>/A_35_INEXACTITUD}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onChangeINEX"/>
+      <Label text="{i18n>ZIEP.A_35_INEXACTITUD}" id="A_35_INEXACTITUD"/>
+
+           <layoutData>
+		<l:GridData span="L8 M12 S12"  />
+	   </layoutData>   
+        </HBox>
+	 
+
+
+   <Input id="_ZIEP_A_38_VALOR_INEXACTITUD_input" value="{path:'ZIEPModel>/A_38_VALOR_INEXACTITUD', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{INEXVisible>/visible}"  change="onChange">
+     <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>
+   </Input>
+   
+      <Input id="_ZIEP_A_75_LIQ_VALOR_INEXACTITUD_input" value="{path:'ZIEPModel>/A_75_LIQ_VALOR_INEXACTITUD', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+      <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>     
+      </Input>
+   
+   
+    <HBox alignItems="Center">
+    <CheckBox id="_ZIEP_A_34_OTRA_SANCION_input" value="{ZIEPModel>/A_34_OTRA_SANCION}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onChangeOTRASancion"/>
+    <Label text="OTRA CUAL" id="A_34_OTRA_SANCION"/>
+    <Input id="_ZIEP_A_33_CUAL_OTRA_input" value="{ZIEPModel>/A_33_CUAL_OTRA}" enabled="{OTRASANVisible>/visible}" change="onChange" liveChange = "onLiveChangeUpper"/>
+           <layoutData>
+		<l:GridData span="L8 M12 S12"  />
+	   </layoutData>   
+    </HBox>
+	 
+
+   <Input id="_ZIEP_A_41_VALOR_OTRA_input" value="{path:'ZIEPModel>/A_41_VALOR_OTRA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{OTRASANVisible>/visible}" change="onChange">
+     <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>
+   </Input>
+   
+    <Input value="{path:'ZIEPModel>/A_41_VALOR_OTRA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+     <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>
+   </Input>  
+
+ <Label text="{i18n>ZIEP.A_42_VALOR_SANCIONES}" id="A_42_VALOR_SANCIONES">
+      <layoutData>
+		<l:GridData span="L8 M12 S12"  />
+	   </layoutData>
+ </Label>
+ 
+ 
+   <Input id="_ZIEP_A_42_VALOR_SANCIONES_input" value="{path:'ZIEPModel>/A_42_VALOR_SANCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{EnabledModel>/Enabled}" change="onChange">
+        <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>
+   </Input>
+
+<Input id="_ZIEP_A_78_LIQ_VALOR_SANCIONES_input" value="{path:'ZIEPModel>/A_78_LIQ_VALOR_SANCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+        <layoutData>
+		<l:GridData span="L2 M12 S12"  />
+	   </layoutData>
+</Input>
+
+   
+   
+   <Label text="{i18n>ZIEP.A_43_TOTAL_SALDO_CARGO}" id="A_43_TOTAL_SALDO_CARGO">
+                                  	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+	   
+   <Input id="_ZIEP_A_43_TOTAL_SALDO_CARGO_input" value="{path:'ZIEPModel>/A_43_TOTAL_SALDO_CARGO', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{EnabledModel>/Enabled}" change="onChange">
+     			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+	    
+	  <Input id="_ZIEP_A_79_LIQ_TOTAL_SALDO_CARGO_input" value="{path:'ZIEPModel>/A_79_LIQ_TOTAL_SALDO_CARGO', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+     	<layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData> 	       
+	  </Input>
+    
+         </l:Grid>
+   </Panel>
+ 
+
+ 
+         <Panel expandable="true" expanded="true" headerText="C. PAGOS" width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" >
+      <l:Grid defaultSpan="L1 M12 S12" class="sapDireccion" vSpacing="0">	
+      
+                <Label text="{i18n>DESC}" class="sapUmcMLabelBold">
+    	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>     
+   </Label>
+      <Label text="{i18n>VALDIG}" class="sapUmcMLabelBold ">
+    	   <layoutData >
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>     
+   </Label>
+      <Label text="{i18n>VALCALC}" class="sapUmcMLabelBold ">
+    	   <layoutData >
+		<l:GridData span="L2 M12 S12" />
+	   </layoutData>     
+   </Label>   
+   
+   <Label text="{i18n>ZIEP.A_44_ZVALOR_A_PAGAR}" id="A_44_ZVALOR_A_PAGAR">
+                                   	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+	     
+   <Input id="_ZIEP_A_44_ZVALOR_A_PAGAR_input" value="{path:'ZIEPModel>/A_44_ZVALOR_A_PAGAR', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{EnabledModel>/Enabled}" change="onChange">
+      			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+
+   <Input id="_ZIEP_A_91_LIQ_VALOR_A_PAGAR_input" value="{path:'ZIEPModel>/A_91_LIQ_VALOR_A_PAGAR', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+      			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+	    	      
+   <Label text="{i18n>ZIEP.A_45_ZVALOR_PAGAR_SANCIONES}" id="A_45_ZVALOR_PAGAR_SANCIONES">
+                                   	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+	     
+   <Input id="_ZIEP_A_45_ZVALOR_PAGAR_SANCIONES_input" value="{path:'ZIEPModel>/A_45_ZVALOR_PAGAR_SANCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{EnabledModel>/Enabled}" change="onChange">
+      			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+	       
+   <Input value="{path:'ZIEPModel>/A_94_LIQ_VALOR_PAGAR_SANCIONES', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+      			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+	       
+   <Label text="{i18n>ZIEP.A_46_ZINTERESES_MORA}" id="A_46_ZINTERESES_MORA">
+                                   	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+	      
+   <Input id="_ZIEP_A_46_ZINTERESES_MORA_input" value="{path:'ZIEPModel>/A_46_ZINTERESES_MORA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{EnabledModel>/Enabled}" change="onChange"  tooltip="{i18n>ZIEP.TTA_46_ZINTERESES_MORA}">
+        			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+	    </Input>
+  
+     <Input id="_ZIEP_A_80_LIQ_INTERESES_MORA_input" value="{path:'ZIEPModel>/A_80_LIQ_INTERESES_MORA', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+        			   <layoutData>
+   		<l:GridData span="L2 M12 S12" />
+	   </layoutData>  
+     </Input>
+  
+  
+  
+   <Label text="{i18n>ZIEP.A_47_TOTAL_PAGAR}" id="A_47_TOTAL_PAGAR">
+                                   	   <layoutData>
+		<l:GridData span="L8 M12 S12" />
+	   </layoutData>  
+	   </Label>
+	   
+   <Input id="_ZIEP_A_47_TOTAL_PAGAR_input" value="{path:'ZIEPModel>/A_47_TOTAL_PAGAR', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="{EnabledModel>/Enabled}" change="onChange">
+        			   <layoutData>
+   			<l:GridData span="L2 M12 S12" />
+	   	</layoutData>  
+	 </Input>   
+	 
+	  <Input id="_ZIEP_A_81_TOTAL_PAGAR_input" value="{path:'ZIEPModel>/A_81_TOTAL_PAGAR', type:'sap.ui.model.type.Currency', formatOptions:{decimals: 0, showMeasure: false, source: {}}}" enabled="false" change="onChange">
+        			   <layoutData>
+   			<l:GridData span="L2 M12 S12" />
+	   	</layoutData> 	  
+	  </Input>
+	 
+	 <!--  
+	     <Label text="DIRECCION ESTABLECIMIENTO" id="A_65_DIRECCION_ESTABLECIMIENTO"/>
+   <Input id="_ZIEP_A_65_DIRECCION_ESTABLECIMIENTO_input" value="{ZIEPModel>/A_65_DIRECCION_ESTABLECIMIENTO}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+    -->
+ 
+  			 </l:Grid>
+  		</Panel>
+   
+      <Panel expandable="true" expanded="true" headerText="D. FIRMAS" width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" >
+   
+   <l:Grid defaultSpan="L1 M12 S12" class="sapDireccion" vSpacing="0">	
+   
+   <Label text="{i18n>ZIEP.A_48_NOMBRE_DECLARANTE}" id="A_48_NOMBRE_DECLARANTE">
+       <layoutData>
+   		<l:GridData span="L6 M12 S12" />
+	   </layoutData> 
+   </Label>
+   
+   <HBox alignItems="Center">
+   <Label text="{i18n>ZIEP.A_51_FIRMA_CONTADOR}" id="A_51_FIRMA_CONTADOR"/> 
+   <CheckBox id="_ZIEP_A_51_FIRMA_CONTADOR_input" value="{ZIEPModel>/A_51_FIRMA_CONTADOR}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectSegundaFirma"/>
+    <Label text="{i18n>ZIEP.A_50_REVISOR_FISCAL}" id="A_50_REVISOR_FISCAL"/>
+   <CheckBox id="_ZIEP_A_50_REVISOR_FISCAL_input" value="{ZIEPModel>/A_50_REVISOR_FISCAL}" enabled="{EnabledModel>/Enabled}" change="onChange" select="onSelectSegundaFirma"/>
+         <layoutData>
+   		<l:GridData span="L6 M12 S12" />
+	   </layoutData> 
+  
+   </HBox>
+   
+   
+      <HBox alignItems="Center">
+   <Label text="{i18n>ZIEP.ANAME}" />
+   <Input id="_ZIEP_A_48_NOMBRE_DECLARANTE_input" value="{ZIEPModel>/A_48_NOMBRE_DECLARANTE}" enabled="{EnabledModel>/Enabled}" change="onChange" width="200%" liveChange = "onLiveChangeUpper"/>
+         <layoutData>
+   		<l:GridData span="L6 M12 S12" />
+	   </layoutData>    
+   </HBox>
+   
+   
+    <HBox alignItems="Center">
+   <Label text="{i18n>ZIEP.ANAME}" id="A_52_NOMBRE_CONT_FISC"/>
+   <Input id="_ZIEP_A_52_NOMBRE_CONT_FISC_input" value="{ZIEPModel>/A_52_NOMBRE_CONT_FISC}" enabled="{SEGFIRMAVisible>/visible}" change="onChange" width="250%" liveChange = "onLiveChangeUpper"/>
+            <layoutData>
+   		<l:GridData span="L6 M12 S12" />
+	   </layoutData>    
+   </HBox>
+
+    <HBox alignItems="Center">
+   <Label text="{i18n>ZIEP.A_49_NUMERO_DECLARANTE}" id="A_49_NUMERO_DECLARANTE" />
+   <Input id="_ZIEP_A_49_NUMERO_DECLARANTE_input" value="{ZIEPModel>/A_49_NUMERO_DECLARANTE}" enabled="{EnabledModel>/Enabled}" change="onChange" width="203%" liveChange = "onLiveChangeUpper"/>
+               <layoutData>
+   		<l:GridData span="L6 M12 S12"  />
+	   </layoutData>    
+   </HBox>
+   
+    
+    
+    <HBox alignItems="Center">
+    <Label text="{i18n>ZIEP.A_53_NUMERO_CONT_FISC}" id="A_53_NUMERO_CONT_FISC"/>
+   <Input id="_ZIEP_A_53_NUMERO_CONT_FISC_input" value="{ZIEPModel>/A_53_NUMERO_CONT_FISC}" enabled="{SEGFIRMAVisible>/visible}" change="onChange" liveChange = "onLiveChangeUpper"/>
+   <Label text="{i18n>ZIEP.A_54_TARJETA_PROF}" id="A_54_TARJETA_PROF"/>
+   <Input id="_ZIEP_A_54_TARJETA_PROF_input" value="{ZIEPModel>/A_54_TARJETA_PROF}" enabled="{SEGFIRMAVisible>/visible}" change="onChange" liveChange = "onLiveChangeUpper"/>
+       
+               <layoutData>
+   		<l:GridData span="L6 M12 S12" />
+	   </layoutData>    
+   </HBox>
+   
+   
+<!--  
+   <Label text="FORMULARIO No." id="A_55_NO_FORMULARIO"/>
+   <Input id="_ZIEP_A_55_NO_FORMULARIO_input" value="{ZIEPModel>/A_55_NO_FORMULARIO}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+  
+   <Label text="Fecha Creacion de la Declaraci" id="A_86_FECHA_CREACION"/>
+   <DatePicker id="_ZIEP_A_86_FECHA_CREACION_date" value="{ZIEPModel>/A_86_FECHA_CREACION}" enabled="{EnabledModel>/Enabled}" displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange"/>
+   <Label text="Existe Diferencia Valores Liq" id="A_88_EXISTE_VAL_DIF"/>
+   <Input id="_ZIEP_A_88_EXISTE_VAL_DIF_input" value="{ZIEPModel>/A_88_EXISTE_VAL_DIF}" enabled="{EnabledModel>/Enabled}" change="onChange"/>
+  
+
+  -->
+  
+  </l:Grid>
+   </Panel>
+ 
+
+
+
+	</ScrollContainer>
+
+	
+	
+	
+
+</core:FragmentDefinition>

@@ -1,0 +1,124 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar">
+
+	<l:VerticalLayout width="100%">
+		<!-- <HBox width="100%" justifyContent="Center"> <Label text="Search Relations" 
+			class="sapUmcVerticalAfterSpacingX1 sapUmcSectionHeading sapUmcVerticalBeforeSpacingX2" 
+			/> </HBox> -->
+		<fb:FilterBar id="idAddRelationsFilter"
+			search="onSearchRelations" showRestoreButton="false"
+			showClearButton="false">
+			<fb:filterItems>
+				<fb:FilterItem name="HouseNo"
+					label="{i18n>USER_PROFILE.HOUSE_NO}"
+					labelTooltip="{i18n>USER_PROFILE.HOUSE_NO}">
+					<fb:control>
+						<Input type="Text" />
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="Street"
+					label="{i18n>USER_PROFILE.STREET}"
+					labelTooltip="{i18n>USER_PROFILE.STREET}">
+					<fb:control>
+						<Input type="Text" />
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="City"
+					label="{i18n>USER_PROFILE.CITY}"
+					labelTooltip="{i18n>USER_PROFILE.CITY}">
+					<fb:control>
+						<Input type="Text" />
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="Country"
+					label="{i18n>USER_PROFILE.COUNTRY}"
+					labelTooltip="{i18n>USER_PROFILE.COUNTRY}">
+					<fb:control>
+						<Select id="idCountrySelect" change="onCountrySelected"
+							width="100%" items="{countries>/results}">
+							<core:Item key="{countries>CountryID}"
+								text="{countries>Name}" />
+						</Select>
+						<!-- <Input type="Text"/> -->
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="PostalCode"
+					labelTooltip="{i18n>USER_PROFILE.POSTAL_CODE}"
+					label="{i18n>USER_PROFILE.POSTAL_CODE}">
+					<fb:control>
+						<Input type="Text" />
+					</fb:control>
+				</fb:FilterItem>
+
+
+			</fb:filterItems>
+		</fb:FilterBar>
+	</l:VerticalLayout>
+	<!-- <List id="idTaxAdvisorList" items="{businessDirectory>/}" headerText="Search 
+		Result" noDataText="No Data" class="sapUmcVerticalBeforeSpacingX1" itemPress="onTaxAdvisorSelection" 
+		mode="SingleSelectMaster"> <StandardListItem title="{businessDirectory>FullName}" 
+		description="{businessDirectory>address/ShortForm}" type="Navigation" /> 
+		</List> -->
+	<Table id="idBusinessDirectoryTable" growingScrollToLoad="false"
+		mode="None" items="{businessDirectory>/}">
+		<columns>
+
+			<Column minScreenWidth="Tablet" demandPopin="true"
+				hAlign="Center">
+				<Text text="{i18n>USER_PROFILE.FULL_NAME}" />
+
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true"
+				hAlign="Center">
+				<Text text="{i18n>USER_PROFILE.HOUSE_NO}" />
+
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true"
+				hAlign="Center">
+				<Text text="{i18n>USER_PROFILE.STREET}" />
+
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true"
+				hAlign="Center">
+				<Text text="{i18n>USER_PROFILE.CITY}" />
+
+			</Column>
+
+
+			<Column minScreenWidth="Tablet" demandPopin="true"
+				hAlign="Center">
+				<Text text="{i18n>USER_PROFILE.COUNTRY}" />
+
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true"
+				hAlign="Center">
+				<Text text="{i18n>USER_PROFILE.POSTAL_CODE}" />
+
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle" type="Navigation"
+				press="onTaxAdvisorSelection">
+				<cells>
+
+					<Text text="{businessDirectory>FullName}" editable="false" />
+					<Text text="{businessDirectory>HouseNo}" editable="false" />
+					<Text text="{businessDirectory>Street}" editable="false" />
+					<Text text="{businessDirectory>City}" editable="false" />
+					<Text text="{businessDirectory>Country}" editable="false" />
+					<Text text="{businessDirectory>PostlCod1}" editable="false" />
+
+
+
+
+				</cells>
+
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

@@ -1,0 +1,33 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+
+	controllerName="sap.umc.mobile.home.view.AccountSearch"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page enableScrolling="true">
+
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="Search Account" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+
+		<content>
+			<SearchField liveChange="onSearch" width="100%" />
+			<List id="idAccountsList" items="{Accounts>/}">
+				<!-- <Table id="UNEMPLOYMENT_TAX_table" growingScrollToLoad="false" mode="MultiSelect" 
+					items="{UNEMPLOYMENT_TAXModel>/}" select="onTableItemSelect"> <Toolbar> -->
+
+				<!-- <headerToolbar> <Toolbar> <SearchField liveChange="onSearch" width="100%" 
+					/> </Toolbar> </headerToolbar> -->
+				<items>
+					<StandardListItem title="{Accounts>FullName}"
+						type="Navigation" press="onListItemPress" />
+					<!-- description="{ProductId}" icon="{ProductPicUrl}" iconDensityAware="false" 
+						iconInset="false" -->
+				</items>
+			</List>
+		</content>
+	</Page>
+</core:View>

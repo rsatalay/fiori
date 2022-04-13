@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+ <l:Grid defaultSpan="L12 M12 S12" width="auto" class="sapUmcGraphLabelContainer">
+  <l:content>
+     <Label text="{i18n>ZPLU.INSTMATRI}"/>	
+  <!--  
+  		<Panel expandable="true" expanded="true" headerText="Instrucciones " width="auto" class="sapUiResponsiveMargin sapUmcConsumptionSegmentedButton" expand="onDatosContSelect" >
+		<VBox>
+		<Label text="SeNor contribuyente digite las matriculas de los predios que desea presentar" />
+		<Label text="Utilice el boton de aNadir para agregar nueva matricula, eliminar para borrar y editar para modificar"></Label>
+		</VBox>
+		</Panel>
+  -->
+   <Table id="_Z_FORMTABLE_PLUSVALIA_II_table" growingScrollToLoad="false" mode="MultiSelect" select="onTableItemSelect" items="{Z_FORMTABLE_PLUSVALIA_IIModel>/}" height="50%">
+    <headerToolbar>
+     <Toolbar>
+      <Title text="{i18n>TOTAL_RECORDS.COUNT}"/>
+      <Label id="Label1" value=""/>
+      <ToolbarSpacer/>
+      <!--  <Button text="{i18n>DOCUMENTS.UPLOAD}" icon="sap-icon://upload" press="handleUploadPress" enabled="{TableFormButtonsEnabled>/enabled}"/>  -->
+      <Button text="{i18n>USER_PROFILE.ADD}" icon="sap-icon://add" press="addRowPress" enabled="{TableFormButtonsEnabled>/enabled}"/>
+      <ToggleButton id="_Z_FORMTABLE_PLUSVALIA_II_EditToggleBtn" pressed="false" text="{i18n>USER_PROFILE.EDIT}" icon="sap-icon://edit" press="editRowsPress"/>
+  <!--      <Button text="{i18n>DOCUMENTS.DUPLICATE}" icon="sap-icon://duplicate" press="duplicateRowsPress" enabled="{TableFormButtonsEnabled>/enabled}"/> -->
+      <Button text="{i18n>USER_PROFILE.DELETE}" icon="sap-icon://delete" press="deleteRowsPress" enabled="{TableFormButtonsEnabled>/enabled}"/>
+      <Button id="back" press="onPressBack" enabled="false" icon="sap-icon://up" tooltip="{i18n>NAVIGATE.BACK}"/>
+      <Button id="forward" press="onPressForward" enabled="false" icon="sap-icon://down" tooltip="{i18n>NAVIGATE.FORWARD}"/>
+      <Button id="first" press="onPressFirst" enabled="false" icon="sap-icon://drill-up" tooltip="{i18n>NAVIGATE.FIRST}"/>
+      <Button id="last" press="onPressLast" enabled="false" icon="sap-icon://drill-down" tooltip="{i18n>NAVIGATE.LAST}"/>  
+     </Toolbar>
+    </headerToolbar>
+    <columns>
+     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" visible="true">
+     <Text text="{i18n>ZPLU.MATRIC}" tooltip="ZNDM"/> 
+     </Column>
+
+	<!-- 
+     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" visible="true">
+      <Text text="Decreto o Acuerdo AccOn Urbanistica" tooltip="ZNDP"/>
+     </Column>
+   		-->
+    </columns>
+    <items>
+     <ColumnListItem vAlign="Middle">
+      <cells>
+     <!--    <Input editable="false" textAlign="Center" value="{Z_FORMTABLE_PLUSVALIA_IIModel>ZNDM}"/> -->
+
+                	      	      <ComboBox 
+	            	selectedKey = "{Z_FORMTABLE_PLUSVALIA_IIModel>ZNDM}"  editable="false"
+					 placeholder="Matricula" tooltip="Matricula" textAlign="Center"
+					items="{MatriculaPlu>/results}"
+					>
+					<core:ListItem key="{MatriculaPlu>Zndm}" text="{MatriculaPlu>Zndm}"
+					/>
+						</ComboBox>
+						
+     <!--   <Input editable="false" textAlign="Center" value="{Z_FORMTABLE_PLUSVALIA_IIModel>ZNDP}"/>    -->
+      </cells>
+     </ColumnListItem>
+    </items>
+   </Table>
+   
+
+        </l:content>
+                 <Label id="labelxns"
+				labelFor="containerInput" class="sap085leter"
+				displayOnly="true"
+				wrapping="true"
+				text="{i18n>ZPLU.MENSMATRI}"/> 
+      
+        </l:Grid>
+
+        
+</core:FragmentDefinition>

@@ -1,0 +1,70 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.umc.mobile.users.view.AddUser"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page>
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER.ADD_USER}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<l:Grid defaultSpan="L4 M10 S10" defaultIndent="L4 M1 S1"
+				vSpacing="0">
+				<l:content>
+
+					<!-- <HBox width="100%" class="sapUmcHeadingWrapperBottomLine"> <Label 
+						text="{i18n>USER.USER_DETAILS}" class="sapUmcVerticalAfterSpacingX1 sapUmcSectionHeading 
+						sapUmcVerticalBeforeSpacingX2" /> </HBox> -->
+
+					<Label text="{i18n>USER.USER_ID}"
+						class="sapUmcVerticalBeforeSpacingX4 sapUmcMLabelBold" />
+					<Input type="Text" value="{user>/AliasID}" />
+
+					<Label text="{i18n>USER.FIRST_NAME}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcMLabelBold" />
+					<Input type="Text" value="{user>/FirstName}" />
+
+					<Label text="{i18n>USER.LAST_NAME}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcMLabelBold" />
+					<Input type="Text" value="{user>/LastName}" />
+
+					<Label text="{i18n>USER.EMAIL}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcMLabelBold" />
+					<Input type="Text" value="{user>/Email}" />
+
+					<Label text="{i18n>USER.USER_GROUP}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcMLabelBold" />
+					<Select id="idUserGroupsSelect" change="onUserGroupSelected"
+						width="100%" items="{usergroups>/results}"
+						selectedKey="{userGroupSelected>/selectionUserGroupID}">
+						<core:Item key="{usergroups>selectionUserGroupID}"
+							text="{usergroups>selectionDescription}" />
+					</Select>
+
+					<Label text="{i18n>USER.VALID_FROM}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcMLabelBold" />
+					<DatePicker id="idValidFromUser" displayFormat="long"
+						dateValue="{user>/ValidFrom}" />
+
+					<Label text="{i18n>USER.VALID_TO}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcMLabelBold" />
+					<DatePicker id="idValidToUser" displayFormat="long"
+						dateValue="{user>/ValidTo}" />
+
+				</l:content>
+			</l:Grid>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>USER_PROFILE.SAVE}" id="idSaveUser"
+						press="onAddUserSavePress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

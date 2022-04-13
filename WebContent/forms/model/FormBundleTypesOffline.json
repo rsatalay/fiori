@@ -1,0 +1,48 @@
+{
+	"results": [
+		{
+			"FormBundleTypeID": "UET",
+			"FormBundleTypeDescription": "Unemployment Tax",
+			"AvailablePeriods": {
+				"results": [
+					{
+						"Description": "Assessment Year 2010",
+						"PeriodID": "2010"
+					},
+					{
+						"Description": "Assessment Year 2011",
+						"PeriodID": "2011"
+					},
+					{
+						"Description": "Assessment year 2012",
+						"PeriodID": "2012"
+					},
+					{
+						"Description": "Assessment year 2013",
+						"PeriodID": "2013"
+					},
+					{
+						"Description": "Assessment year 2012",
+						"PeriodID": "2012"
+					},
+					{
+						"Description": "Assessment year 2012",
+						"PeriodID": "2012"
+					}
+				]
+			}
+		},
+		{
+			"FormBundleTypeID": "SUT",
+			"FormBundleTypeDescription": "Sales and Use Tax Monthly",
+			"AvailablePeriods": {
+				"results": [
+					{
+						"Description": "May 2010",
+						"PeriodID": "1005"
+					}
+				]
+			}
+		}
+	]
+}

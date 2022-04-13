@@ -1,0 +1,105 @@
+<mvc:View controllerName="sap.umc.mobile.forms.view.FormsList"
+	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>HOME.FORMS}" class="sapUmcConsumptionSegmentedButton" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!-- mode="SingleSelectMaster" -->
+		<content>
+			<Table id="idProductsTable" inset="false"
+				items="{Forms>/results/}">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Select change="filterForms" selectedItemId="draft" 
+							id="filterForms" width="150px"
+							items="{
+		            path: '/FormsFilter'
+		           
+		          }">
+							<core:Item key="{Id}" text="{Name}" />
+						</Select>
+						<Button icon="sap-icon://drop-down-list"
+							press="handleViewSettingsDialogButtonPressed"
+							tooltip="{i18n>FILING_OBLIGATIONS.SORT_BY}" />
+					</Toolbar>
+				</headerToolbar>
+				<infoToolbar>
+					<Toolbar id="vsdFilterBar" active="true" visible="false"
+						press="[handleViewSettingsDialogFilterBarPressed, views.control.tableViewSettingsDialog]">
+						<Label id="vsdFilterLabel" text="?" />
+					</Toolbar>
+				</infoToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="{i18n>FORMS.FORM_NO}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>MESSAGE_CENTER.TYPE}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FILING_OBLIGATIONS.PERIOD}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FILING_OBLIGATIONS.PERIOD_FROM}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FILING_OBLIGATIONS.PERIOD_TO}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FORMS.PROCESS}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Right">
+						<Text text="{i18n>MESSAGE_CENTER.STATUS}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Right">
+						<Text text="{i18n>FILING_OBLIGATIONS.RECEIPT_DATE}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation"
+						press="onListItemPress">
+						<cells>
+							<Text text="{Forms>FormBundleID}" />
+							<Text text="{Forms>FormBundleTypeDescription}" />
+
+							<Text text="{Forms>Period/Description}" />
+
+							<Text
+								text="{path: 'Forms>Period/StartDate',
+              formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" />
+							<Text
+								text="{path: 'Forms>Period/EndDate',
+              formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" />
+
+							<Text text="{Forms>FormProcessDescription}" />
+
+							<Text text="{Forms>StatusText}" />
+
+							<Text
+								text="{path: 'Forms>ReceiptDate',
+              formatter: 'sap.umc.mobile.private.app.js.formatters.coreDateFormatter'}" />
+
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="idAddForm" text="{i18n>FORMS.ADD_FORM}"
+						press="handleAddForm" visible="true"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

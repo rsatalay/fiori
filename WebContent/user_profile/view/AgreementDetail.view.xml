@@ -1,0 +1,164 @@
+<core:View height="100%" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:ma="sap.makit" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:cl="sap.ui.commons.layout"
+	controllerName="sap.umc.mobile.user_profile.view.AgreementDetail">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER_PROFILE.AGREEMENT_DETAIL}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{Agreement>/Description}"
+				class="sapUmcObjectHeaderWhiteColor">
+				<attributes>
+					<ObjectAttribute
+						text="{Agreement>/_AgreementAddress}" />
+				</attributes>
+				<statuses>
+					<ObjectStatus text="" />
+					<ObjectStatus
+						text="{i18n>USER_PROFILE.AGREEMENT_NUMBER} : {Agreement>/ContractAccountID}"
+						class="sapUmcWhiteTextColor" />
+				</statuses>
+			</ObjectHeader>
+
+			<f:SimpleForm id="servicesForm" minWidth="1024"
+				maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+				title="{i18n>USER_PROFILE.SERVICES}" labelSpanL="3" labelSpanM="3"
+				emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+				<f:content>
+				</f:content>
+			</f:SimpleForm>
+
+			<List headerText="{i18n>USER_PROFILE.BILLING_INFORMATION}"
+				class="sapUmcVerticalBeforeSpacingX1">
+				<CustomListItem type="Inactive"
+					press="handleBillingAddressPress">
+					<f:SimpleForm id="billing" minWidth="1024"
+						maxContainerCols="2" editable="false"
+						layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+						emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="{i18n>USER_PROFILE.BILLING_ADDRESS}" />
+							<Text text="{BillingAddress>/ShortForm}" />
+						</f:content>
+					</f:SimpleForm>
+				</CustomListItem>
+			</List>
+			<f:SimpleForm id="billingInformationForm"
+				minWidth="1024" maxContainerCols="2" editable="false"
+				layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+				emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+				<f:content>
+					<!-- <Label text="{i18n>USER_PROFILE.BILLING_ADDRESS}"/> <Text text="{BillingAddress>/ShortForm}" 
+						/> -->
+					<Label text="{i18n>USER_PROFILE.CURRENT_BALANCE}" />
+					<Text
+						text="{parts:[{path:'AccountBalance>/CurrentBalance'}, {path:'AccountBalance>/Currency'}],  formatter:'sap.umc.mobile.private.app.js.formatters.amountWithCurrencyFormatter'}" />
+					<!-- <Label text="{i18n>USER_PROFILE.AUTO_PAY}"/> <Text text="{AutoPay>/_AutoPay}" 
+						/> <Label text="{i18n>USER_PROFILE.AUTO_PAY_ACCOUNT}"/> <Text text="{AutoPay>/_AutoPayAccount}" 
+						/> -->
+				</f:content>
+			</f:SimpleForm>
+			<!-- test -->
+
+			<List items="{path:'Contracts>/'}"
+				headerText="{i18n>USER_PROFILE.CONTRACT_OBJECTS}"
+				class="sapUmcVerticalBeforeSpacingX1">
+				<items>
+					<CustomListItem type="Inactive">
+						<Panel expandable="true" expanded="true">
+							<!-- headerText="{Contracts>Description}" -->
+							<headerToolbar>
+								<Toolbar>
+									<Text text="{Contracts>Description}" />
+									<ToolbarSpacer />
+									<Text
+										text="{i18n>USER_PROFILE.AGREEMENT_NUMBER} : {Contracts>ContractObjectID}"
+										class="sapContractObjectNumber" />
+
+
+								</Toolbar>
+							</headerToolbar>
+							<!-- <Toolbar > <Text text="{i18n>USER_PROFILE.AGREEMENT_NUMBER}: 
+								{Contracts>ContractObjectID}" class="sapUmcWhiteTextColor"/> <ToolbarSpacer 
+								/> </Toolbar> -->
+
+							<List
+								items="{path:'Contracts>ContractObjectFacts/results/'}">
+								<!-- <List> -->
+								<items>
+									<CustomListItem>
+										<!-- <f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" 
+											layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" 
+											emptySpanM="4" columnsL="1" columnsM="1"> <f:content> <Label text="{Contracts>FactCategoryDescription}"/> 
+											<Text text="{Contracts>Value}"/> <Text text="{parts:[{path:'AccountBalance>/CurrentBalance'}, 
+											{path:'AccountBalance>/Currency'}], formatter:'sap.umc.mobile.private.app.js.formatters.amountWithCurrencyFormatter'}" 
+											/> </f:content> </f:SimpleForm> -->
+
+										<cl:MatrixLayout>
+											<cl:MatrixLayoutRow height="3rem">
+												<cl:MatrixLayoutCell>
+													<Text width="33%"
+														text="{Contracts>FactTypeDescription}" />
+												</cl:MatrixLayoutCell>
+												<cl:MatrixLayoutCell>
+													<Text width="33%"
+														text="{Contracts>FactCategoryDescription}" />
+												</cl:MatrixLayoutCell>
+												<cl:MatrixLayoutCell>
+													<Text width="33%" text="{Contracts>Value}" />
+												</cl:MatrixLayoutCell>
+											</cl:MatrixLayoutRow>
+										</cl:MatrixLayout>
+
+									</CustomListItem>
+									<!-- <StandardListItem title="{Contracts>FactCategoryDescription}: 
+										{Contracts>Value}" iconDensityAware="false" iconInset="false" press="handleContactAccountPress" 
+										/> -->
+
+
+									<!-- description="{i18n>USER_PROFILE.AGREEMENT_NUMBER}: {Contracts>FactCategoryDescription}" -->
+									<!-- <CustomListItem type="Active"> <l:HorizontalLayout width="100%"> 
+										<Label text="{Contracts>Value}" class="sapUmcHorizontalBeforeSpacingX1_5" 
+										/> <Label text="{Contracts>FactCategoryDescription}" class="sapUmcHorizontalBeforeSpacingX1_5" 
+										/> --> <!-- </l:HorizontalLayout> -->
+									<!-- <l:HorizontalLayout width="100%"> <Label text="Fact Category" 
+										class="sapUmcHorizontalBeforeSpacingX1_5" /> <Label text="{Contracts>Value}" 
+										class="sapUmcHorizontalBeforeSpacingX1_5" /> </l:HorizontalLayout> -->
+
+									<!-- <Image src="{parts: ['Availability', 'Performance', 'Exception'] 
+										, formatter: 'sap.ui.proj.util.Formatter.techMonSummary'}" /> <Text text="{SysDesc}" 
+										/> -->
+
+									<!-- </CustomListItem> -->
+								</items>
+							</List>
+						</Panel>
+					</CustomListItem>
+				</items>
+			</List>
+
+
+
+			<!-- correct one -->
+			<!-- <List headerText="Contract Object" class="sapUmcVerticalBeforeSpacingX1" 
+				items="{Contracts>/}" > <StandardListItem title="{Contracts>Description}" 
+				description="{i18n>USER_PROFILE.AGREEMENT_NUMBER}: {Contracts>ContractObjectID}" 
+				iconDensityAware="false" iconInset="false" type="Navigation" press="handleContactAccountPress" 
+				> </StandardListItem> </List> -->
+			<!-- <List headerText="Contract Object" class="sapUmcVerticalBeforeSpacingX1" 
+				items="{Contracts>/results/}" > <CustomListItem type="Navigation" press="handleBillingAddressPress" 
+				> <f:SimpleForm id="contractObjectList" minWidth="1024" maxContainerCols="2" 
+				editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" 
+				emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1"> <f:content> <Label 
+				text="{Contracts>/Description}"/> <Text text="{Contracts>/ContractObjectID}" 
+				/> </f:content> </f:SimpleForm> </CustomListItem> </List> -->
+
+		</content>
+	</Page>
+</core:View>

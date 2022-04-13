@@ -1,0 +1,57 @@
+<mvc:View height="100%"
+	controllerName="sap.umc.mobile.forms.view.forms.UETForms.FullScreenForms"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label id="FullScreenUETTitle" text="" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<l:Grid defaultSpan="L12 M12 S12" width="auto"
+			class="form-grid">
+			<l:content>
+
+				<IconTabBar id="idIconTabBarUET" expanded="true"
+					select="handleIconTabBarSelectWithFlag" showSelection="true"
+					expandable="false" class="sapUiResponsiveContentPadding">
+					<items>
+					</items>
+				</IconTabBar>
+
+			</l:content>
+		</l:Grid>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>USER_PROFILE.ADD}" id="addFormBtnUET"
+						visible="false" icon="sap-icon://add" press="onAddFormPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="errorCountUET" type="Reject" text="0"
+						icon="sap-icon://message-error" visible="false"
+						press="errorCountPress" />
+					<Button id="validateUET" text="{i18n>FORMS.CHECK}"
+						icon="sap-icon://error" press="handleValidatePress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="saveUET" text="{i18n>FORMS.SAVE_DRAFT}"
+						icon="sap-icon://save" press="handleSavePress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="saveTableFormUET" text="{i18n>FORMS.SAVE_DRAFT}"
+						icon="sap-icon://save" press="handleTableFormSave"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="submitUET" text="{i18n>USER_PROFILE.SUBMIT}"
+						icon="sap-icon://paper-plane" visible="true"
+						press="handleSubmitPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="FormPayBillUET" text="{i18n>INVOICE.PAYBILL}"
+						visible="false"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<!-- <Button id="cancel" text="{i18n>FILING_OBLIGATIONS.CANCEL}" press="handleCancelPress" 
+						/> -->
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

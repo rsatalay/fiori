@@ -1,0 +1,164 @@
+.nxBlockDynamicLayout7 .item {
+    position: relative;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box {
+    position: absolute;
+    background-color: white;
+    width: 50%;
+    height: 33%;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position1 {
+    top: 0;
+    left: 0;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position2 {
+    top: 0;
+    left: 25%;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position3 {
+    top: 0;
+    left: 50%;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position4 {
+    top: 33%;
+    left: 0;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position5 {
+    top: 33%;
+    left: 25%;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position6 {
+    top: 33%;
+    left: 50%;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position7 {
+    top: 66%;
+    left: 0;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position8 {
+    top: 66%;
+    left: 25%;
+}
+
+.nxBlockDynamicLayout7 .new-tools-box.position9 {
+    top: 66%;
+    left: 50%;
+}
+
+.dynamicYoutube > div > a {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.dynamicYoutube > div > a > img {
+    margin: auto;
+}
+
+.nxBlockDynamicLayout8 {
+}
+
+.nxBlockDynamicLayout8 a {
+    display: block;
+    overflow: hidden;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.nxBlockDynamicLayout8 a .title {
+    background: #ffffff none repeat scroll 0 0;
+    color: #555555;
+    display: block;
+    float: right;
+    font-size: 1em;
+    font-weight: 400;
+    height: 120px;
+    line-height: 1.125em;
+    overflow: hidden;
+    padding: 15px;
+    width: 75%;
+}
+
+.nxBlockDynamicLayout8 a:hover .title {
+    color: #215a9a;
+}
+
+.nxBlockDynamicLayout8 a .date {
+    background: #ffffff none repeat scroll 0 0;
+    color: #215a9a;
+    float: left;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    width: 25%;
+}
+
+.nxBlockDynamicLayout8 a .date span {
+    display: block;
+    line-height: 1.125em;
+}
+
+.nxBlockDynamicLayout8 a .date .day {
+    font-size: 2.25em;
+}
+
+.nxBlockDynamicLayout8 a .date .month {
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+.nxBlockDynamicLayout8 a:hover .date {
+    background: #215a9a none repeat scroll 0 0;
+    color: #ffffff;
+}
+
+/* Slick Animations */
+.slick-slider [data-animation-in] {
+    z-index: 0;
+}
+
+.nxFxHover {
+    animation-duration: 0.3s
+}
+
+.nxParallax {
+    background-attachment: fixed !important; /* TODO cambiar en media/css/user.min.css L40: .nxBlock { background-COLOR: #FFFFFF;*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Ajuste de la imagen en el contenedor */
+.item.nxImgAdjustHeight > a > span.image > img, .item.nxImgAdjustHeight > div > a > img.youtube-player {
+    height: 100%;
+    width: auto;
+    min-height: 100%;
+    min-width: initial;
+    margin: 0 auto;
+}
+
+.item.nxImgAdjustWidth > a > span.image > img, .item.nxImgAdjustWidth  > div > a > img.youtube-player {
+    height: auto;
+    width: 100%;
+    /*TODO Center vertically*/
+}
+
+.item.nxImgAdjustContainer > a > span.image > img, .item.nxImgAdjustContainer  > div > a > img.youtube-player {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    /*TODO Center vertically*/
+}
+
+.item.nxImgAdjustExpand > a > span.image > img, .item.nxImgAdjustExpand  > div > a > img.youtube-player {
+    height: 100%;
+    width: 100%;
+}

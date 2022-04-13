@@ -1,0 +1,97 @@
+<mvc:View
+	controllerName="sap.umc.mobile.filing_obligations.view.List"
+	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>HOME.FILING_OBLIGATIONS}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!-- mode="SingleSelectMaster" -->
+		<content>
+			<Table id="idFilingObligationsTable" inset="false"
+				items="{FilingObligations>/results/}">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Select change="filterFileObligations"
+							selectedItemId="notFiled" id="filingObligationFilter"
+							width="150px"
+							items="{
+            path: '/FilingObligationFilters'           
+          }">
+							<core:Item key="{Id}" text="{Name}" />
+						</Select>
+						<Button icon="sap-icon://drop-down-list"
+							press="handleViewSettingsDialogButtonPressed"
+							tooltip="{i18n>FILING_OBLIGATIONS.SORT_BY}" />
+
+					</Toolbar>
+				</headerToolbar>
+
+				<infoToolbar>
+					<Toolbar id="vsdFilterBar" active="true" visible="false"
+						press="[handleViewSettingsDialogFilterBarPressed, views.control.tableViewSettingsDialog]">
+						<Label id="vsdFilterLabel" text="?" />
+					</Toolbar>
+				</infoToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="{i18n>FILING_OBLIGATIONS.FORM_LIST}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FILING_OBLIGATIONS.PERIOD}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FILING_OBLIGATIONS.PERIOD_FROM}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FILING_OBLIGATIONS.PERIOD_TO}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>FILING_OBLIGATIONS.REVENUE_TYPE}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>FILING_OBLIGATIONS.DUE_DATE}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Right">
+						<Text text="{i18n>FILING_OBLIGATIONS.RECEIPT_DATE}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation"
+						press="onListItemPress">
+						<cells>
+							<Text text="{FilingObligations>FormBundleTypeDescription}" />
+
+							<Text text="{FilingObligations>Period/Description}" />
+
+							<Text
+								text="{path: 'FilingObligations>Period/StartDate',
+              formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" />
+
+							<Text
+								text="{path: 'FilingObligations>Period/EndDate',
+              formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" />
+
+							<Text text="{FilingObligations>RevenueTypeDescription}" />
+
+							<Text
+								text="{path: 'FilingObligations>DueDate',
+              formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" />
+
+							<Text
+								text="{path: 'FilingObligations>ReceiptDate',
+              formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,32 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="sap.umc.mobile.users.view.UsersList"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page enableScrolling="true">
+
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>HOME.USERS}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+
+		<content>
+			<List items="{Users>/results/}" mode="{device>/listMode}"
+				itemPress="handleListItemPress" id="UsersList">
+				<ObjectListItem
+					title="{Users>FirstName} {Users>LastName}" type="Navigation">
+
+
+					<!-- "{parts:['Users>FirstName', 'Users>LastName'], formatter: 'sap.umc.mobile.user_profile.js.utils.formatFirstLastName' 
+						}" -->
+					<attributes>
+						<ObjectAttribute text="{Users>AliasID}" />
+					</attributes>
+				</ObjectListItem>
+			</List>
+		</content>
+
+	</Page>
+</core:View>

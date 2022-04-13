@@ -1,0 +1,221 @@
+<core:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="sap.umc.mobile.users.view.UserDetails"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER.USER_DETAILS}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+
+			<ObjectHeader title="{user>/FirstName} {user>/LastName}">
+			</ObjectHeader>
+
+			<l:Grid defaultSpan="L12 M12 S12" width="auto">
+				<l:content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2"
+						columnsM="2">
+						<f:content>
+							<core:Title text="" />
+
+							<Label text="{i18n>USER.USER_ID}" class="sapUmcBillMText" />
+							<Input value="{user>/AliasID}" type="Text" editable="false" />
+
+
+
+
+							<Label text="{i18n>USER_PROFILE.FIRST_NAME}"
+								class="sapUmcBillMText" />
+							<Input value="{user>/FirstName}" type="Text"
+								editable="{user>/editable}" change="onUserDetailChange" />
+
+							<Label text="{i18n>USER_PROFILE.LAST_NAME}"
+								class="sapUmcBillMText" />
+							<Input value="{user>/LastName}" type="Text"
+								editable="{user>/editable}" change="onUserDetailChange" />
+
+							<Label text="{i18n>USER.EMAIL}" class="sapUmcBillMText" />
+							<Input value="{user>/Email}" type="Text"
+								editable="{user>/editable}" change="onUserDetailChange" />
+							<core:Title text="" />
+
+							<Label text="{i18n>USER.USER_GROUP}"
+								class="sapUmcBillMText" />
+							<Input value="{user>/UserGroup/Description}" type="Text"
+								editable="false" />
+
+							<Label text="{i18n>USER.VALID_FROM}"
+								class="sapUmcBillMText" />
+
+							<DatePicker
+								value="{path: 'user>/ValidFrom',
+               formatter: 'sap.umc.mobile.users.js.utils.usersDateFormatter'}"
+								editable="{user>/editable}" placeholder=" "
+								change="onUserDetailChange" />
+							<!-- dateValue="{path: 'user>/ValidFrom', formatter: 'sap.umc.mobile.users.js.utils.formatUsersDate'}" -->
+							<!-- <DatePicker value="{path: 'user>/ValidFrom', formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" 
+								editable="{user>/editable}" placeholder=" " change = "onUserDetailChange" 
+								/> -->
+							<!-- dateValue="{path: 'user>/ValidFrom', formatter: 'sap.umc.mobile.private.app.js.formatters.timeRemovalFormatter'}" -->				<!-- <Input value="{path: 'user>/ValidFrom', formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" 
+								type="Text" editable="{user>/editable}" /> -->
+
+							<Label text="{i18n>USER.VALID_TO}" class="sapUmcBillMText" />
+							<DatePicker
+
+								value="{path: 'user>/ValidTo',
+               formatter: 'sap.umc.mobile.users.js.utils.usersDateFormatter'}"
+								editable="{user>/editable}" placeholder=" "
+								change="onUserDetailChange" />
+
+							<!-- dateValue="{path: 'user>/ValidTo', formatter: 'sap.umc.mobile.users.js.utils.formatUsersDate'}" -->
+							<!-- <DatePicker value="{path: 'user>/ValidTo', formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" 
+								editable="{user>/editable}" placeholder=" " change = "onUserDetailChange" 
+								/> -->
+							<!-- dateValue="{path: 'user>/ValidTo', formatter: 'sap.umc.mobile.private.app.js.formatters.timeRemovalFormatter'}" -->
+
+							<!-- <Input value="{path: 'user>/ValidTo', formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck'}" 
+								type="Text" editable="{user>/editable}" /> -->
+
+
+						</f:content>
+					</f:SimpleForm>
+				</l:content>
+			</l:Grid>
+
+			<Table growingScrollToLoad="false" mode="None"
+				id="idUserAssignedPrivilegesTable"
+				items="{path: 'UserAssignedPrivileges>/results', sorter:{
+        path:'PrivilegeID'
+        } }">
+				<!-- , formatter: 'sap.umc.mobile.users.js.utils.sorter' -->
+				<columns>
+
+
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>USER.PRIVILEGE}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>USER.VALID_FROM}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>USER.VALID_TO}" />
+					</Column>
+
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+
+
+							<Text
+								text="{UserAssignedPrivileges>UserPrivilege/Description}"
+								editable="false" />
+
+							<!-- <DatePicker displayFormat="MMMM, d y" dateValue="{UserAssignedPrivileges>ValidFrom}" 
+								placeholder=" " editable="false" /> <DatePicker displayFormat="MMMM, d y" 
+								dateValue="{UserAssignedPrivileges>ValidTo}" placeholder=" " editable="false" 
+								/> -->
+							<Text
+								text="{path: 'UserAssignedPrivileges>ValidFrom',
+               formatter: 'sap.umc.mobile.users.js.utils.usersDateFormatter'}"
+								editable="false" />
+							<Text
+								text="{path: 'UserAssignedPrivileges>ValidTo',
+               formatter: 'sap.umc.mobile.users.js.utils.usersDateFormatter'}"
+								editable="false" />
+
+
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+			<!-- idUserPrivilegesTable -->
+
+			<Table growingScrollToLoad="false" mode="MultiSelect"
+				id="idUserPrivilegesTable" selectionChange="onSelectionChange"
+
+				items="{path: 'UserPrivileges>/results', sorter:{
+        path:'PrivilegeID'
+        } }">
+				<columns>
+
+
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>USER.PRIVILEGE}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>USER.VALID_FROM}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Center">
+						<Text text="{i18n>USER.VALID_TO}" />
+					</Column>
+
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle"
+						selected="{UserPrivileges>enabled}">
+						<cells>
+
+
+							<Text text="{UserPrivileges>Description}" editable="false" />
+							<DatePicker
+								value="{path: 'UserPrivileges>ValidFrom',
+               formatter: 'sap.umc.mobile.users.js.utils.usersDateFormatter'}"
+								change="onUserPrivilegeChange"
+								editable="{UserPrivileges>enabled}" placeholder=" " />
+							<DatePicker
+								value="{path: 'UserPrivileges>ValidTo',
+               formatter: 'sap.umc.mobile.users.js.utils.usersDateFormatter'}"
+								change="onUserPrivilegeChange"
+								editable="{UserPrivileges>enabled}" placeholder=" " />
+
+
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<!-- 
+					<Button text="{i18n>USER.ADD_USER}" id="idCreateUser"
+						press="onAddUserPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button text="{i18n>USER_PROFILE.EDIT}"
+						id="idEditUserAssignedPrivileges"
+						press="onEditUserAssignedPrivilegesPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" /> -->
+						 <!-- ACASTANEDA Se comentan los botones de editar y anadir usuario (no se utilizara la funcionalidad --> 
+					<Button text="{i18n>USER_PROFILE.SAVE}"
+						id="idSaveUserAssignedPrivileges"
+						press="onSaveUserAssignedPrivilegesPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<!-- 
+					<Button text="{i18n>FILING_OBLIGATIONS.CANCEL}"
+						id="idCancelUserAssignedPrivileges"
+						press="onCancelUserAssignedPrivilegesPress"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+						-->
+						 <!-- ACASTANEDA Se comentan los botones de editar y anadir usuario (no se utilizara la funcionalidad --> 
+
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

@@ -1,0 +1,110 @@
+/*** GENERALES ***/
+.border-top {border-top: 1px solid rgba(0,0,0,.15);}
+.border-right {border-right: 1px solid rgba(0,0,0,.15);}
+.border-bottom {border-bottom: 1px solid rgba(0,0,0,.15);}
+.border-left {border-left: 1px solid rgba(0,0,0,.15);}
+.rowPicker {cursor: pointer;}
+
+/**** Formularios ****/
+
+.formGen {
+    margin-top: 50px;
+}
+.formGen fieldset {
+    background: none;
+    border: 0;
+}
+.formGen legend {
+    font-weight: normal;
+    border-bottom: 1px solid #00b5ec;
+    margin-bottom: 30px;
+}
+.formGen fieldset label, .formGen fieldset span, .formGen fieldset div, .formGen fieldset input, .formGen fieldset textarea, .formGen fieldset select {
+    font-size: 17px;
+    font-weight: normal;
+}
+.formGen fieldset label {
+    width: 30%;
+}
+.formGen fieldset input {
+    width: 60%;
+}
+.formGen {clear:both}
+.formGen br{clear:left}
+.formGen legend{color:#696969;margin: 5px 0;}
+.formGen fieldset{margin:10px 0;}
+.formGen fieldset label,.formGen fieldset span,.formGen fieldset div,.formGen fieldset input,.formGen fieldset textarea,.formGen fieldset select{display:block;;float:left;margin-bottom:.4em;margin-top:.4em}
+.formGen input:focus,.formGen select:focus,.formGen textarea:focus{outline:0;border-color: 1px solid #7bc1f7;box-shadow:0 0 8px #7bc1f7;-moz-box-shadow:0 0 8px #7bc1f7;-webkit-box-shadow:0 0 8px #7bc1f7}
+.formGen label{text-align:right;width:190px;padding-right:1em;color:#5c5c5c}
+.formGen fieldset textarea{width:320px}
+.formGen fieldset div{overflow:auto;width:320px}
+.formGen fieldset div label{width:auto;padding:0}
+div.mult{display:block;}
+div.mult div{min-width:45%;max-width:45%;padding-right:2px;text-align:left;float:left}
+div.mult input{padding-right:2px;text-align:left;display:inline}
+div.mult label{display:inline;text-align:left}
+div.skin_mult{max-width:70%}
+div.skin_mult input,div.mult table input{width:20px;padding-right:2px;text-align:left;display:inline}
+.formGen div.botones{text-align:center}
+
+
+/* estilos de la caja de version */
+.versionPlatform{
+    position: fixed;
+    bottom: 0px;
+    color: #ccc;
+}
+
+/* estilos para rastro de miga */
+.breadcrumb{
+    background-color: inherit;
+    border-bottom: 1px solid #DDDDDD;
+    border-radius: 0px;
+    padding-top: 20px;
+}
+.breadcrumb li a{
+    color: #AAAAAA;
+}
+.breadcrumb li{
+    color: #337AB7;
+    display: initial;
+}
+.breadcrumb > li + li::before{
+    content: "> ";
+    color: #AAAAAA;
+}
+
+
+.fa{
+    padding-right: 4px;
+}
+.popover{
+    width: 270px;
+}
+.share-mod-title{
+    margin-top: 9px;
+    color: #205A9A;
+    font-size: 24px;
+}
+.pills-share{
+    padding-left: 9%;
+}
+
+/*Estilos para el menu contextual apariencia de herencia*/
+.context-parent, .context-brothers, .context-child{
+    padding-left: 17px;
+    
+}
+.context-parent>li>a{
+    border-radius: 0px !important;
+}
+.context-child>li>a{
+    border-radius: 0px !important;
+}
+.context-brothers>li>a{
+    border-radius: 0px !important;
+}
+
+/* para el logo "Powered by NEXURA" */
+#logoFooter{height: 0px; position: relative; top: -50px;}
+#logoFooter a {background: rgba(0, 0, 0, 0) url("../img/nexura.png") no-repeat scroll center center;display: inline-block;font-size: 0;height: 30px; width: 71px;}

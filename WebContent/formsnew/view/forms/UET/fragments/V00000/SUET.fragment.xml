@@ -1,0 +1,111 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Panel backgroundDesign="Transparent">
+
+		<Toolbar>
+			<ToolbarSpacer />
+			<ToolbarSpacer />
+			<Button text="{i18n>EXCEL.UPLOAD}" press="handleUploadPress"
+				enabled="true" icon="sap-icon://upload"
+				tooltip="{i18n>EXCEL.UPLOAD}" />
+			<Button text="{i18n>EXPORT.PDF}" press="handlePdfPress"
+				enabled="true" icon="sap-icon://pdf-attachment"
+				tooltip="{i18n>EXPORT.PDF}" />
+		</Toolbar>
+
+
+		<f:SimpleForm title="{i18n>FORMS.HEADERS_DATA}"
+			minWidth="1024" maxContainerCols="2" editable="true"
+			layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4"
+			emptySpanL="3" emptySpanM="3" columnsL="1" columnsM="1">
+
+			<Label text="{i18n>FORMS.PERIOD}" visible="false" />
+			<Input enabled="false" id="_SUETPeriodID" visible="false" />
+			<Label text="{i18n>FORMS.PERIOD}" id="A_F1_QENDING" />
+			<Input id="_SUET_A_F1_QENDING_input"
+				value="{SUETModel>/A_F1_QENDING}" enabled="{EnabledModel>/Enabled}"
+				change="onChange" />
+			<Label text="{i18n>INVOICE.DUE_DATE}" id="A_F2_DUEDATE" />
+			<DatePicker id="_SUET_A_F2_DUEDATE_date"
+				value="{SUETModel>/A_F2_DUEDATE}" enabled="{EnabledModel>/Enabled}"
+				displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" change="onChange" />
+			<!-- value="{path:'SUETModel>/A_F2_DUEDATE',formatter:'sap.umc.mobile.forms.js.utils.formatDate'}" -->
+			<Label text="{i18n>FORMS.PENALTY_AFTER_DATE}"
+				id="A_F3_PENALTYAFTERDUEDATE" />
+			<DatePicker id="_SUET_A_F3_PENALTYAFTERDUEDATE_date"
+				value="{SUETModel>/A_F3_PENALTYAFTERDUEDATE}"
+				enabled="{EnabledModel>/Enabled}" displayFormat="dd.MM.yyyy"
+				valueFormat="yyyyMMdd" change="onChange" />
+			<!-- value="{path:'SUETModel>/A_F3_PENALTYAFTERDUEDATE',formatter:'sap.umc.mobile.forms.js.utils.formatDate'}" -->
+			<Label text="{i18n>FORMS.TAX_RATE}" id="A_F5_TAXRATE" />
+			<Input id="_SUET_A_F5_TAXRATE_input"
+				value="{SUETModel>/A_F5_TAXRATE}" enabled="{EnabledModel>/Enabled}"
+				change="onChange" />
+			<Label text="{i18n>USER_PROFILE.ACCOUNT_NUMBER}"
+				id="A_F4_ACCNUMBER" />
+			<Input id="_SUET_A_F4_ACCNUMBER_input"
+				value="{SUETModel>/A_F4_ACCNUMBER}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+
+		</f:SimpleForm>
+		<f:SimpleForm title="{i18n>FORMS.NUMBER_FTES}"
+			minWidth="1024" maxContainerCols="2" editable="true"
+			layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4"
+			emptySpanL="3" emptySpanM="3" columnsL="1" columnsM="1">
+
+			<Label text="{i18n>FORMS.NUM_EMP_1STMONTH}" id="A_F10_1STMONTH" />
+			<Input id="_SUET_A_F10_1STMONTH_input"
+				value="{SUETModel>/A_F10_1STMONTH}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="{i18n>FORMS.NUM_EMP_2NTMONTH}" id="A_F10_2NDMONTH" />
+			<Input id="_SUET_A_F10_2NDMONTH_input"
+				value="{SUETModel>/A_F10_2NDMONTH}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="{i18n>FORMS.NUM_EMP_3RDMONTH}" id="A_F10_3RDMONTH" />
+			<Input id="_SUET_A_F10_3RDMONTH_input"
+				value="{SUETModel>/A_F10_3RDMONTH}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+
+		</f:SimpleForm>
+
+		<f:SimpleForm title="{i18n>FORMS.TAX_DATA}"
+			minWidth="1024" maxContainerCols="2" editable="true"
+			layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4"
+			emptySpanL="3" emptySpanM="3" columnsL="1" columnsM="1">
+
+			<Label text="{i18n>FORMS.GROSS_WAGES_PAID}"
+				id="A_F11_GROSSWAGESTHISQUATER" />
+			<Input id="_SUET_A_F11_GROSSWAGESTHISQUATER_input"
+				value="{SUETModel>/A_F11_GROSSWAGESTHISQUATER}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="{i18n>FORMS.WAGES_PAID_IN_EXCESS}"
+				id="A_F12_WAGESPAIDEXCAMOUNT" />
+			<Input id="_SUET_A_F12_WAGESPAIDEXCAMOUNT_input"
+				value="{SUETModel>/A_F12_WAGESPAIDEXCAMOUNT}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="{i18n>FORMS.TAXABLE_WAGES}"
+				id="A_F13_TAXABLEWAGESTHISQ" />
+			<Input id="_SUET_A_F13_TAXABLEWAGESTHISQ_input"
+				value="{SUETModel>/A_F13_TAXABLEWAGESTHISQ}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="{i18n>FORMS.TAX_DATA_TAX_DUE}" id="A_F14_TAXDUE" />
+			<Input id="_SUET_A_F14_TAXDUE_input"
+				value="{SUETModel>/A_F14_TAXDUE}" enabled="{EnabledModel>/Enabled}"
+				change="onChange" />
+			<Label text="{i18n>FORMS.PENALTY_DUE}" id="A_F15_PENALTYDUE" />
+			<Input id="_SUET_A_F15_PENALTYDUE_input"
+				value="{SUETModel>/A_F15_PENALTYDUE}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="{i18n>FORMS.INTEREST_DUE}" id="A_F16_INTERESTDUE" />
+			<Input id="_SUET_A_F16_INTERESTDUE_input"
+				value="{SUETModel>/A_F16_INTERESTDUE}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+			<Label text="{i18n>FORMS.TOTAL_DUE_AMOUNT}" id="A_F17_TOTALDUE" />
+			<Input id="_SUET_A_F17_TOTALDUE_input"
+				value="{SUETModel>/A_F17_TOTALDUE}"
+				enabled="{EnabledModel>/Enabled}" change="onChange" />
+
+		</f:SimpleForm>
+	</Panel>
+</core:FragmentDefinition>

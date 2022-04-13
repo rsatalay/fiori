@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<l:Grid defaultSpan="L12 M12 S12" width="auto" class="form-grid">
+		<l:content>
+
+
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.HEADERS_DATA}" labelSpanL="6" labelSpanM="6"
+				emptySpanL="2" emptySpanM="2" columnsL="1" columnsM="1"
+				class="editableForm">
+				<f:content>
+					<Label text="{i18n>FORMS.PERIOD_KEY}" />
+					<Input enabled="false" id="SUETPeriodID"
+						change="SUETOnChange" />
+					<Label text="{i18n>INVOICE.DUE_DATE}" />
+					<DatePicker id="DP1" change="onDP1change"
+						dateValue="{path: 'SUETModel>/A_F2_DUEDATE',
+              formatter: 'sap.umc.mobile.forms.js.utils.javascriptDate'}" />
+
+					<!-- dateValue="{path: 'SUETModel>/A_F2_DUEDATE', formatter: 'sap.umc.mobile.forms.js.utils.javascriptDate'}" -->
+					<Label text="{i18n>FORMS.PENALTY_AFTER_DATE}" />
+					<DatePicker id="DP2" change="onDP2change"
+						dateValue="{path: 'SUETModel>/A_F3_PENALTYAFTERDUEDATE',
+              formatter: 'sap.umc.mobile.forms.js.utils.javascriptDate'}" />
+
+					<!-- dateValue="{path: 'SUETModel>/A_F3_PENALTYAFTERDUEDATE', formatter: 
+						'sap.umc.mobile.forms.js.utils.javascriptDate'}" -->
+					<Label text="{i18n>FORMS.TAX_RATE}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F5_TAXRATE}" change="SUETOnChange" />
+					<Label text="{i18n>USER_PROFILE.ACCOUNT_NUMBER}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F4_ACCNUMBER}" change="SUETOnChange" />
+				</f:content>
+			</f:SimpleForm>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.NUMBER_FTES}" labelSpanL="6" labelSpanM="6"
+				emptySpanL="2" emptySpanM="2" columnsL="1" columnsM="1"
+				class="editableForm">
+
+				<f:content>
+					<Label text="{i18n>FORMS.NUM_EMP_1STMONTH}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F10_1STMONTH}" change="SUETOnChange" />
+					<Label text="{i18n>FORMS.NUM_EMP_2NTMONTH}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F10_2NDMONTH}" change="SUETOnChange" />
+					<Label text="{i18n>FORMS.NUM_EMP_3RDMONTH}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F10_3RDMONTH}" change="SUETOnChange" />
+
+				</f:content>
+			</f:SimpleForm>
+
+
+			<f:SimpleForm minWidth="1024" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout"
+				title="{i18n>FORMS.TAX_DATA}" labelSpanL="6" labelSpanM="6"
+				emptySpanL="2" emptySpanM="2" columnsL="1" columnsM="1"
+				class="editableForm">
+				<f:content>
+					<Label text="{i18n>FORMS.GROSS_WAGES_PAID}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F11_GROSSWAGESTHISQUATER}"
+						change="SUETOnChange" />
+					<Label text="{i18n>FORMS.WAGES_PAID_IN_EXCESS}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F12_WAGESPAIDEXCAMOUNT}"
+						change="SUETOnChange" />
+					<Label text="{i18n>FORMS.TAXABLE_WAGES}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F13_TAXABLEWAGESTHISQ}" change="SUETOnChange" />
+					<Label text="{i18n>FORMS.TAX_DATA_TAX_DUE}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F14_TAXDUE}" change="SUETOnChange" />
+					<Label text="{i18n>FORMS.PENALTY_DUE}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F15_PENALTYDUE}" change="SUETOnChange" />
+					<Label text="{i18n>FORMS.INTEREST_DUE}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F16_INTERESTDUE}" change="SUETOnChange" />
+					<Label text="{i18n>FORMS.TOTAL_DUE_AMOUNT}" />
+					<Input enabled="{EnabledModel>/Enabled}"
+						value="{SUETModel>/A_F17_TOTALDUE}" change="SUETOnChange" />
+				</f:content>
+			</f:SimpleForm>
+
+
+		</l:content>
+	</l:Grid>
+</core:FragmentDefinition>

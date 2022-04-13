@@ -1,0 +1,77 @@
+body.configTextOnlyTools * {
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    border-color: #000000 !important;
+    text-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-indent: 0 !important
+}
+body.configTextOnlyTools *:before, body.configTextOnlyTools *:after {color: #000000 !important;}
+body.configTextOnlyTools * main header section svg {
+    display: none !important
+}
+body.configTextOnlyTools * section h2 {
+    background-color: #e1e1e1;
+    border-bottom: 1px solid #FFFFFF
+}
+body.configTextOnlyTools * section h2 svg {
+    display: none !important
+}
+body.configTextOnlyTools * svg path,
+body.configTextOnlyTools * svg polygon,
+body.configTextOnlyTools * svg rect,
+body.configTextOnlyTools * svg circle {
+    fill: #000000 !important
+}
+body.configTextOnlyTools * .locationAwareMap {
+    display: none;
+}
+body.configTextOnlyTools * img {
+    /*display: none !important;*/
+    opacity: 0;
+    filter: alpha(0);
+}
+body.configTextOnlyTools *::-webkit-input-placeholder {
+    color: #000000 !important
+}
+body.configTextOnlyTools *::-moz-placeholder {
+    color: #000000 !important
+}
+body.configTextOnlyTools *::-moz-placeholder {
+    color: #000000 !important
+}
+body.configTextOnlyTools *::-ms-input-placeholder {
+    color: #000000 !important
+}
+body.configTextOnlyTools * .showing-outofstate {
+    font-size: .8em;
+    font-style: italic
+}
+body.configTextOnlyTools * input[type=text],
+body.configTextOnlyTools * textarea {
+    color: #000000;
+    background-color: white;
+    padding: .5rem !important;
+    border: 1px solid #000000 !important
+}
+body.configTextOnlyTools * button {
+    color: #000000;
+    border: 1px solid #000000 !important
+}
+body.configTextOnlyTools * #overlay {
+    background: rgba(0, 0, 0, 0.4) !important
+}
+body.configTextOnlyTools * header#main-header .toggle-menu span {
+    background: #000000 !important
+}
+body.configTextOnlyTools * header#main-header .toggle-menu span::before {
+    background: #000000 !important
+}
+body.configTextOnlyTools * header#main-header .toggle-menu span::after {
+    background: #000000 !important
+}
+body.configTextOnlyTools * header#main-header .toggle-menu.active span {
+    background: #FFFFFF !important
+}

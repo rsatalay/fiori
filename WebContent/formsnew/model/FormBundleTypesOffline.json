@@ -1,0 +1,43 @@
+{
+	"results": [
+	 
+		{
+			"FormBundleTypeID": "ZBPL",
+			"FormBundleTypeDescription": "Formulario Liquidaci\u00F3n Participaci\u00F3n en la Plusval\u00EDa"
+		},{
+			"FormBundleTypeID": "ZICA",
+			"FormBundleTypeDescription": "Formulario \u00FAnico nacional de declaraci\u00F3n y pago de impuesto de industria y comercio (ICA)",
+						"AvailablePeriods":{
+		"results":[
+		{
+		"Description":"A\u00F1o 2016",
+		"PeriodID":"2016"
+		},{
+		"Description":"A\u00F1o 2017",
+		"PeriodID":"2017"
+		},{
+		"Description":"A\u00F1o 2018",
+		"PeriodID":"2018"
+		},{
+		"Description":"A\u00F1o 2019",
+		"PeriodID":"2019"
+		}
+		]
+		}
+		
+		},		
+		{
+			"FormBundleTypeID": "ZIEP",
+			"FormBundleTypeDescription": "Formulario para las declaraciones del impuesto municipal de espect\u00E1culos p\u00FAblicos e impuesto de espect\u00E1culos p\u00FAblicos del deporte"
+
+		},		{
+			"FormBundleTypeID": "ZEPR",
+			"FormBundleTypeDescription": "Formulario Declaraci\u00F3n mensual Estampilla Procultura"
+
+		},		{
+			"FormBundleTypeID": "ZCOP",
+			"FormBundleTypeDescription": "Formulario Declaraci\u00F3n mensual de Retenci\u00F3n contribuci\u00F3n sobre contratos de obra publica"
+
+		}
+	]
+}

@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>MESSAGE_CENTER.ALERT}" type="Message">
+		<beginButton>
+			<Button text="{i18n>MESSAGE_CENTER.CLOSE}"
+				press="onDialogCloseBtn" />
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

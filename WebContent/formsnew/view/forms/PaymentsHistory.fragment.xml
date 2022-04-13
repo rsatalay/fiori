@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+
+
+	<VBox width="100%">
+		<Label text="{i18n>INVOICE.PAYMENT_HISTORY}"
+			class="sapUmcVerticalAfterSpacingX1 sapUmcSubsectionHeading  sapUmcVerticalBeforeSpacingX2" />
+
+		<!-- <VBox width="100%" class="sapUmcHeadingWrapperBottomLine"> <Label 
+			text="{i18n>INVOICE.PAYMENT_HISTORY}" class="sapUmcVerticalAfterSpacingX1 
+			sapUmcSectionHeading sapUmcVerticalBeforeSpacingX2" /> </VBox> -->
+		<List items="{path: 'InProcessPayments>/results/'}" mode="None"
+			includeItemInSelection="true" headerText="{i18n>INVOICE.IN_PROCESS}"
+			noDataText="{i18n>INVOICE.NO_PAYMENTS}"
+			selectionChange="handleListItemPress"
+			visible="{PaymentHistoryVisible>/InProcess}">
+			<ObjectListItem
+				title="{path: 'InProcessPayments>ExecutionDate', formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck' }"
+
+				number="{parts: ['InProcessPayments>Amount', 'InProcessPayments>Currency'], formatter: 'sap.umc.mobile.forms.js.utils.Price'}"
+				numberUnit="{InProcessPayments>Currency}">
+
+				<attributes>
+					<ObjectAttribute text="{i18n>INVOICE.BANK_ACCOUNT}" />
+				</attributes>
+			</ObjectListItem>
+		</List>
+		<List items="{path: 'ProcessedPayments>/results/'}"
+			headerText="{i18n>INVOICE.PROCESSED}"
+			noDataText="{i18n>INVOICE.NO_PAYMENTS}"
+			itemPress="handleListItemPress"
+			visible="{PaymentHistoryVisible>/Processed}">
+			<ObjectListItem
+				title="{path: 'ProcessedPayments>ExecutionDate', formatter: 'sap.umc.mobile.private.app.js.formatters.formatDateWithNullCheck' }"
+				number="{parts: ['ProcessedPayments>Amount', 'ProcessedPayments>Currency'], formatter: 'sap.umc.mobile.forms.js.utils.Price'}"
+				numberUnit="{ProcessedPayments>Currency}">
+				<attributes>
+					<ObjectAttribute text="{i18n>INVOICE.BANK_ACCOUNT}" />
+				</attributes>
+			</ObjectListItem>
+		</List>
+
+	</VBox>
+
+</core:FragmentDefinition>

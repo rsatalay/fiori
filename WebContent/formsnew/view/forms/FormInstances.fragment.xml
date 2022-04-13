@@ -1,0 +1,43 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:ui="sap.ca.ui"
+	xmlns:core="sap.ui.core">
+
+	<l:Grid defaultSpan="L12 M12 S12" width="auto">
+		<l:content>
+			<Table inset="false" items="{ExistingForms>/results/}">
+				<infoToolbar>
+					<Toolbar active="true" visible="false"
+						press="[handleViewSettingsDialogFilterBarPressed, views.control.tableViewSettingsDialog]">
+						<Label text="?" />
+					</Toolbar>
+				</infoToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="{i18n>FORMS.FORM_DESCRIPTION}" />
+					</Column>
+
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						hAlign="Right">
+						<Text text="{i18n>USER_PROFILE.AGREEMENT_NUMBER}" />
+
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation"
+						press="onListItemPress">
+						<cells>
+
+
+							<Text text="{ExistingForms>FormDescription}" />
+							<Text text="{ExistingForms>FORMNO}" />
+
+
+
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</l:content>
+	</l:Grid>
+
+</core:FragmentDefinition>

@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:ui="sap.ca.ui" xmlns:core="sap.ui.core">
+	<UploadCollection
+
+		uploadEnabled="{EnabledModel>/Enabled}" id="AttachmentUploader"
+		beforeUploadStarts="beforeUploadStarts" change="onChange"
+		multiple="true" uploadComplete="onUploadComplete"
+		fileDeleted="onFileDelete" uploadTerminated="onUploadTerminated"
+		items="{FileAttachments>/results/}">
+		<UploadCollectionItem
+			documentId="{FileAttachments>AttachmentID}"
+			fileName="{FileAttachments>FileName}"
+			mimeType="{FileAttachments>MimeType}" url="{FileAttachments>Url}"
+			thumbnailUrl="{FileAttachments>thumbnailUrl}" enableEdit="false"
+			enableDelete="true" visibleEdit="false" visibleDelete="true">
+
+		</UploadCollectionItem>
+	</UploadCollection>
+</core:FragmentDefinition>

@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>USER_PROFILE.SEARCH_BUSINESS_PARTNER}"
+		modal="true" contentWidth="71%">
+		<beginButton>
+			<Button text="Cancel" press="onDialogCloseBtn" />
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
